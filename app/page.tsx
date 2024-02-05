@@ -108,7 +108,7 @@ export default function Home() {
           </p>
         </a>
       </div>
-      <form name="contact">
+      <form name="contact" data-netlify="true">
         <p>
           <label>Name <input type="text" name="name" /></label>
         </p>
