@@ -5,7 +5,8 @@ import Link from "next/link"
 
 import Logo from "@/components/logo/pc"
 import { motion, useCycle } from "framer-motion"
-import { MenuToggle } from "./menu/menuToggle"
+import { MenuToggle } from "@/components/menu/menuToggle"
+import { MenuList } from "@/components/menu/menuList"
 import { useDimensions } from "@/hooks/useDimensions"
 
 const LINKS = [
@@ -27,7 +28,6 @@ const Navbar = () => {
   const sidebar = {
     open: (height = 1000) => ({
       clipPath: `circle(${height * 2 + 200}px at calc(100% - 37px) 48px)`,
-      zIndex: "50",
       transition: {
         type: "spring",
         stiffness: 20,
@@ -65,6 +65,7 @@ const Navbar = () => {
             variants={sidebar}
             className="absolute top-0 left-0 bottom-0 w-screen h-screen bg-sub"
           />
+          <MenuList />
           <MenuToggle
             toggle={toggleOpen}
             isOpen={isOpen}
