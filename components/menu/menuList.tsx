@@ -23,8 +23,8 @@ const MENU_ITEMS = [
   },
   {
     url: "/daily-schedule",
-    title: "入居1日の流れ",
-    subTitle: "daily Schedule",
+    title: "1日の流れ",
+    subTitle: "Daily Schedule",
   },
   {
     url: "/contact",
