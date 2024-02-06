@@ -1,46 +1,56 @@
-import { motion, SVGMotionProps } from "framer-motion"
+import { motion } from "framer-motion"
 
-const Path = (props: SVGMotionProps<SVGPathElement>) => (
-  <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke="#4B4A49"
-    strokeLinecap="round"
-    {...props}
-  />
-)
+const topVariants = {
+  closed: {
+    rotate: 0,
+  },
+  opened: {
+    rotate: 45,
+    backgroundColor: "#F9AFA6",
+  },
+}
+const centerVariants = {
+  closed: {
+    opacity: 1,
+  },
+  opened: {
+    opacity: 0,
+  },
+}
+const bottomVariants = {
+  closed: {
+    rotate: 0,
+  },
+  opened: {
+    rotate: -45,
+    backgroundColor: "#F9AFA6",
+  },
+}
 
 type ToggleProps = {
+  isOpen: boolean
   toggle: () => void
 }
 
-export const MenuToggle = ({ toggle }: ToggleProps) => (
-  <button onClick={toggle}>
-    <svg
-      width="23"
-      height="23"
-      viewBox="0 0 23 23"
-    >
-      <Path
-        variants={{
-          closed: { d: "M 2 2.5 L 20 2.5" },
-          open: { d: "M 3 16.5 L 17 2.5" },
-        }}
-      />
-      <Path
-        d="M 2 9.423 L 20 9.423"
-        variants={{
-          closed: { opacity: 1 },
-          open: { opacity: 0 },
-        }}
-        transition={{ duration: 0.1 }}
-      />
-      <Path
-        variants={{
-          closed: { d: "M 2 16.346 L 20 16.346" },
-          open: { d: "M 3 2.5 L 17 16.346" },
-        }}
-      />
-    </svg>
+export const MenuToggle = ({ isOpen, toggle }: ToggleProps) => (
+  <button
+    className="w-10 h-8 flex flex-col justify-between z-50 relative"
+    onClick={toggle}
+  >
+    <motion.div
+      variants={topVariants}
+      animate={isOpen ? "opened" : "closed"}
+      className="w-10 h-1 rounded bg-main origin-left"
+    />
+    <motion.div
+      variants={centerVariants}
+      animate={isOpen ? "opened" : "closed"}
+      className="w-10 h-1 rounded bg-main"
+    />
+    <motion.div
+      variants={bottomVariants}
+      animate={isOpen ? "opened" : "closed"}
+      className="w-10 h-1 rounded bg-main origin-left"
+    />
   </button>
 )

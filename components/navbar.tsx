@@ -1,10 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Link from "next/link"
 
 import Logo from "@/components/logo/pc"
-import { motion } from "framer-motion"
+import { motion, useCycle } from "framer-motion"
+import { MenuToggle } from "./menu/menuToggle"
+import { useDimensions } from "@/hooks/useDimensions"
 
 const LINKS = [
   { url: "/", title: "ホーム" },
@@ -18,56 +20,28 @@ const LINKS = [
 ]
 
 const Navbar = () => {
-  const [open, setOpen] = useState<boolean>(false)
+  const [isOpen, toggleOpen] = useCycle(false, true)
+  const containerRef = useRef(null)
+  const { height } = useDimensions(containerRef)
 
-  const topVariants = {
-    closed: {
-      rotate: 0,
-    },
-    opened: {
-      rotate: 45,
-      backgroundColor: "#F9AFA6",
-    },
-  }
-  const centerVariants = {
-    closed: {
-      opacity: 1,
-    },
-    opened: {
-      opacity: 0,
-    },
-  }
-  const bottomVariants = {
-    closed: {
-      rotate: 0,
-    },
-    opened: {
-      rotate: -45,
-      backgroundColor: "#F9AFA6",
-    },
-  }
-
-  const listVariants = {
-    closed: {
-      x: "100vw",
-    },
-    opened: {
-      x: 0,
+  const sidebar = {
+    open: (height = 1000) => ({
+      clipPath: `circle(${height * 2 + 200}px at calc(100% - 37px) 48px)`,
+      zIndex: "50",
       transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.2,
+        type: "spring",
+        stiffness: 20,
+        restDelta: 2,
       },
-    },
-  }
-
-  const listItemVariants = {
+    }),
     closed: {
-      x: -10,
-      opacity: 0,
-    },
-    opened: {
-      x: 0,
-      opacity: 1,
+      clipPath: "circle(0 at calc(100% - 37px) 48px)",
+      transition: {
+        delay: 0.5,
+        type: "spring",
+        stiffness: 400,
+        damping: 40,
+      },
     },
   }
 
@@ -81,44 +55,21 @@ const Navbar = () => {
       </div>
       {/* RESPONSIVE MENU */}
       <div className="md:hidden">
-        <button
-          className="w-10 h-8 flex flex-col justify-between z-50 relative"
-          onClick={() => setOpen((prev) => !prev)}
+        <motion.nav
+          initial={false}
+          animate={isOpen ? "open" : "closed"}
+          custom={height}
+          ref={containerRef}
         >
           <motion.div
-            variants={topVariants}
-            animate={open ? "opened" : "closed"}
-            className="w-10 h-1 rounded bg-main origin-left"
+            variants={sidebar}
+            className="absolute top-0 left-0 bottom-0 w-screen h-screen bg-bgSub"
           />
-          <motion.div
-            variants={centerVariants}
-            animate={open ? "opened" : "closed"}
-            className="w-10 h-1 rounded bg-main"
+          <MenuToggle
+            toggle={toggleOpen}
+            isOpen={isOpen}
           />
-          <motion.div
-            variants={bottomVariants}
-            animate={open ? "opened" : "closed"}
-            className="w-10 h-1 rounded bg-main origin-left"
-          />
-        </button>
-        {/* MENU LIST */}
-        {open && (
-          <motion.div
-            variants={listVariants}
-            initial="closed"
-            animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-bgSub text-text flex flex-col items-center justify-center gap-8 text-4xl"
-          >
-            {LINKS.map((link, i) => (
-              <motion.div
-                variants={listItemVariants}
-                key={`${link.title}_${i}`}
-              >
-                <Link href={link.url}>{link.title}</Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
+        </motion.nav>
       </div>
     </div>
   )
