@@ -1,5 +1,7 @@
 import { motion } from "framer-motion"
 
+import Link from "next/link"
+
 const variants = {
   open: {
     y: 0,
@@ -17,19 +19,23 @@ const variants = {
   },
 }
 
-const color = "#F9AFA6"
+type MenuItemProps = {
+  url: string
+  title: string
+  subTitle: string
+}
 
-export const MenuItem = ({ i }: { i: number }) => {
-  const style = { border: `2px solid ${color}` }
-
+export const MenuItem = ({ title, url, subTitle }: MenuItemProps) => {
   return (
-    <motion.li
-      variants={variants}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      <div style={style} />
-      <div style={style} />
-    </motion.li>
+    <Link href={url}>
+      <motion.li
+        className=""
+        variants={variants}
+        whileTap={{ scale: 0.95 }}
+      >
+        <span className="text-text">{title}</span>
+        <span className="text-text text-base ml-2">{subTitle}</span>
+      </motion.li>
+    </Link>
   )
 }
