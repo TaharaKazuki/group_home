@@ -3,15 +3,16 @@ import { motion } from "framer-motion"
 const topVariants = {
   closed: {
     rotate: 0,
+    backgroundColor: "#F9AFA6",
   },
   opened: {
     rotate: 45,
-    backgroundColor: "#F9AFA6",
   },
 }
 const centerVariants = {
   closed: {
     opacity: 1,
+    backgroundColor: "#F9AFA6",
   },
   opened: {
     opacity: 0,
@@ -20,10 +21,10 @@ const centerVariants = {
 const bottomVariants = {
   closed: {
     rotate: 0,
+    backgroundColor: "#F9AFA6",
   },
   opened: {
     rotate: -45,
-    backgroundColor: "#F9AFA6",
   },
 }
 

@@ -63,7 +63,7 @@ const Navbar = () => {
         >
           <motion.div
             variants={sidebar}
-            className="absolute top-0 left-0 bottom-0 w-screen h-screen bg-bgSub"
+            className="absolute top-0 left-0 bottom-0 w-screen h-screen bg-sub"
           />
           <MenuToggle
             toggle={toggleOpen}
