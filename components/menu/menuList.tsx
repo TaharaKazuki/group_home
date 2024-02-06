@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { MenuItem } from "@/components/menu/menuItem"
+import { MENU_ITEMS } from "@/const/link"
 
 const variants = {
   open: {
@@ -10,37 +11,17 @@ const variants = {
   },
 }
 
-const MENU_ITEMS = [
-  {
-    url: "/",
-    title: "トップページ",
-    subTitle: "Top",
-  },
-  {
-    url: "/about",
-    title: "私たちについて",
-    subTitle: "About",
-  },
-  {
-    url: "/daily-schedule",
-    title: "1日の流れ",
-    subTitle: "Daily Schedule",
-  },
-  {
-    url: "/contact",
-    title: "お問い合わせ",
-    subTitle: "Contact",
-  },
-]
-
 export const MenuList = () => {
   return (
     <motion.ul
       variants={variants}
       className="px-10 absolute w-screen top-32 left-0 h-screen text-3xl flex flex-col gap-6"
     >
-      {MENU_ITEMS.map((item) => (
-        <MenuItem {...item} />
+      {MENU_ITEMS.map((item, i) => (
+        <MenuItem
+          key={i}
+          {...item}
+        />
       ))}
     </motion.ul>
   )

@@ -33,8 +33,10 @@ export const MenuItem = ({ title, url, subTitle }: MenuItemProps) => {
         variants={variants}
         whileTap={{ scale: 0.95 }}
       >
-        <span className="text-text">{title}</span>
-        <span className="text-text text-base ml-2">{subTitle}</span>
+        <span className="text-main drop-shadow-md">{title}</span>
+        <span className="text-text text-sm drop-shadow-sm ml-2">
+          {subTitle}
+        </span>
       </motion.li>
     </Link>
   )

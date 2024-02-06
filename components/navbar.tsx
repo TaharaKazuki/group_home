@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import Link from "next/link"
 
 import Logo from "@/components/logo/pc"
@@ -8,17 +8,7 @@ import { motion, useCycle } from "framer-motion"
 import { MenuToggle } from "@/components/menu/menuToggle"
 import { MenuList } from "@/components/menu/menuList"
 import { useDimensions } from "@/hooks/useDimensions"
-
-const LINKS = [
-  { url: "/", title: "ホーム" },
-  { url: "/about", title: "私たちについて", subTitle: "About" },
-  { url: "/contact", title: "お問い合わせ", subTitle: "Contact" },
-  {
-    url: "/daily-schedule",
-    title: "入居者のスケジュール",
-    subTitle: "dailySchedule",
-  },
-]
+import { MENU_ITEMS } from "@/const/link"
 
 const Navbar = () => {
   const [isOpen, toggleOpen] = useCycle(false, true)
@@ -46,12 +36,27 @@ const Navbar = () => {
   }
 
   return (
-    <div className="h-full flex items-center justify-between px-4">
+    <div className="h-full flex items-center justify-between px-8">
       {/* LOGO */}
       <div className="">
         <Link href="/">
           <Logo />
         </Link>
+      </div>
+      <div className="hidden md:flex gap-8">
+        {MENU_ITEMS.slice(1).map((item) => (
+          <Link
+            href={item.url}
+            className="p-2"
+          >
+            <div className="text-center text-main drop-shadow-sm">
+              {item.title}
+            </div>
+            <div className="text-center text-sub text-sm drop-shadow-sm">
+              {item.subTitle}
+            </div>
+          </Link>
+        ))}
       </div>
       {/* RESPONSIVE MENU */}
       <div className="md:hidden">
