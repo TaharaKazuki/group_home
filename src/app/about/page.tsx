@@ -1,5 +1,5 @@
 const AboutPage = () => {
-  return <div>AboutPage</div>;
+  return <section className="section bg-yellow-200">AboutPage</section>;
 };
 
 export default AboutPage;

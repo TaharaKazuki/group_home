@@ -1,5 +1,11 @@
 import Image from 'next/image';
 
-export default function Home() {
-  return <div>React</div>;
-}
+const Home = () => {
+  return (
+    <section className="section bg-blue-200">
+      <div>aaa</div>
+    </section>
+  );
+};
+
+export default Home;
