@@ -31,8 +31,8 @@ const NavLink = ({ href, label, subLabel }: NavLinkProps) => (
 
 const Header = () => {
   return (
-    <div className="bg-white w-full px-4 lg:px-[100px] h-[100px] lg:h-[140px] flex items-center">
-      <div className="flex flex-col lg:flex-row lg:items-center w-full justify-between z-20">
+    <div className="fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[140px] flex items-center">
+      <div className="flex flex-col lg:flex-row lg:items-center w-full justify-between">
         <Link href="/" className="max-w-[200px]">
           <div className="h-[100px] w-[200px] flex justify-center items-center overflow-hidden">
             <Image
