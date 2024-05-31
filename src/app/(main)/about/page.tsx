@@ -10,7 +10,7 @@ const AboutPage = () => {
           <div className="flex-1 max-h-96 lg:max-h-max order-2 lg:order-none overflow-hidden">
             <Image src={AboutImage} alt="sample" />
           </div>
-          <div className="flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start">
+          <div className="flex-1 pt-36 pb-14 px-2 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start">
             <h1 className="text-4xl font-bold capitalize leading-[120%] tracking-[-0.05em] mb-2">
               私たちについて
             </h1>
