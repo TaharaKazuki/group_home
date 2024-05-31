@@ -55,7 +55,7 @@ const MobileNav = () => {
           {navLinks.map((nav, i) => (
             <li key={nav.href}>
               <Link
-                href="/"
+                href={nav.href}
                 onClick={() => setOpenMenu(false)}
                 className="flex items-center gap-x-2
             "
