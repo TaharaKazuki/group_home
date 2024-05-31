@@ -6,10 +6,33 @@ import Logo from './img/header/logo.svg';
 import Socials from './Socials';
 import MobileNav from './MobileNav';
 
+type NavLinkProps = {
+  href: string;
+  label: string;
+  subLabel: string;
+};
+
+const navLinks = [
+  { href: '/', label: 'Home', subLabel: 'ホーム' },
+  { href: '/about', label: 'About', subLabel: '私たちについて' },
+  { href: '/portfolio', label: 'Portfolio', subLabel: '日常について' },
+  { href: '/contact', label: 'Contact', subLabel: 'お問い合わせ' },
+];
+
+const NavLink = ({ href, label, subLabel }: NavLinkProps) => (
+  <Link
+    href={href}
+    className="text-[#696c6d] hover:text-primary transition flex flex-col items-center"
+  >
+    <p>{label}</p>
+    <span className="text-xs">{subLabel}</span>
+  </Link>
+);
+
 const Header = () => {
   return (
-    <div className="bg-white fixed w-full px-[10px] lg:px-[100px] h-[100px] lg:h-[140px] flex items-center">
-      <div className="flex flex-col lg:flex-row lg:items-center w-full justify-between">
+    <div className="bg-white w-full px-4 lg:px-[100px] h-[100px] lg:h-[140px] flex items-center">
+      <div className="flex flex-col lg:flex-row lg:items-center w-full justify-between z-20">
         <Link href="/" className="max-w-[200px]">
           <div className="h-[100px] w-[200px] flex justify-center items-center overflow-hidden">
             <Image
@@ -17,35 +40,19 @@ const Header = () => {
               alt="Logo"
               width={200}
               height={200}
-              objectFit="contain"
+              className="object-contain"
             />
           </div>
         </Link>
         <nav className="hidden xl:flex gap-x-12 font-semibold">
-          <Link
-            href="/"
-            className="text-[#696c6d] hover:text-primary transition"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="text-[#696c6d] hover:text-primary transition"
-          >
-            About
-          </Link>
-          <Link
-            href="/portfolio"
-            className="text-[#696c6d] hover:text-primary transition"
-          >
-            Portfolio
-          </Link>
-          <Link
-            href="/contact"
-            className="text-[#696c6d] hover:text-primary transition"
-          >
-            Contact
-          </Link>
+          {navLinks.map((nav) => (
+            <NavLink
+              key={nav.href}
+              href={nav.href}
+              label={nav.label}
+              subLabel={nav.subLabel}
+            />
+          ))}
         </nav>
       </div>
       {/* socials */}

@@ -34,7 +34,7 @@ const socialLinks = [
 
 const Socials = () => {
   return (
-    <div className="hidden xl:flex ml-24">
+    <div className="hidden xl:flex ml-24 z-20">
       <div className="wrapper flex space-x-2">
         {socialLinks.map((link, index) => (
           <Link
