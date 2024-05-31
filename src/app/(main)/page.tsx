@@ -19,7 +19,7 @@ const Home = () => {
               お問い合わせはこちら
             </Link>
           </div>
-          <div className="flex justify-end max-h-96 lg:max-h-max">
+          <div className="flex justify-end max-h-screen lg:max-h-max">
             <div className="relative lg:-right-40 lg:-top-72 overflow-hidden">
               <Image src={FlowerImg} alt="sample" />
             </div>
