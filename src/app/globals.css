@@ -16,3 +16,29 @@
     @apply py-[18px] px-[50px] h-[66px] flex items-center justify-center text-base uppercase font-semibold bg-primary text-white;
   }
 }
+
+/* globals.css or a custom css file if needed */
+
+.wrapper .button {
+  @apply inline-block h-9 w-9 float-left overflow-hidden bg-white rounded-full cursor-pointer shadow-md transition-all duration-300 ease-out;
+}
+
+.wrapper .button:hover {
+  @apply w-48;
+}
+
+.wrapper .button .icon {
+  @apply inline-block h-9 w-9 text-center rounded-full box-border leading-[16px] transition-all duration-300 ease-out;
+}
+
+.wrapper .button .icon i {
+  @apply text-xl leading-[16px] transition-all duration-300 ease-out;
+}
+
+.wrapper .button:hover .icon i {
+  @apply text-white;
+}
+
+.wrapper .button span {
+  @apply hidden group-hover:inline-block text-lg font-medium leading-[16px] ml-2 transition-all duration-300 ease-out;
+}
