@@ -11,9 +11,9 @@ const AboutPage = () => {
     <MotionWrapper>
       <motion.section
         className="section"
-        initial={{ opacity: 0, y: '100%' }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: '100%' }}
+        initial={{ opacity: 0, x: '100%' }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: '100%' }}
         transition={transition1}
       >
         <div className="container h-full mx-auto min-h-screen relative overflow-y-auto">
@@ -22,9 +22,9 @@ const AboutPage = () => {
               <Image className="h-[100vh]" src={AboutImage} alt="sample" />
             </div>
             <motion.div
-              initial={{ opacity: 0, y: '-50%' }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: '-50%' }}
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
               transition={transition1}
               className="flex-1 pt-3 pb-4 px-2 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start"
             >
