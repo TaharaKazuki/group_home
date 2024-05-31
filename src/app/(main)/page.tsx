@@ -22,7 +22,12 @@ const Home = () => {
           </div>
           <div className="flex justify-end max-h-96 lg:max-h-max">
             <div className="relative lg:-right-40 overflow-hidden">
-              <Image src={FlowerImg} alt="" objectFit="contain" />
+              <Image
+                src={FlowerImg}
+                alt="sample"
+                objectFit="contain"
+                objectPosition="center"
+              />
             </div>
           </div>
         </div>

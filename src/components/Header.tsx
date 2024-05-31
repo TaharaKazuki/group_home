@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Logo from './img/header/logo.svg';
 import Socials from './Socials';
 import MobileNav from './MobileNav';
-import { Source } from 'postcss';
 
 const Header = () => {
   return (
