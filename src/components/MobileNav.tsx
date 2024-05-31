@@ -45,6 +45,7 @@ const MobileNav = () => {
           <li>
             <Link
               href="/"
+              onClick={() => setOpenMenu(false)}
               className="flex items-center gap-x-2
             "
             >
@@ -53,19 +54,31 @@ const MobileNav = () => {
             </Link>
           </li>
           <li>
-            <Link href="/about" className="flex items-center gap-x-2">
+            <Link
+              href="/about"
+              onClick={() => setOpenMenu(false)}
+              className="flex items-center gap-x-2"
+            >
               <p>About</p>
               <span className="text-xs">私たちについて</span>
             </Link>
           </li>
           <li>
-            <Link href="/Portfolio" className="flex items-center gap-x-2">
+            <Link
+              href="/portfolio"
+              onClick={() => setOpenMenu(false)}
+              className="flex items-center gap-x-2"
+            >
               <p>Portfolio</p>
               <span className="text-xs">日常の流れ</span>
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="flex items-center gap-x-2">
+            <Link
+              href="/contact"
+              onClick={() => setOpenMenu(false)}
+              className="flex items-center gap-x-2"
+            >
               <p>Contact</p>
               <span className="text-xs">お問い合わせ</span>
             </Link>
