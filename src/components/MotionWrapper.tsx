@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
+import { transition1 } from '@/util/transitions';
 
 type Props = {
   children: ReactNode;
@@ -12,16 +13,8 @@ const MotionWrapper = ({ children }: Props) => {
   const pathname = usePathname();
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {children}
-      </motion.div>
+    <AnimatePresence initial={true} mode="wait">
+      {children}
     </AnimatePresence>
   );
 };
