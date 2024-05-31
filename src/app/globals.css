@@ -20,19 +20,19 @@
 /* globals.css or a custom css file if needed */
 
 .wrapper .button {
-  @apply inline-block h-9 w-9 float-left overflow-hidden bg-white rounded-full cursor-pointer shadow-md transition-all duration-300 ease-out;
+  @apply flex h-8 w-8 overflow-hidden bg-white rounded-full cursor-pointer shadow-lg transition-all duration-300 ease-out;
 }
 
 .wrapper .button:hover {
-  @apply w-48;
+  @apply w-32;
 }
 
 .wrapper .button .icon {
-  @apply inline-block h-9 w-9 text-center rounded-full box-border leading-[16px] transition-all duration-300 ease-out;
+  @apply flex h-8 w-8 text-center rounded-full box-border transition-all duration-300 ease-out;
 }
 
 .wrapper .button .icon i {
-  @apply text-xl leading-[16px] transition-all duration-300 ease-out;
+  @apply text-xl transition-all duration-300 ease-out;
 }
 
 .wrapper .button:hover .icon i {
@@ -40,5 +40,5 @@
 }
 
 .wrapper .button span {
-  @apply hidden group-hover:inline-block text-lg font-medium leading-[16px] ml-2 transition-all duration-300 ease-out;
+  @apply hidden group-hover:inline-block text-sm font-medium ml-2 transition-all duration-300 ease-out;
 }
