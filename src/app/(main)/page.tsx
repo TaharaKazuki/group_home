@@ -20,7 +20,7 @@ const Home = () => {
             </Link>
           </div>
           <div className="flex justify-end max-h-96 lg:max-h-max">
-            <div className="relative lg:-right-40 overflow-hidden">
+            <div className="relative lg:-right-40 lg:-top-72 overflow-hidden">
               <Image src={FlowerImg} alt="sample" />
             </div>
           </div>
