@@ -14,12 +14,10 @@ const socialLinks = [
   },
   {
     href: 'https://x.com/?lang=ja',
-    icon: (
-      <FaXTwitter className="text-xl text-blue-400 group-hover:text-white" />
-    ),
-    hoverColor: 'group-hover:bg-blue-400',
+    icon: <FaXTwitter className="text-xl text-black group-hover:text-white" />,
+    hoverColor: 'group-hover:bg-black',
     text: 'X(Twitter)',
-    textColor: 'text-blue-400',
+    textColor: 'text-black',
   },
   {
     href: 'https://www.instagram.com/',
@@ -34,7 +32,7 @@ const socialLinks = [
 
 const Socials = () => {
   return (
-    <div className="hidden xl:flex ml-24 z-20">
+    <div className="hidden xl:flex ml-10 z-20">
       <div className="wrapper flex space-x-2">
         {socialLinks.map((link, index) => (
           <Link

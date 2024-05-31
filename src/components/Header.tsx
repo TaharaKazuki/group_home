@@ -15,7 +15,10 @@ type NavLinkProps = {
 const navLinks = [
   { href: '/', label: 'Home', subLabel: 'ホーム' },
   { href: '/about', label: 'About', subLabel: '私たちについて' },
-  { href: '/portfolio', label: 'Portfolio', subLabel: '日常について' },
+  { href: '/portfolio', label: 'Portfolio', subLabel: '日常の流れ' },
+  { href: '/gallery', label: 'Gallery', subLabel: 'ギャラリー' },
+  { href: '/system', label: 'System', subLabel: '料金について' },
+  { href: '/question', label: 'Q/A', subLabel: 'ご質問' },
   { href: '/contact', label: 'Contact', subLabel: 'お問い合わせ' },
 ];
 
@@ -44,7 +47,7 @@ const Header = () => {
             />
           </div>
         </Link>
-        <nav className="hidden xl:flex gap-x-12 font-semibold">
+        <nav className="hidden xl:flex gap-x-8 font-semibold">
           {navLinks.map((nav) => (
             <NavLink
               key={nav.href}

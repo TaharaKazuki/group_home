@@ -26,7 +26,7 @@ const AboutPage = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: '-50%' }}
               transition={transition1}
-              className="flex-1 pt-12 pb-14 px-2 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start"
+              className="flex-1 pt-36 pb-14 px-2 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start"
             >
               <h1 className="text-4xl font-bold capitalize leading-[120%] tracking-[-0.05em] mb-2">
                 私たちについて
