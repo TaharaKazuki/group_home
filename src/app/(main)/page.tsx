@@ -18,7 +18,7 @@ const Home = () => {
         exit={{ opacity: 0 }}
         transition={transition1}
       >
-        <div className="container mx-auto h-full relative">
+        <div className="container h-full mx-auto min-h-screen relative overflow-y-auto">
           <div className="flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, y: '-50%' }}
