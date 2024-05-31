@@ -14,6 +14,9 @@ const config: Config = {
       xl: '1192px',
     },
     extend: {
+      fontFamily: {
+        primary: ['Noto Sans JP', 'sans-serif'],
+      },
       colors: {
         primary: '#0E1112',
         grey: '#484B4B',
