@@ -17,6 +17,16 @@ const menuVariants = {
   },
 };
 
+const navLinks = [
+  { href: '/', label: 'Home', subLabel: 'ホーム' },
+  { href: '/about', label: 'About', subLabel: '私たちについて' },
+  { href: '/portfolio', label: 'Portfolio', subLabel: '日常の流れ' },
+  { href: '/gallery', label: 'Gallery', subLabel: 'ギャラリー' },
+  { href: '/system', label: 'System', subLabel: '料金について' },
+  { href: '/question', label: 'Q/A', subLabel: 'ご質問' },
+  { href: '/contact', label: 'Contact', subLabel: 'お問い合わせ' },
+];
+
 const MobileNav = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -42,47 +52,19 @@ const MobileNav = () => {
         </div>
 
         <ul className="h-full flex flex-col justify-center items-start gap-y-8 text-primary  relative left-4 font-primary font-bold text-3xl">
-          <li>
-            <Link
-              href="/"
-              onClick={() => setOpenMenu(false)}
-              className="flex items-center gap-x-2
+          {navLinks.map((nav, i) => (
+            <li key={nav.href}>
+              <Link
+                href="/"
+                onClick={() => setOpenMenu(false)}
+                className="flex items-center gap-x-2
             "
-            >
-              <p>Home</p>
-              <span className="text-xs">ホーム</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/about"
-              onClick={() => setOpenMenu(false)}
-              className="flex items-center gap-x-2"
-            >
-              <p>About</p>
-              <span className="text-xs">私たちについて</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/portfolio"
-              onClick={() => setOpenMenu(false)}
-              className="flex items-center gap-x-2"
-            >
-              <p>Portfolio</p>
-              <span className="text-xs">日常の流れ</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              onClick={() => setOpenMenu(false)}
-              className="flex items-center gap-x-2"
-            >
-              <p>Contact</p>
-              <span className="text-xs">お問い合わせ</span>
-            </Link>
-          </li>
+              >
+                <p className="text-lg">{nav.label}</p>
+                <span className="text-xs">{nav.subLabel}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
       </motion.div>
     </nav>
