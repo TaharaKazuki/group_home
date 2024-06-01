@@ -7,7 +7,6 @@ import { projects } from '@/const/scheduleData';
 import Card from '@/components/Card';
 import { transition1 } from '@/util/transitions';
 import { motion } from 'framer-motion';
-import MotionWrapper from '@/components/MotionWrapper';
 
 const GalleryPage = () => {
   const container = useRef(null);
@@ -35,9 +34,9 @@ const GalleryPage = () => {
       ref={container}
     >
       <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        initial={{ opacity: 0, y: '100%' }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: '100%' }}
         transition={transition1}
       >
         {projects.map((project, i) => {
