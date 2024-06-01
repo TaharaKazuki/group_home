@@ -24,33 +24,34 @@ const GalleryPage = () => {
       requestAnimationFrame(raf);
     };
     requestAnimationFrame(raf);
+    return () => {
+      lenis.destroy();
+    };
   });
 
   return (
-    <div className="sm:h-screen sm:overflow-y-auto">
-      <motion.section
-        ref={container}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={transition1}
-      >
-        {projects.map((project, i) => {
-          const targetScale = 1 - (projects.length - i) * 0.05;
-          return (
-            <Card
-              key={`p_${i}`}
-              i={i}
-              url={project.link}
-              {...project}
-              progress={scrollYProgress}
-              range={[i * 0.1, 1 - (projects.length - i) * 0.01]}
-              targetScale={targetScale}
-            />
-          );
-        })}
-      </motion.section>
-    </div>
+    <motion.section
+      ref={container}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={transition1}
+    >
+      {projects.map((project, i) => {
+        const targetScale = 1 - (projects.length - i) * 0.05;
+        return (
+          <Card
+            key={`p_${i}`}
+            i={i}
+            url={project.link}
+            {...project}
+            progress={scrollYProgress}
+            range={[i * 0.1, 1 - (projects.length - i) * 0.01]}
+            targetScale={targetScale}
+          />
+        );
+      })}
+    </motion.section>
   );
 };
 
