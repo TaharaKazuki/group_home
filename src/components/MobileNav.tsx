@@ -23,7 +23,7 @@ const navLinks = [
   { href: '/about', label: 'About', subLabel: '私たちについて' },
   { href: '/schedule', label: 'Schedule', subLabel: '日常の流れ' },
   { href: '/gallery', label: 'Gallery', subLabel: 'ギャラリー' },
-  { href: '/system', label: 'System', subLabel: '料金について' },
+  { href: '/system', label: 'System', subLabel: '料金・設備' },
   { href: '/question', label: 'Q/A', subLabel: 'ご質問' },
   { href: '/contact', label: 'Contact', subLabel: 'お問い合わせ' },
 ];
