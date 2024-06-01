@@ -2,7 +2,7 @@ import { FaXTwitter, FaInstagram, FaFacebookF } from 'react-icons/fa6';
 import Link from 'next/link';
 import { text } from 'stream/consumers';
 
-const socialLinks = [
+export const socialLinks = [
   {
     href: 'https://www.facebook.com/',
     icon: (

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { CgMenuRight } from 'react-icons/cg';
+import { socialLinks } from './Socials';
 import Link from 'next/link';
 
 import { motion } from 'framer-motion';
@@ -42,7 +43,7 @@ const MobileNav = () => {
         variants={menuVariants}
         initial="hidden"
         animate={openMenu ? 'show' : ''}
-        className="bg-white shadow-2xl w-full absolute h-screen top-0 right-0 max-w-xs z-20"
+        className="bg-white shadow-2xl w-full absolute h-screen top-0 right-0 max-w-xs z-20 p-8"
       >
         <div
           onClick={() => setOpenMenu(false)}
@@ -51,7 +52,7 @@ const MobileNav = () => {
           <IoMdClose />
         </div>
 
-        <ul className="h-full flex flex-col justify-center items-start gap-y-8 text-primary  relative left-4 font-primary font-bold text-3xl">
+        <ul className="mt-24 flex flex-col justify-start items-start gap-y-6 text-primary relative font-primary font-bold text-3xl">
           {navLinks.map((nav, _) => (
             <li key={nav.href} className="w-full block">
               <Link
@@ -66,6 +67,26 @@ const MobileNav = () => {
             </li>
           ))}
         </ul>
+        <div className="mt-4 wrapper flex flex-col gap-y-4">
+          {socialLinks.map((link, index) => (
+            <Link
+              key={index}
+              href={link.href}
+              className="button group flex items-center"
+            >
+              <div
+                className={`icon bg-white ${link.hoverColor} flex items-center justify-center`}
+              >
+                {link.icon}
+              </div>
+              <span
+                className={`hidden group-hover:inline-block ml-2 ${link.textColor}`}
+              >
+                {link.text}
+              </span>
+            </Link>
+          ))}
+        </div>
       </motion.div>
     </nav>
   );
