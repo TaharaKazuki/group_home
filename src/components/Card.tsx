@@ -45,9 +45,9 @@ const Card = ({
         style={{
           backgroundColor: color,
           scale,
-          top: `calc(-3vh + ${i * 20}px)`,
+          // top: `calc(-3vh + ${i * 15}px)`,
         }}
-        className="flex flex-col relative top-[-25%] lg:h-[650px] w-full h-[400px] rounded-[25px] p-[50px]"
+        className="flex flex-col relative lg:h-[650px] lg:w-[1700px] w-full h-[400px] rounded-[25px] p-[50px]"
       >
         <h2 className="text-center m-0 text-2xl">{title}</h2>
         <div className="flex h-full mt-12 gap-12">

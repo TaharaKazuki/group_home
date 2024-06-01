@@ -11,7 +11,7 @@ export const projects = [
     description: '朝ご飯を食べます',
     src: 'tree.jpg',
     link: 'https://www.ignant.com/2022/09/30/clement-chapillon-questions-geographical-and-mental-isolation-with-les-rochers-fauves/',
-    color: '#977F6D',
+    color: '#F9AFA6',
   },
   {
     title: '出勤・通学',
@@ -32,14 +32,14 @@ export const projects = [
     description: '散歩の時間',
     src: 'cactus.jpg',
     link: 'https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/',
-    color: '#88A28D',
+    color: '#F9AFA6',
   },
   {
     title: '夕食',
     description: '夕食を食べます',
     src: 'cactus.jpg',
     link: 'https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/',
-    color: '#FFF',
+    color: '#F9AFA6',
   },
   {
     title: '入浴',
@@ -53,6 +53,6 @@ export const projects = [
     description: '就寝します',
     src: 'cactus.jpg',
     link: 'https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/',
-    color: '#B62429',
+    color: '#F9AFA6',
   },
 ];

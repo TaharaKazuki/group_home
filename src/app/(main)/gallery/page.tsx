@@ -5,6 +5,9 @@ import { useScroll } from 'framer-motion';
 import Lenis from 'lenis';
 import { projects } from '@/const/scheduleData';
 import Card from '@/components/Card';
+import { transition1 } from '@/util/transitions';
+import { motion } from 'framer-motion';
+import MotionWrapper from '@/components/MotionWrapper';
 
 const GalleryPage = () => {
   const container = useRef(null);
@@ -24,7 +27,13 @@ const GalleryPage = () => {
   });
 
   return (
-    <section ref={container}>
+    <motion.section
+      ref={container}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={transition1}
+    >
       {projects.map((project, i) => {
         const targetScale = 1 - (projects.length - i) * 0.05;
         return (
@@ -35,12 +44,11 @@ const GalleryPage = () => {
             {...project}
             progress={scrollYProgress}
             range={[i * 0.1, 1 - (projects.length - i) * 0.01]}
-            // range={[i * 0.1, 1 - (projects.length - i) * 0.1]}
             targetScale={targetScale}
           />
         );
       })}
-    </section>
+    </motion.section>
   );
 };
 
