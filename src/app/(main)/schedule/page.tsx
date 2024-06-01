@@ -32,7 +32,7 @@ const GalleryPage = () => {
 
   // className="h-screen overflow-y-auto"
   return (
-    <div className="" ref={container}>
+    <div className="h-screen overflow-y-auto" ref={container}>
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
