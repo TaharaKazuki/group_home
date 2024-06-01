@@ -52,7 +52,7 @@ const AboutPage = () => {
                 </p>
               </div>
               <Link className="btn mt-2" href="/portfolio">
-                Portfolio
+                お問い合わせはこちら
               </Link>
             </motion.div>
           </div>

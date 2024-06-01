@@ -52,12 +52,12 @@ const MobileNav = () => {
         </div>
 
         <ul className="h-full flex flex-col justify-center items-start gap-y-8 text-primary  relative left-4 font-primary font-bold text-3xl">
-          {navLinks.map((nav, i) => (
-            <li key={nav.href}>
+          {navLinks.map((nav, _) => (
+            <li key={nav.href} className="w-full block">
               <Link
                 href={nav.href}
                 onClick={() => setOpenMenu(false)}
-                className="flex items-center gap-x-2
+                className="flex items-center gap-x-2 py-1 w-full
             "
               >
                 <p className="text-lg">{nav.label}</p>
