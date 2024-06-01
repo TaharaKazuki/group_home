@@ -19,23 +19,17 @@ const Home = () => {
         exit={{ opacity: 0 }}
         transition={transition1}
       >
-        <div className="container h-full mx-auto min-h-screen relative overflow-y-auto">
+        <div className="container h-full mx-auto min-h-screen relative lg:overflow-hidden overflow-y-auto">
           <div className="flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, y: '-50%' }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: '-50%' }}
               transition={transition1}
-              className="w-full pt-36 pb-2 lg:pt-0 lg:pb-0 lg:w-auto z-10 lg:absolute lg:top-52 flex flex-col justify-center items-center lg:items-start"
+              className="w-full pt-24 pb-2 lg:pt-0 lg:pb-0 lg:w-auto z-10 lg:absolute lg:top-[400px] flex flex-col justify-center items-center lg:items-center"
             >
-              <div>
-                <Image src={HomeLogo} alt="" />
-              </div>
-              {/* <h1 className="h1">IXIA</h1>
-              <p className="text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-12">
-                GROUP HOME
-              </p> */}
-              <Link href="/contact" className="btn mb-[30px]">
+              <Image src={HomeLogo} alt="" objectFit="contain" />
+              <Link href="/contact" className="btn mt-5 mb-[30px]">
                 お問い合わせはこちら
               </Link>
             </motion.div>
@@ -45,9 +39,9 @@ const Home = () => {
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
                 transition={transition1}
-                className="relative lg:-right-40 lg:-top-72 overflow-hidden"
+                className="relative lg:-right-40 lg:-top-[350px]"
               >
-                <Image src={FlowerImg} alt="sample" />
+                <Image src={FlowerImg} alt="sample" objectFit="contain" />
               </motion.div>
             </div>
           </div>
