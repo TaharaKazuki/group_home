@@ -9,7 +9,6 @@ type CardProps = {
   title: string;
   description: string;
   src: string;
-  url: string;
   color: string;
   progress: MotionValue<number>;
   range: number[];
@@ -21,7 +20,6 @@ const Card = ({
   title,
   description,
   src,
-  url,
   color,
   progress,
   range,
@@ -43,18 +41,20 @@ const Card = ({
     >
       <motion.div
         style={{
-          backgroundColor: color,
-          scale,
+          borderColor: color,
+          // scale,
           // top: `calc(-3vh + ${i * 15}px)`,
         }}
-        className="flex flex-col relative lg:h-[650px] lg:w-[1700px] w-full h-[400px] rounded-[25px] p-[50px]"
+        className="flex flex-col relative lg:h-[650px] lg:w-[1700px] w-full h-[400px] rounded-[25px] lg:p-[50px] p-3 border-2 bg-white shadow-lg"
       >
-        <h2 className="text-center m-0 text-2xl">{title}</h2>
-        <div className="flex h-full mt-12 gap-12">
-          <div className="w-2/5 relative top-[10%]">
-            <p className="text-lg">{description}</p>
+        <h1 className="text-center m-0 text-2xl font-bold">{title}</h1>
+        <div className="flex flex-col lg:flex-row h-full lg:mt-12 lg:gap-12 gap-4">
+          <div className="w-full lg:w-1/2 relative lg:order-1 order-2">
+            <p className="lg:text-lg lg:line-clamp-none lg:line-clamp-6">
+              {description}
+            </p>
           </div>
-          <div className="relative w-3/5 h-full rounded-[25px] overflow-hidden">
+          <div className="relative w-full lg:w-1/2 h-full rounded-[25px] overflow-hidden lg:order-2 order-1">
             <motion.div className="w-full h-full" style={{ scale: imageScale }}>
               <Image
                 fill

@@ -1,58 +1,58 @@
+import { color } from 'framer-motion';
+
 export const projects = [
   {
-    title: '起床',
-    description: '朝起きます',
+    title: 'Wake up',
+    subTitle: '起床',
+    description:
+      '朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます朝起きます',
     src: 'rock.jpg',
-    link: 'https://www.ignant.com/2023/03/25/ad2186-matthias-leidingers-photographic-exploration-of-awe-and-wonder/',
-    color: '#BBACAF',
+    color: '#F9AFA6',
   },
   {
-    title: '朝食',
+    title: 'Breakfast',
+    subTitle: '朝食',
     description: '朝ご飯を食べます',
     src: 'tree.jpg',
-    link: 'https://www.ignant.com/2022/09/30/clement-chapillon-questions-geographical-and-mental-isolation-with-les-rochers-fauves/',
+
     color: '#F9AFA6',
   },
   {
     title: '出勤・通学',
+    subTitle: '出勤・通学',
     description: '身支度をして出勤します',
     src: 'water.jpg',
-    link: 'https://www.ignant.com/2023/10/28/capturing-balis-many-faces-zissou-documents-the-sacred-and-the-mundane-of-a-fragile-island/',
-    color: '#C2491D',
+    color: '#F9AFA6',
   },
   {
     title: '帰宅',
     description: '帰宅します',
     src: 'house.jpg',
-    link: 'https://www.ignant.com/2019/03/13/a-photographic-series-depicting-the-uncertain-future-of-denmarks-treasured-coastlines/',
-    color: '#B62429',
+    color: '#F9AFA6',
   },
   {
     title: 'レクリエーション（散歩など）',
     description: '散歩の時間',
     src: 'cactus.jpg',
-    link: 'https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/',
     color: '#F9AFA6',
   },
   {
     title: '夕食',
     description: '夕食を食べます',
     src: 'cactus.jpg',
-    link: 'https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/',
     color: '#F9AFA6',
   },
   {
     title: '入浴',
     description: 'お風呂にはいります',
     src: 'cactus.jpg',
-    link: 'https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/',
-    color: '#888',
+    color: '#F9AFA6',
   },
   {
-    title: '消灯',
+    title: 'Going to bed',
+    subTitle: '就寝',
     description: '就寝します',
     src: 'cactus.jpg',
-    link: 'https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/',
     color: '#F9AFA6',
   },
 ];

@@ -12,9 +12,8 @@ import MotionWrapper from '@/components/MotionWrapper';
 const GalleryPage = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
-    // target: container,
-    // offset: ['start start', 'end end'],
-    container: container.current!,
+    target: container,
+    offset: ['start start', 'end end'],
   });
 
   useEffect(() => {
@@ -30,7 +29,6 @@ const GalleryPage = () => {
     };
   }, []);
 
-  // className="h-screen overflow-y-auto"
   return (
     <div
       className="h-screen overflow-y-auto lg:not-h-screen lg:not-overflow-y-auto"
@@ -48,7 +46,6 @@ const GalleryPage = () => {
             <Card
               key={`p_${i}`}
               i={i}
-              url={project.link}
               {...project}
               progress={scrollYProgress}
               range={[i * 0.1, 1 - (projects.length - i) * 0.01]}
