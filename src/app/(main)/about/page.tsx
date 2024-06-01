@@ -9,6 +9,7 @@ import MotionWrapper from '@/components/MotionWrapper';
 const AboutPage = () => {
   return (
     <motion.section
+      className="h-screen overflow-y-auto lg:not-h-screen lg:not-overflow-y-auto"
       initial={{ opacity: 0, x: '100%' }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: '100%' }}
