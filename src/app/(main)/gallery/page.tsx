@@ -1,58 +1,160 @@
 'use client';
+import { useState } from 'react';
 
-import { useRef, useEffect } from 'react';
-import { useScroll } from 'framer-motion';
-import Lenis from 'lenis';
-import { projects } from '@/const/scheduleData';
-import Card from '@/components/Card';
-import { transition1 } from '@/util/transitions';
 import { motion } from 'framer-motion';
-import MotionWrapper from '@/components/MotionWrapper';
 
-const GalleryPage = () => {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start start', 'end end'],
-  });
-
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    const raf = (time: number) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
-    return () => {
-      lenis.destroy();
-    };
-  });
+const SchedulePage = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <motion.section
-      ref={container}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={transition1}
+    <section
+      className="section h-full bg-green-200 flex flex-col items-center justify-center"
+      onClick={() => setIsOpen(!isOpen)}
     >
-      {projects.map((project, i) => {
-        const targetScale = 1 - (projects.length - i) * 0.05;
-        return (
-          <Card
-            key={`p_${i}`}
-            i={i}
-            url={project.link}
-            {...project}
-            progress={scrollYProgress}
-            range={[i * 0.1, 1 - (projects.length - i) * 0.01]}
-            targetScale={targetScale}
-          />
-        );
-      })}
-    </motion.section>
+      <div className="container h-full mx-auto min-h-screen relative overflow-y-auto">
+        <motion.div
+          transition={{ layout: { duration: 0.5, type: 'spring' } }}
+          layout
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-white py-12 px-40"
+        >
+          <motion.h2 layout="position" className="text-2xl">
+            Motion
+          </motion.h2>
+          {isOpen && (
+            <motion.div>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+            </motion.div>
+          )}
+        </motion.div>
+        <motion.div
+          transition={{ layout: { duration: 0.5, type: 'spring' } }}
+          layout
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-white py-12 px-40"
+        >
+          <motion.h2 layout="position" className="text-2xl">
+            Motion
+          </motion.h2>
+          {isOpen && (
+            <motion.div>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+            </motion.div>
+          )}
+        </motion.div>
+        <motion.div
+          transition={{ layout: { duration: 0.5, type: 'spring' } }}
+          layout
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-white py-12 px-40"
+        >
+          <motion.h2 layout="position" className="text-2xl">
+            Motion
+          </motion.h2>
+          {isOpen && (
+            <motion.div>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+            </motion.div>
+          )}
+        </motion.div>
+        <motion.div
+          transition={{ layout: { duration: 0.5, type: 'spring' } }}
+          layout
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-white py-12 px-40"
+        >
+          <motion.h2 layout="position" className="text-2xl">
+            Motion
+          </motion.h2>
+          {isOpen && (
+            <motion.div>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+            </motion.div>
+          )}
+        </motion.div>
+        <motion.div
+          transition={{ layout: { duration: 0.5, type: 'spring' } }}
+          layout
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-white py-12 px-40"
+        >
+          <motion.h2 layout="position" className="text-2xl">
+            Motion
+          </motion.h2>
+          {isOpen && (
+            <motion.div>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+            </motion.div>
+          )}
+        </motion.div>
+        <motion.div
+          transition={{ layout: { duration: 0.5, type: 'spring' } }}
+          layout
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-white py-12 px-40"
+        >
+          <motion.h2 layout="position" className="text-2xl">
+            Motion
+          </motion.h2>
+          {isOpen && (
+            <motion.div>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+            </motion.div>
+          )}
+        </motion.div>
+        <motion.div
+          transition={{ layout: { duration: 0.5, type: 'spring' } }}
+          layout
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-white py-12 px-40"
+        >
+          <motion.h2 layout="position" className="text-2xl">
+            Motion
+          </motion.h2>
+          {isOpen && (
+            <motion.div>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+              <p className="pt-4">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+            </motion.div>
+          )}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
-export default GalleryPage;
+export default SchedulePage;

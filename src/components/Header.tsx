@@ -15,7 +15,7 @@ type NavLinkProps = {
 const navLinks = [
   { href: '/', label: 'Home', subLabel: 'ホーム' },
   { href: '/about', label: 'About', subLabel: '私たちについて' },
-  { href: '/portfolio', label: 'Portfolio', subLabel: '日常の流れ' },
+  { href: '/schedule', label: 'Schedule', subLabel: '日常の流れ' },
   { href: '/gallery', label: 'Gallery', subLabel: 'ギャラリー' },
   { href: '/system', label: 'System', subLabel: '料金について' },
   { href: '/question', label: 'Q/A', subLabel: 'ご質問' },
