@@ -34,7 +34,8 @@ const GalleryPage = () => {
             url={project.link}
             {...project}
             progress={scrollYProgress}
-            range={[i * 0.25, 1]}
+            range={[i * 0.1, 1 - (projects.length - i) * 0.01]}
+            // range={[i * 0.1, 1 - (projects.length - i) * 0.1]}
             targetScale={targetScale}
           />
         );

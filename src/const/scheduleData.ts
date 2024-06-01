@@ -39,20 +39,20 @@ export const projects = [
     description: '夕食を食べます',
     src: 'cactus.jpg',
     link: 'https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/',
-    color: '#88A28D',
+    color: '#FFF',
   },
   {
     title: '入浴',
     description: 'お風呂にはいります',
     src: 'cactus.jpg',
     link: 'https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/',
-    color: '#88A28D',
+    color: '#888',
   },
   {
     title: '消灯',
     description: '就寝します',
     src: 'cactus.jpg',
     link: 'https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/',
-    color: '#88A28D',
+    color: '#B62429',
   },
 ];
