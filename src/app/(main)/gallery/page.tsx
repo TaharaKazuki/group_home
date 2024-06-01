@@ -1,15 +1,12 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
-
-import FlowerImg from '../../components/img/home/flower.jpg';
-import HomeLogo from '../../components/img/home/home_logo.svg';
+import React from 'react';
 import MotionWrapper from '@/components/MotionWrapper';
 import { motion } from 'framer-motion';
 import { transition1 } from '@/util/transitions';
 
-const Home = () => {
+const GalleryPage = () => {
   return (
     <MotionWrapper>
       <motion.section
@@ -28,27 +25,22 @@ const Home = () => {
               transition={transition1}
               className="w-full pt-36 pb-2 lg:pt-0 lg:pb-0 lg:w-auto z-10 lg:absolute lg:top-52 flex flex-col justify-center items-center lg:items-start"
             >
-              <div>
-                <Image src={HomeLogo} alt="" />
-              </div>
-              {/* <h1 className="h1">IXIA</h1>
+              <h1 className="h1">IXIA</h1>
               <p className="text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-12">
                 GROUP HOME
-              </p> */}
+              </p>
               <Link href="/contact" className="btn mb-[30px]">
                 お問い合わせはこちら
               </Link>
             </motion.div>
             <div className="flex justify-end max-h-screen lg:max-h-max">
-              <motion.div
+              {/* <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
                 transition={transition1}
                 className="relative lg:-right-40 lg:-top-72 overflow-hidden"
-              >
-                <Image src={FlowerImg} alt="sample" />
-              </motion.div>
+              ></motion.div> */}
             </div>
           </div>
         </div>
@@ -57,4 +49,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default GalleryPage;
