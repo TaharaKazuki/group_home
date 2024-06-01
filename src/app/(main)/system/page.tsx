@@ -35,7 +35,7 @@ const SystemPage = () => {
                     <span className="absolute top-1/2 left-[calc(100%+2px)] transform -translate-y-1/2 border-[12px] border-transparent border-l-white z-10"></span>
                   </span>
                 </th>
-                <td className="bg-[#FBDCD9] py-4 px-6 border border-white rounded-r-[15px] text-left">
+                <td className="bg-[white] py-4 px-6 rounded-r-[15px] text-left">
                   {data.cost}
                   {data.description && (
                     <span className="block">{data.description}</span>
