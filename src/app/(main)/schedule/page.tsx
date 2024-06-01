@@ -49,6 +49,7 @@ const GalleryPage = () => {
               progress={scrollYProgress}
               range={[i * 0.1, 1 - (SCHEDULE_DATA.length - i) * 0.01]}
               targetScale={targetScale}
+              isReversed={i % 2 !== 0}
             />
           );
         })}

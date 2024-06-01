@@ -8,6 +8,7 @@ const config: Config = {
   ],
   theme: {
     screens: {
+      'sm-only': { max: '630px' },
       sm: '640px',
       md: '768px',
       lg: '1024px',

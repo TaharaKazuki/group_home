@@ -14,6 +14,7 @@ type CardProps = {
   progress: MotionValue<number>;
   range: number[];
   targetScale: number;
+  isReversed: boolean;
 };
 
 const Card = ({
@@ -24,6 +25,7 @@ const Card = ({
   progress,
   range,
   targetScale,
+  isReversed,
 }: CardProps) => {
   const container = useRef(null);
   const scale = useTransform(progress, range, [1, targetScale]);
@@ -44,10 +46,18 @@ const Card = ({
           <span className="text-sm">{subTitle}</span>
         </h1>
         <div className="flex flex-col lg:flex-row h-full lg:mt-12 lg:gap-12 gap-4">
-          <div className="w-full lg:w-1/2 h-full flex flex-col lg:order-1 order-2">
-            <p className="lg:text-lg line-clamp-6">{description}</p>
+          <div
+            className={`w-full lg:w-1/2 h-full flex flex-col ${
+              isReversed ? 'lg:order-2' : 'lg:order-1'
+            } order-2`}
+          >
+            <p className="lg:text-lg sm-only:line-clamp-6">{description}</p>
           </div>
-          <div className="relative w-full lg:w-1/2 h-[300px] lg:h-full flex items-center justify-center lg:order-2 order-1">
+          <div
+            className={`relative w-full lg:w-1/2 h-[300px] lg:h-full flex items-center justify-center ${
+              isReversed ? 'lg:order-1' : 'lg:order-2'
+            } order-1`}
+          >
             {src && (
               <motion.div className="w-full h-full">
                 <Image
