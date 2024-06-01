@@ -17,6 +17,23 @@
   }
 }
 
+@layer utilities {
+  .not-h-screen {
+    height: auto;
+  }
+  .not-overflow-y-auto {
+    overflow-y: visible;
+  }
+  @screen lg {
+    .lg\\:not-h-screen {
+      height: auto;
+    }
+    .lg\\:not-overflow-y-auto {
+      overflow-y: visible;
+    }
+  }
+}
+
 /* globals.css or a custom css file if needed */
 
 .wrapper .button {
