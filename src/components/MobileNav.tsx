@@ -31,7 +31,7 @@ const MobileNav = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <nav className="text-primary xl:hidden">
+    <nav className="xl:hidden">
       <div
         onClick={() => setOpenMenu(true)}
         className="text-3xl cursor-pointer"

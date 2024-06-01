@@ -1,15 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import {
-  useTransform,
-  motion,
-  useScroll,
-  MotionValue,
-  progress,
-} from 'framer-motion';
+import { useTransform, motion, MotionValue } from 'framer-motion';
 import { useRef } from 'react';
-import Sample from '../components/img/schedule/sample.jpg';
 
 type CardProps = {
   i: number;

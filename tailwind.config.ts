@@ -18,7 +18,7 @@ const config: Config = {
         primary: ['Noto Sans JP', 'sans-serif'],
       },
       colors: {
-        primary: '#0E1112',
+        primary: '#696c6d',
         grey: '#484B4B',
         accent: '#EEF7F9',
       },
