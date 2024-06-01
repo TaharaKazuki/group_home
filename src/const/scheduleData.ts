@@ -1,6 +1,4 @@
-import { color } from 'framer-motion';
-
-export const projects = [
+export const SCHEDULE_DATA = [
   {
     title: 'Wake up',
     subTitle: '起床',

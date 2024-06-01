@@ -3,7 +3,7 @@
 import { useRef, useEffect } from 'react';
 import { useScroll } from 'framer-motion';
 import Lenis from 'lenis';
-import { projects } from '@/const/scheduleData';
+import { SCHEDULE_DATA } from '@/const/scheduleData';
 import Card from '@/components/Card';
 import { transition1 } from '@/util/transitions';
 import { motion } from 'framer-motion';
@@ -39,15 +39,15 @@ const GalleryPage = () => {
         exit={{ opacity: 0, y: '100%' }}
         transition={transition1}
       >
-        {projects.map((project, i) => {
-          const targetScale = 1 - (projects.length - i) * 0.05;
+        {SCHEDULE_DATA.map((schedule, i) => {
+          const targetScale = 1 - (SCHEDULE_DATA.length - i) * 0.05;
           return (
             <Card
               key={`p_${i}`}
               i={i}
-              {...project}
+              {...schedule}
               progress={scrollYProgress}
-              range={[i * 0.1, 1 - (projects.length - i) * 0.01]}
+              range={[i * 0.1, 1 - (SCHEDULE_DATA.length - i) * 0.01]}
               targetScale={targetScale}
             />
           );
