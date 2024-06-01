@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useTransform, motion, useScroll, MotionValue } from 'framer-motion';
 import { useRef } from 'react';
+import Sample from '../components/img/schedule/sample.jpg';
 
 type CardProps = {
   i: number;
@@ -43,26 +44,25 @@ const Card = ({
         style={{
           borderColor: color,
           // scale,
-          // top: `calc(-3vh + ${i * 15}px)`,
         }}
-        className="flex flex-col relative lg:h-[650px] lg:w-[1700px] w-full h-[400px] rounded-[25px] lg:p-[50px] p-3 border-2 bg-white shadow-lg"
+        className="flex flex-col relative lg:h-[650px] lg:w-[1700px] w-full h-[600px] rounded-md lg:p-[50px] p-3 lg:top-0 top-14 bg-white"
       >
         <h1 className="text-center m-0 text-2xl font-bold">{title}</h1>
         <div className="flex flex-col lg:flex-row h-full lg:mt-12 lg:gap-12 gap-4">
-          <div className="w-full lg:w-1/2 relative lg:order-1 order-2">
-            <p className="lg:text-lg lg:line-clamp-none lg:line-clamp-6">
-              {description}
-            </p>
+          <div className="w-full lg:w-1/2 h-full flex flex-col lg:order-1 order-2">
+            <p className="lg:text-lg line-clamp-6">{description}</p>
           </div>
-          <div className="relative w-full lg:w-1/2 h-full rounded-[25px] overflow-hidden lg:order-2 order-1">
-            <motion.div className="w-full h-full" style={{ scale: imageScale }}>
-              <Image
-                fill
-                src={`/images/${src}`}
-                alt="image"
-                className="object-cover"
-              />
-            </motion.div>
+          <div className="relative w-full lg:w-1/2 h-[300px] lg:h-full flex items-center justify-center rounded-md lg:order-2 order-1">
+            {src && (
+              <div className="w-full h-full">
+                <Image
+                  fill
+                  src={`/images/schedule/${src}`}
+                  alt="image"
+                  className="object-cover"
+                />
+              </div>
+            )}
           </div>
         </div>
       </motion.div>
