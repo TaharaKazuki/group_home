@@ -32,7 +32,7 @@ export const socialLinks = [
 
 const Socials = () => {
   return (
-    <div className="hidden xl:flex ml-10 z-20">
+    <div className="z-20 ml-10 hidden xl:flex">
       <div className="wrapper flex space-x-2">
         {socialLinks.map((link, index) => (
           <Link
@@ -46,7 +46,7 @@ const Socials = () => {
               {link.icon}
             </div>
             <span
-              className={`hidden group-hover:inline-block ml-2 ${link.textColor}`}
+              className={`ml-2 hidden group-hover:inline-block ${link.textColor}`}
             >
               {link.text}
             </span>

@@ -33,38 +33,38 @@ const Card = ({
   return (
     <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0 px-4"
+      className="sticky top-0 flex h-screen items-center justify-center px-4"
     >
       <motion.div
         style={{
           scale,
         }}
-        className="flex flex-col relative lg:h-[650px] lg:w-[1700px] w-full h-[600px] rounded-md lg:p-[50px] p-3 lg:top-0 top-14 bg-white"
+        className="relative top-14 flex h-[600px] w-full flex-col rounded-md bg-white p-3 lg:top-0 lg:h-[650px] lg:w-[1700px] lg:p-[50px]"
       >
-        <h1 className="text-center m-0 text-3xl font-bold flex items-center flex-col">
+        <h1 className="m-0 flex flex-col items-center text-center text-3xl font-bold">
           <p>{title}</p>
           <span className="text-sm">{subTitle}</span>
         </h1>
-        <div className="flex flex-col lg:flex-row h-full lg:mt-12 lg:gap-12 gap-4">
+        <div className="flex h-full flex-col gap-4 lg:mt-12 lg:flex-row lg:gap-12">
           <div
-            className={`w-full lg:w-1/2 h-full flex flex-col ${
+            className={`flex size-full flex-col lg:w-1/2 ${
               isReversed ? 'lg:order-2' : 'lg:order-1'
             } order-2`}
           >
-            <p className="lg:text-lg sm-only:line-clamp-6">{description}</p>
+            <p className="sm-only:line-clamp-6 lg:text-lg">{description}</p>
           </div>
           <div
-            className={`relative w-full lg:w-1/2 h-[300px] lg:h-full flex items-center justify-center ${
+            className={`relative flex h-[300px] w-full items-center justify-center lg:h-full lg:w-1/2 ${
               isReversed ? 'lg:order-1' : 'lg:order-2'
             } order-1`}
           >
             {src && (
-              <motion.div className="w-full h-full">
+              <motion.div className="size-full">
                 <Image
                   fill
                   src={`/images/schedule/${src}`}
                   alt="image"
-                  className="object-cover rounded-md"
+                  className="rounded-md object-cover"
                 />
               </motion.div>
             )}

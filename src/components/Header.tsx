@@ -25,7 +25,7 @@ const navLinks = [
 const NavLink = ({ href, label, subLabel }: NavLinkProps) => (
   <Link
     href={href}
-    className="text-[#696c6d] hover:text-primary transition flex flex-col items-center"
+    className="flex flex-col items-center text-primary transition hover:text-primary"
   >
     <p>{label}</p>
     <span className="text-xs">{subLabel}</span>
@@ -34,10 +34,10 @@ const NavLink = ({ href, label, subLabel }: NavLinkProps) => (
 
 const Header = () => {
   return (
-    <div className="fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[140px] flex items-center bg-white lg:bg-transparent">
-      <div className="flex flex-col lg:flex-row lg:items-center w-full justify-start gap-x-6">
+    <div className="fixed z-30 flex h-[100px] w-full items-center bg-white px-[30px] lg:h-[140px] lg:bg-transparent lg:px-[100px]">
+      <div className="flex w-full flex-col justify-start gap-x-6 lg:flex-row lg:items-center">
         <Link href="/" className="max-w-[200px]">
-          <div className="h-[100px] w-[200px] flex justify-center items-center overflow-hidden">
+          <div className="flex h-[100px] w-[200px] items-center justify-center overflow-hidden">
             <Image
               src={Logo}
               alt="Logo"
@@ -47,7 +47,7 @@ const Header = () => {
             />
           </div>
         </Link>
-        <nav className="hidden xl:flex gap-x-8 font-semibold">
+        <nav className="hidden gap-x-8 font-semibold xl:flex">
           {navLinks.map((nav) => (
             <NavLink
               key={nav.href}

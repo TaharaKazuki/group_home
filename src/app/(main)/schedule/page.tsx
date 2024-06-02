@@ -30,7 +30,7 @@ const GalleryPage = () => {
 
   return (
     <div
-      className="h-screen overflow-y-auto lg:not-h-screen lg:not-overflow-y-auto"
+      className="lg:not-h-screen lg:not-overflow-y-auto h-screen overflow-y-auto"
       ref={container}
     >
       <motion.section

@@ -19,27 +19,27 @@ const Home = () => {
       exit={{ opacity: 0 }}
       transition={transition1}
     >
-      <div className="container h-full mx-auto min-h-screen relative lg:overflow-hidden overflow-y-auto">
+      <div className="container relative mx-auto h-full min-h-screen overflow-y-auto lg:overflow-hidden">
         <div className="flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: '-50%' }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-50%' }}
             transition={transition1}
-            className="w-full pt-24 pb-2 lg:pt-0 lg:pb-0 lg:w-auto z-10 lg:absolute lg:top-[400px] flex flex-col justify-center items-center lg:items-center"
+            className="z-10 flex w-full flex-col items-center justify-center pb-2 pt-24 lg:absolute lg:top-[400px] lg:w-auto lg:items-center lg:py-0"
           >
             <Image src={HomeLogo} alt="" objectFit="contain" />
-            <Link href="/contact" className="btn mt-5 mb-[30px]">
+            <Link href="/contact" className="btn mb-[30px] mt-5">
               お問い合わせはこちら
             </Link>
           </motion.div>
-          <div className="flex lg:justify-end justify-center max-h-screen lg:max-h-max">
+          <div className="flex max-h-screen justify-center lg:max-h-max lg:justify-end">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
               transition={transition1}
-              className="relative w-10/12 h-screen lg:-right-20 lg:-top-[120px]"
+              className="relative h-screen w-10/12 lg:-right-20 lg:-top-[120px]"
             >
               <Image src={FlowerImg} alt="flower" />
             </motion.div>

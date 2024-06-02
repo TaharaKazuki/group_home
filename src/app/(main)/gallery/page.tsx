@@ -8,15 +8,15 @@ const SchedulePage = () => {
 
   return (
     <section
-      className="section h-full bg-green-200 flex flex-col items-center justify-center"
+      className="section flex h-full flex-col items-center justify-center bg-green-200"
       onClick={() => setIsOpen(!isOpen)}
     >
-      <div className="container h-full mx-auto min-h-screen relative overflow-y-auto">
+      <div className="container relative mx-auto h-full min-h-screen overflow-y-auto">
         <motion.div
           transition={{ layout: { duration: 0.5, type: 'spring' } }}
           layout
           onClick={() => setIsOpen(!isOpen)}
-          className="bg-white py-12 px-40"
+          className="bg-white px-40 py-12"
         >
           <motion.h2 layout="position" className="text-2xl">
             Motion
