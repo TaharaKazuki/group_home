@@ -39,7 +39,7 @@ const Home = () => {
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
               transition={transition1}
-              className="relative h-screen w-10/12 lg:-right-20 lg:-top-[120px]"
+              className="relative h-screen w-10/12 lg:-right-20 lg:top-[-120px]"
             >
               <Image src={FlowerImg} alt="flower" />
             </motion.div>
