@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import FlowerImg from '../../components/img/home/flower.jpg';
+import FlowerImg from '../../components/img/home/flower.png';
+
 import HomeLogo from '../../components/img/home/home_logo.svg';
-import MotionWrapper from '@/components/MotionWrapper';
 import { motion } from 'framer-motion';
 import { transition1 } from '@/util/transitions';
 
@@ -33,15 +33,15 @@ const Home = () => {
               お問い合わせはこちら
             </Link>
           </motion.div>
-          <div className="flex justify-end max-h-screen lg:max-h-max">
+          <div className="flex lg:justify-end justify-center max-h-screen lg:max-h-max">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
               transition={transition1}
-              className="relative lg:-right-40 lg:-top-[350px]"
+              className="relative w-10/12 h-screen lg:-right-20 lg:-top-[120px]"
             >
-              <Image src={FlowerImg} alt="sample" objectFit="contain" />
+              <Image src={FlowerImg} alt="flower" />
             </motion.div>
           </div>
         </div>

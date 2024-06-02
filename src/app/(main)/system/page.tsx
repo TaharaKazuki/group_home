@@ -16,7 +16,7 @@ const Table = ({ data, tableTitle, baseDelay }: TableProps) => (
       initial={{ opacity: 0, y: '-50%' }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: '-50%' }}
-      transition={{ ...transition1, delay: baseDelay * 0.5 }}
+      transition={{ ...transition1, delay: baseDelay + data.length * 0.5 }}
       className="text-left mb-8 text-2xl font-bold"
     >
       {tableTitle}
@@ -27,9 +27,9 @@ const Table = ({ data, tableTitle, baseDelay }: TableProps) => (
           <motion.tr
             className="relative"
             key={i}
-            initial={{ opacity: 0, x: -150 }}
+            initial={{ opacity: 0, x: -250 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -150 }}
+            exit={{ opacity: 0, x: -250 }}
             transition={{ ...transition1, delay: baseDelay + i * 0.5 }}
           >
             <th className="bg-[#F9AFA6] text-white font-bold text-center py-4 px-6 border border-white rounded-l-[15px] relative">
