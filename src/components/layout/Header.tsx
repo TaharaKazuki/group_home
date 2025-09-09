@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 import DesktopHeader from "@/components/layout/DesktopHeader"
 import MobileHeader from "@/components/layout/MobileHeader"
@@ -19,11 +20,17 @@ export default function Header() {
       <nav className="container mx-auto flex items-center justify-between px-6 py-6 lg:px-12">
         <motion.a
           href="/#top"
-          className="text-2xl font-bold tracking-tight"
+          className="flex items-center"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          IXIA
+          <Image
+            src="/assets/logo.svg"
+            alt="IXIA Logo"
+            width={300}
+            height={100}
+            className="h-12 w-auto object-contain md:h-16"
+          />
         </motion.a>
 
         <div className="hidden items-center gap-8 rounded-full bg-white px-3 py-3 shadow-md lg:flex lg:pl-8">
