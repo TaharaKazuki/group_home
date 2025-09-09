@@ -1,8 +1,9 @@
 "use client"
 
+import { useState } from "react"
+
 import { motion, Variants } from "framer-motion"
 import Image from "next/image"
-import { useState } from "react"
 
 import ServiceModal from "@/components/modals/ServiceModal"
 import { servicesData } from "@/data/services"
@@ -10,10 +11,12 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
 export default function Services() {
   const { ref, controls } = useScrollAnimation()
-  const [selectedService, setSelectedService] = useState<typeof servicesData[0] | null>(null)
+  const [selectedService, setSelectedService] = useState<
+    (typeof servicesData)[0] | null
+  >(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const openModal = (service: typeof servicesData[0]) => {
+  const openModal = (service: (typeof servicesData)[0]) => {
     setSelectedService(service)
     setIsModalOpen(true)
   }

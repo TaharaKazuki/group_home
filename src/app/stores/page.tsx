@@ -1,10 +1,11 @@
 "use client"
 
+import { useEffect, useState } from "react"
+
 import { motion, Variants } from "framer-motion"
 import { ArrowLeft, MapPin, Phone, Clock, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 
 import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
@@ -39,7 +40,7 @@ export default function StoresPage() {
     },
   }
 
-  const MotionDiv = isMounted ? motion.div : 'div' as any
+  const MotionDiv = isMounted ? motion.div : "div"
 
   return (
     <>
@@ -68,7 +69,10 @@ export default function StoresPage() {
             animate={isMounted ? "visible" : undefined}
             className="mx-auto max-w-6xl"
           >
-            <MotionDiv variants={isMounted ? itemVariants : undefined} className="mb-12 text-center">
+            <MotionDiv
+              variants={isMounted ? itemVariants : undefined}
+              className="mb-12 text-center"
+            >
               <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
                 Stores
               </h1>
@@ -80,7 +84,7 @@ export default function StoresPage() {
             </MotionDiv>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {storesData.map((store, index) => (
+              {storesData.map((store) => (
                 <MotionDiv
                   key={store.id}
                   variants={isMounted ? itemVariants : undefined}
@@ -98,11 +102,13 @@ export default function StoresPage() {
                       <h3 className="text-xl font-bold">{store.shortName}</h3>
                     </div>
                   </div>
-                  
+
                   <div className="p-6">
-                    <h3 className="mb-2 text-xl font-bold text-gray-900">{store.name}</h3>
+                    <h3 className="mb-2 text-xl font-bold text-gray-900">
+                      {store.name}
+                    </h3>
                     <p className="mb-4 text-gray-600">{store.description}</p>
-                    
+
                     <div className="space-y-2 text-sm text-gray-600">
                       <div className="flex items-center gap-2">
                         <MapPin className="h-4 w-4" />
@@ -114,14 +120,16 @@ export default function StoresPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Clock className="h-4 w-4" />
-                        <span>{store.openingHours}（{store.closedDays}定休）</span>
+                        <span>
+                          {store.openingHours}（{store.closedDays}定休）
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Users className="h-4 w-4" />
                         <span>定員{store.capacity}名</span>
                       </div>
                     </div>
-                    
+
                     <div className="mt-6">
                       <Link
                         href={`/stores/${store.id}`}
