@@ -22,13 +22,32 @@ Next.js 15.5.2とReact 19.1.0を使用したApp Routerアーキテクチャの�
 - **スタイリング**: Tailwind CSS v4
 - **型システム**: strictモードを有効にしたTypeScript
 - **ビルドツール**: Turbopack (開発とビルド両方で有効)
-- **フォント最適化**: next/font経由でGeistフォントファミリーを使用
+- **フォント**: M_PLUS_Rounded_1c (Google Fonts経由)
+- **アニメーション**: Framer Motion
+- **アイコン**: Lucide React、React Icons
 
 ### プロジェクト構造
-- `src/app/` - App Routerのページとレイアウト
-  - `layout.tsx` - メタデータとフォント設定を含むルートレイアウト
-  - `page.tsx` - ホームページコンポーネント
-  - `globals.css` - Tailwindディレクティブを含むグローバルスタイル
+```
+src/
+├── app/                    # App Router pages
+│   ├── layout.tsx         # ルートレイアウト
+│   ├── page.tsx           # ホームページ
+│   ├── globals.css        # グローバルスタイル
+│   ├── contact/           # お問い合わせページ
+│   ├── privacy-policy/    # プライバシーポリシー
+│   └── stores/            # 店舗関連ページ
+│       ├── page.tsx       # 店舗一覧
+│       └── [id]/page.tsx  # 個別店舗詳細
+├── components/            # 再利用可能コンポーネント
+│   ├── layout/           # レイアウトコンポーネント
+│   ├── sections/         # セクションコンポーネント
+│   ├── ui/              # UIコンポーネント
+│   └── modals/          # モーダルコンポーネント
+├── data/                 # データファイル
+├── constant/             # 定数定義
+└── lib/                  # ユーティリティ関数
+```
+
 - TypeScriptパスエイリアス: `@/*`は`./src/*`にマッピング
 
 ### コードスタイル設定
@@ -40,3 +59,48 @@ Next.js 15.5.2とReact 19.1.0を使用したApp Routerアーキテクチャの�
 - Next.js core-web-vitalsとTypeScriptプリセット
 
 アンダースコア(_)で始まる変数と引数は意図的に未使用であり、警告をトリガーしません。
+
+## 実装済み機能
+
+### 1. レイアウトシステム
+- **Header** (`src/components/layout/Header.tsx`): レスポンシブナビゲーション、スクロール検知、モバイルメニュー
+- **Footer** (`src/components/layout/Footer.tsx`): シンプルな中央配置デザイン、React Iconsによるソーシャルメディアリンク
+
+### 2. ページ構成
+- **ホームページ** (`src/app/page.tsx`): Hero、Philosophy、Services、Company、Topics セクション
+- **お問い合わせ** (`src/app/contact/page.tsx`): React Hook Form + Zod バリデーション
+- **プライバシーポリシー** (`src/app/privacy-policy/page.tsx`): 6セクション構成の詳細なポリシー
+- **店舗一覧** (`src/stores/page.tsx`): 3店舗のカード表示
+- **店舗詳細** (`src/stores/[id]/page.tsx`): 動的ルーティングによる個別店舗情報
+
+### 3. サービスセクション機能
+- **サービス一覧** (`src/data/services.ts`): Design、Production、Interior、Consulting の4項目
+- **モーダル表示** (`src/components/modals/ServiceModal.tsx`): 状態ベースのシンプルなモーダル
+- **SSR対応**: hydration エラー対策済み
+
+### 4. 店舗システム
+- **店舗データ** (`src/data/stores.ts`): 渋谷店、新宿店、世田谷店の詳細情報
+- **動的ルーティング**: Next.js 15 の Promise params 対応
+- **店舗詳細表示**: 施設概要、特徴・サービス、施設・設備、スタッフ紹介
+
+### 5. アニメーション・UI
+- Framer Motion による滑らかなアニメーション
+- SSRハイドレーション対応（`isMounted` 状態管理）
+- レスポンシブデザイン（Tailwind CSS）
+- ホバーエフェクトとマイクロインタラクション
+
+## 技術的な解決済み課題
+
+### Next.js 15 対応
+- **Params Promise**: `React.use()` による非同期パラメータのアンラップ
+- **SSR Hydration**: サーバー・クライアント間の不整合解消
+
+### パフォーマンス最適化
+- 条件付きアニメーション（マウント状態に基づく）
+- 適切なコンポーネント分割
+- 画像最適化（Next.js Image コンポーネント）
+
+### アクセシビリティ
+- 適切なセマンティックHTML
+- キーボードナビゲーション対応
+- ARIAラベル適用
