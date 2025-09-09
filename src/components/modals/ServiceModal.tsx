@@ -1,10 +1,11 @@
 "use client"
 
+import { useEffect } from "react"
+
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Check } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
 
 interface ServiceModalProps {
   service: {
@@ -20,7 +21,11 @@ interface ServiceModalProps {
   onClose: () => void
 }
 
-export default function ServiceModal({ service, isOpen, onClose }: ServiceModalProps) {
+export default function ServiceModal({
+  service,
+  isOpen,
+  onClose,
+}: ServiceModalProps) {
   useEffect(() => {
     if (isOpen) {
       const handleEscape = (e: KeyboardEvent) => {
@@ -75,7 +80,7 @@ export default function ServiceModal({ service, isOpen, onClose }: ServiceModalP
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow-md transition-all hover:bg-white hover:shadow-lg"
+              className="absolute top-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow-md transition-all hover:bg-white hover:shadow-lg"
               aria-label="Close modal"
             >
               <X className="h-5 w-5" />
@@ -95,7 +100,9 @@ export default function ServiceModal({ service, isOpen, onClose }: ServiceModalP
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center text-white">
                     <IconComponent className="mx-auto mb-4 h-16 w-16" />
-                    <h1 className="text-3xl font-bold md:text-4xl">{service.title}</h1>
+                    <h1 className="text-3xl font-bold md:text-4xl">
+                      {service.title}
+                    </h1>
                   </div>
                 </div>
               </div>
@@ -103,15 +110,19 @@ export default function ServiceModal({ service, isOpen, onClose }: ServiceModalP
               {/* Content */}
               <div className="p-8">
                 <div className="mb-6">
-                  <p className="mb-4 text-lg text-gray-600">{service.description}</p>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="mb-4 text-lg text-gray-600">
+                    {service.description}
+                  </p>
+                  <p className="leading-relaxed text-gray-700">
                     {service.detailedDescription}
                   </p>
                 </div>
 
                 {/* Features */}
                 <div className="mb-8">
-                  <h3 className="mb-4 text-xl font-semibold">主なサービス内容</h3>
+                  <h3 className="mb-4 text-xl font-semibold">
+                    主なサービス内容
+                  </h3>
                   <div className="grid gap-3 sm:grid-cols-2">
                     {service.features.map((feature, index) => (
                       <div key={index} className="flex items-center gap-3">
@@ -128,7 +139,8 @@ export default function ServiceModal({ service, isOpen, onClose }: ServiceModalP
                 <div className="rounded-lg bg-gray-50 p-6 text-center">
                   <h4 className="mb-2 text-lg font-semibold">お問い合わせ</h4>
                   <p className="mb-4 text-gray-600">
-                    {service.title}サービスについて詳しく知りたい方は、お気軽にお問い合わせください。
+                    {service.title}
+                    サービスについて詳しく知りたい方は、お気軽にお問い合わせください。
                   </p>
                   <Link
                     href="/contact"
