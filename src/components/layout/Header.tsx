@@ -9,13 +9,13 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 const menuItems = [
-  { label: "ホーム", englishLabel: "Top", href: "#top" },
-  { label: "理念", englishLabel: "Philosophy", href: "#philosophy" },
-  { label: "サービス", englishLabel: "Service", href: "#service" },
-  { label: "会社概要", englishLabel: "Company", href: "#company" },
+  { label: "ホーム", englishLabel: "Top", href: "/#top" },
+  { label: "理念", englishLabel: "Philosophy", href: "/#philosophy" },
+  { label: "サービス", englishLabel: "Service", href: "/#service" },
+  { label: "会社概要", englishLabel: "Company", href: "/#company" },
   { label: "店舗情報", englishLabel: "Stores", href: "/stores" },
   { label: "よくある質問", englishLabel: "FAQ", href: "/questions" },
-  { label: "お知らせ", englishLabel: "Topics", href: "#topics" },
+  { label: "お知らせ", englishLabel: "Topics", href: "/#topics" },
   { label: "お問い合わせ", englishLabel: "Contact", href: "/contact" },
 ]
 
@@ -52,7 +52,7 @@ export default function Header() {
       >
         <nav className="container mx-auto flex items-center justify-between px-6 py-6 lg:px-12">
           <motion.a
-            href="#top"
+            href="/#top"
             className="text-2xl font-bold tracking-tight"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
