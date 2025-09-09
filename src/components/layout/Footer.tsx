@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 const footerLinks = [
   {
@@ -13,9 +14,14 @@ const footerLinks = [
   },
   {
     title: "Support",
-    links: ["Contact", "FAQ", "Privacy Policy", "Terms"],
+    links: [
+      { label: "Contact", href: "/contact" } as const,
+      "FAQ",
+      "Privacy Policy",
+      "Terms",
+    ] as const,
   },
-]
+] as const
 
 export default function Footer() {
   return (
@@ -23,7 +29,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 py-16 lg:px-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">NUTRAD</h3>
+            <h3 className="text-2xl font-bold">IXIA</h3>
             <p className="text-sm text-gray-400">
               Creating beautiful spaces and products that inspire daily living.
             </p>
@@ -34,14 +40,25 @@ export default function Footer() {
               <h4 className="font-medium">{group.title}</h4>
               <ul className="space-y-2">
                 {group.links.map((link) => (
-                  <li key={link}>
-                    <motion.a
-                      href="#"
-                      className="text-sm text-gray-400 transition-colors hover:text-white"
-                      whileHover={{ x: 2 }}
-                    >
-                      {link}
-                    </motion.a>
+                  <li key={typeof link === "string" ? link : link.label}>
+                    {typeof link === "object" ? (
+                      <motion.div whileHover={{ x: 2 }}>
+                        <Link
+                          href={link.href}
+                          className="text-sm text-gray-400 transition-colors hover:text-white"
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ) : (
+                      <motion.a
+                        href="#"
+                        className="text-sm text-gray-400 transition-colors hover:text-white"
+                        whileHover={{ x: 2 }}
+                      >
+                        {link}
+                      </motion.a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -52,7 +69,7 @@ export default function Footer() {
         <div className="mt-12 border-t border-gray-800 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-sm text-gray-400">
-              © 2024 NUTRAD. All rights reserved.
+              © 2024 IXIA. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a

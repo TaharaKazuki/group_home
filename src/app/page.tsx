@@ -5,8 +5,7 @@ import { useEffect } from "react"
 import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
 import Company from "@/components/sections/Company"
-import Contact from "@/components/sections/Contact"
-import HeroCanvas from "@/components/sections/HeroCanvas"
+import HeroSlider from "@/components/sections/HeroCanvas"
 import Philosophy from "@/components/sections/Philosophy"
 import Services from "@/components/sections/Services"
 import Topics from "@/components/sections/Topics"
@@ -38,12 +37,11 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <HeroCanvas />
+        <HeroSlider />
         <Philosophy />
         <Services />
         <Company />
         <Topics />
-        <Contact />
       </main>
       <Footer />
     </>

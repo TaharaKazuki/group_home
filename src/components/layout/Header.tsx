@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 
@@ -13,7 +14,7 @@ const menuItems = [
   { label: "Service", href: "#service" },
   { label: "Company", href: "#company" },
   { label: "Topics", href: "#topics" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ]
 
 export default function Header() {
@@ -54,7 +55,7 @@ export default function Header() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            NUTRAD
+            IXIA
           </motion.a>
 
           {/* Desktop Menu */}
@@ -66,17 +67,31 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <a
-                  href={item.href}
-                  className="relative text-sm font-medium tracking-wide transition-colors hover:text-gray-600"
-                >
-                  {item.label}
-                  <motion.span
-                    className="absolute -bottom-1 left-0 h-[2px] w-0 bg-black"
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </a>
+                {item.href.startsWith("/") ? (
+                  <Link
+                    href={item.href}
+                    className="relative text-sm font-medium tracking-wide transition-colors hover:text-gray-600"
+                  >
+                    {item.label}
+                    <motion.span
+                      className="absolute -bottom-1 left-0 h-[2px] w-0 bg-black"
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </Link>
+                ) : (
+                  <a
+                    href={item.href}
+                    className="relative text-sm font-medium tracking-wide transition-colors hover:text-gray-600"
+                  >
+                    {item.label}
+                    <motion.span
+                      className="absolute -bottom-1 left-0 h-[2px] w-0 bg-black"
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </a>
+                )}
               </motion.li>
             ))}
           </ul>
@@ -138,13 +153,23 @@ export default function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <a
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block py-3 text-2xl font-medium tracking-wide transition-colors hover:text-gray-600"
-                  >
-                    {item.label}
-                  </a>
+                  {item.href.startsWith("/") ? (
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block py-3 text-2xl font-medium tracking-wide transition-colors hover:text-gray-600"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block py-3 text-2xl font-medium tracking-wide transition-colors hover:text-gray-600"
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </ul>

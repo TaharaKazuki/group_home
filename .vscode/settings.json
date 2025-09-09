@@ -32,5 +32,5 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "prettier.requireConfig": true,
-  "cSpell.words": ["Turbopack", "NUTRAD"]
+  "cSpell.words": ["Turbopack", "IXIA"]
 }

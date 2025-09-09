@@ -49,7 +49,8 @@
       "Bash(npm install:*)",
       "Bash(npm run lint)",
       "Bash(npm run lint:*)",
-      "WebFetch(domain:nutrad.co.jp)"
+      "WebFetch(domain:nutrad.co.jp)",
+      "mcp__ide__getDiagnostics"
     ],
     "deny": [
       "Bash(sudo:*)",

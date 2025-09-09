@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
 const companyInfo = [
-  { label: "会社名", value: "株式会社NUTRAD" },
+  { label: "会社名", value: "株式会社IXIA" },
   { label: "設立", value: "2010年4月" },
   { label: "所在地", value: "東京都渋谷区神宮前1-1-1" },
   { label: "代表取締役", value: "山田 太郎" },
