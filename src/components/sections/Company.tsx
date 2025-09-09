@@ -9,9 +9,9 @@ import { colors } from "@/lib/colors"
 const companyInfo = [
   { label: "会社名", value: "株式会社IXIA" },
   { label: "設立", value: "2010年4月" },
-  { label: "所在地", value: "東京都渋谷区神宮前1-1-1" },
-  { label: "代表取締役", value: "山田 太郎" },
-  { label: "事業内容", value: "家具・インテリア製品の企画・製造・販売" },
+  { label: "所在地", value: "埼玉県〇〇市〇〇町〇〇番地" },
+  { label: "代表取締役", value: "サンプル太郎" },
+  { label: "事業内容", value: "グループホームの運営事業" },
 ]
 
 export default function Company() {

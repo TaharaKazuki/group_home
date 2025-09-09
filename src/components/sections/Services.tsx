@@ -4,7 +4,8 @@ import { useState } from "react"
 
 import Image from "next/image"
 
-import ServiceModal from "@/components/modals/ServiceModal"
+import LifeModal from "@/components/modals/LifeModal"
+import PricingModal from "@/components/modals/PricingModal"
 import { Button } from "@/components/ui/Button"
 import { servicesData } from "@/data/services"
 import { colors } from "@/lib/colors"
@@ -42,7 +43,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2">
           {servicesData.map((service) => (
             <div
               key={service.title}
@@ -81,11 +82,21 @@ export default function Services() {
         </div>
       </div>
 
-      <ServiceModal
-        service={selectedService}
-        isOpen={isModalOpen}
-        onClose={closeModal}
-      />
+      {/* Render appropriate modal based on service type */}
+      {selectedService?.id === "pricing" && (
+        <PricingModal
+          service={selectedService}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+        />
+      )}
+      {selectedService?.id === "life" && (
+        <LifeModal
+          service={selectedService}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+        />
+      )}
     </section>
   )
 }

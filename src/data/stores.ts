@@ -65,7 +65,7 @@ export const storesData = [
     detailedDescription:
       "IXIA新宿店は、東京の副都心である新宿に位置し、ビジネス街の利便性と住環境の快適さを兼ね備えた施設です。公共交通機関へのアクセスが良く、買い物や医療機関も近隣に充実しています。モダンな設備と温かいスタッフのサポートで、利用者様が自立した生活を送れるよう支援いたします。",
     image:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
     features: [
       {
         icon: Users,
@@ -122,7 +122,7 @@ export const storesData = [
     detailedDescription:
       "IXIA世田谷店は、閑静な住宅街に位置し、家庭的な雰囲気の中で利用者様が安心して生活できる環境を提供しています。地域コミュニティとの交流を重視し、地域イベントへの参加や近隣住民との良好な関係を築いています。緑豊かな環境で、心身ともに健やかな生活をサポートいたします。",
     image:
-      "https://images.unsplash.com/photo-1555854877-bab0e5b08dc0?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
     features: [
       { icon: Users, name: "定員10名", description: "アットホームな環境" },
       { icon: MapPin, name: "住宅街", description: "静かで安全な立地" },
