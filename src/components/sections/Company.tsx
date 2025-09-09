@@ -39,7 +39,7 @@ export default function Company() {
   }
 
   return (
-    <section id="company" className="py-24 lg:py-32">
+    <section id="company" className="bg-white py-24 lg:py-32">
       <motion.div
         ref={ref}
         variants={containerVariants}
@@ -49,9 +49,11 @@ export default function Company() {
       >
         <motion.div variants={itemVariants} className="mb-16 text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-            Company
+            会社概要
+            <span className="mt-2 block text-base font-normal text-gray-500">
+              Company
+            </span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">会社概要</p>
         </motion.div>
 
         <div className="mx-auto max-w-4xl">

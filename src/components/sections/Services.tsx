@@ -59,21 +59,22 @@ export default function Services() {
       >
         <motion.div variants={itemVariants} className="mb-16 text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-            Services
+            サービス
+            <span className="mt-2 block text-base font-normal text-gray-500">
+              Services
+            </span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
             私たちが提供するサービス
           </p>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {servicesData.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
-              whileHover={{ y: -10 }}
-              onClick={() => openModal(service)}
-              className="group cursor-pointer overflow-hidden rounded-lg bg-white shadow-lg transition-shadow hover:shadow-xl"
+              className="flex flex-col overflow-hidden rounded-lg bg-white shadow-lg"
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
@@ -81,16 +82,22 @@ export default function Services() {
                   alt={service.title}
                   width={600}
                   height={400}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-60" />
+                <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <service.icon className="h-12 w-12 text-white" />
                 </div>
               </div>
-              <div className="p-6">
+              <div className="flex flex-1 flex-col p-6">
                 <h3 className="mb-3 text-xl font-bold">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+                <p className="flex-1 text-gray-600">{service.description}</p>
+                <button
+                  onClick={() => openModal(service)}
+                  className="mt-4 w-full rounded-lg bg-red-300 py-3 text-white transition-colors hover:bg-red-400"
+                >
+                  詳しく見る
+                </button>
               </div>
             </motion.div>
           ))}

@@ -31,7 +31,7 @@ export default function Philosophy() {
   }
 
   return (
-    <section id="philosophy" className="py-24 lg:py-32">
+    <section id="philosophy" className="bg-white py-24 lg:py-32">
       <motion.div
         ref={ref}
         variants={containerVariants}
@@ -41,11 +41,11 @@ export default function Philosophy() {
       >
         <motion.div variants={itemVariants} className="mb-16 text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-            Philosophy
+            私たちの理念
+            <span className="mt-2 block text-base font-normal text-gray-500">
+              Philosophy
+            </span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">
-            私たちの哲学
-          </p>
         </motion.div>
 
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">

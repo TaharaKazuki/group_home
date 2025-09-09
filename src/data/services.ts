@@ -1,4 +1,4 @@
-import { Palette, Package, Home, Users } from "lucide-react"
+import { Palette, Package, Home, Users, Heart, Shield } from "lucide-react"
 
 export const servicesData = [
   {
@@ -69,6 +69,40 @@ export const servicesData = [
       "戦略策定支援",
       "実装サポート",
       "継続的改善提案",
+    ],
+  },
+  {
+    id: "care",
+    icon: Heart,
+    title: "Care",
+    description: "利用者様一人ひとりに寄り添った個別ケアサービスを提供します。",
+    image:
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop",
+    detailedDescription:
+      "経験豊富な専門スタッフが、利用者様の身体状況や生活リズムに合わせた個別のケアプランを作成し、安心・安全な日常生活をサポートします。",
+    features: [
+      "個別ケアプラン作成",
+      "日常生活支援",
+      "健康管理・服薬サポート",
+      "リハビリテーション",
+      "24時間体制サポート",
+    ],
+  },
+  {
+    id: "safety",
+    icon: Shield,
+    title: "Safety",
+    description: "最新の安全管理システムで、利用者様の安心を第一に考えます。",
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop",
+    detailedDescription:
+      "最新の見守りシステムと緊急通報システムを完備し、24時間体制で利用者様の安全を守ります。また、定期的な避難訓練や安全講習も実施しています。",
+    features: [
+      "24時間見守りシステム",
+      "緊急通報システム",
+      "防災・避難対策",
+      "セキュリティ管理",
+      "定期安全点検",
     ],
   },
 ]

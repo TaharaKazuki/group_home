@@ -74,7 +74,10 @@ export default function Topics() {
       >
         <motion.div variants={itemVariants} className="mb-16 text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-            Topics
+            お知らせ
+            <span className="mt-2 block text-base font-normal text-gray-500">
+              Topics
+            </span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">最新情報</p>
         </motion.div>
@@ -109,7 +112,7 @@ export default function Topics() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="mt-12 text-center">
-          <button className="inline-flex items-center gap-2 rounded-full bg-black px-8 py-3 text-white transition-transform hover:scale-105">
+          <button className="inline-flex items-center gap-2 rounded-full bg-red-300 px-8 py-3 text-white transition-all hover:scale-105 hover:bg-red-400">
             View All Topics
             <ArrowRight className="h-4 w-4" />
           </button>

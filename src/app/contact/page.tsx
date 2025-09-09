@@ -219,7 +219,7 @@ export default function ContactPage() {
                       "w-full rounded-lg py-3 font-medium text-white transition-colors",
                       isSubmitting
                         ? "cursor-not-allowed bg-gray-400"
-                        : "bg-black hover:bg-gray-800"
+                        : "bg-red-300 hover:bg-red-400"
                     )}
                   >
                     {isSubmitting ? "送信中..." : "送信する"}

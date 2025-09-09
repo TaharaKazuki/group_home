@@ -9,14 +9,14 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 const menuItems = [
-  { label: "Top", href: "#top" },
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "Service", href: "#service" },
-  { label: "Company", href: "#company" },
-  { label: "Stores", href: "/stores" },
-  { label: "FAQ", href: "/questions" },
-  { label: "Topics", href: "#topics" },
-  { label: "Contact", href: "/contact" },
+  { label: "ホーム", englishLabel: "Top", href: "#top" },
+  { label: "理念", englishLabel: "Philosophy", href: "#philosophy" },
+  { label: "サービス", englishLabel: "Service", href: "#service" },
+  { label: "会社概要", englishLabel: "Company", href: "#company" },
+  { label: "店舗情報", englishLabel: "Stores", href: "/stores" },
+  { label: "よくある質問", englishLabel: "FAQ", href: "/questions" },
+  { label: "お知らせ", englishLabel: "Topics", href: "#topics" },
+  { label: "お問い合わせ", englishLabel: "Contact", href: "/contact" },
 ]
 
 export default function Header() {
@@ -72,11 +72,14 @@ export default function Header() {
                 {item.href.startsWith("/") ? (
                   <Link
                     href={item.href}
-                    className="relative text-sm font-medium tracking-wide transition-colors hover:text-gray-600"
+                    className="relative flex flex-col text-sm font-medium tracking-wide transition-colors hover:text-gray-600"
                   >
-                    {item.label}
+                    <span>{item.label}</span>
+                    <span className="text-xs text-gray-400">
+                      {item.englishLabel}
+                    </span>
                     <motion.span
-                      className="absolute -bottom-1 left-0 h-[2px] w-0 bg-black"
+                      className="absolute -bottom-1 left-0 h-[2px] w-0 bg-red-300"
                       whileHover={{ width: "100%" }}
                       transition={{ duration: 0.3 }}
                     />
@@ -84,11 +87,14 @@ export default function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className="relative text-sm font-medium tracking-wide transition-colors hover:text-gray-600"
+                    className="relative flex flex-col text-sm font-medium tracking-wide transition-colors hover:text-gray-600"
                   >
-                    {item.label}
+                    <span>{item.label}</span>
+                    <span className="text-xs text-gray-400">
+                      {item.englishLabel}
+                    </span>
                     <motion.span
-                      className="absolute -bottom-1 left-0 h-[2px] w-0 bg-black"
+                      className="absolute -bottom-1 left-0 h-[2px] w-0 bg-red-300"
                       whileHover={{ width: "100%" }}
                       transition={{ duration: 0.3 }}
                     />
@@ -145,9 +151,9 @@ export default function Header() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 20 }}
-            className="fixed top-0 right-0 z-40 h-full w-full bg-white sm:w-80"
+            className="fixed top-0 right-0 z-40 h-full w-full overflow-y-auto bg-white sm:w-80"
           >
-            <ul className="flex flex-col gap-2 p-12 pt-24">
+            <ul className="flex flex-col gap-2 p-12 pt-24 pb-12">
               {menuItems.map((item, index) => (
                 <motion.li
                   key={item.label}
@@ -159,17 +165,23 @@ export default function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="block py-3 text-2xl font-medium tracking-wide transition-colors hover:text-gray-600"
+                      className="flex flex-col py-3 text-2xl font-medium tracking-wide transition-colors hover:text-gray-600"
                     >
-                      {item.label}
+                      <span>{item.label}</span>
+                      <span className="text-sm text-gray-400">
+                        {item.englishLabel}
+                      </span>
                     </Link>
                   ) : (
                     <a
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="block py-3 text-2xl font-medium tracking-wide transition-colors hover:text-gray-600"
+                      className="flex flex-col py-3 text-2xl font-medium tracking-wide transition-colors hover:text-gray-600"
                     >
-                      {item.label}
+                      <span>{item.label}</span>
+                      <span className="text-sm text-gray-400">
+                        {item.englishLabel}
+                      </span>
                     </a>
                   )}
                 </motion.li>

@@ -133,7 +133,7 @@ export default function StoresPage() {
                     <div className="mt-6">
                       <Link
                         href={`/stores/${store.id}`}
-                        className="inline-block w-full rounded-lg bg-black py-3 text-center text-white transition-colors hover:bg-gray-800"
+                        className="inline-block w-full rounded-lg bg-red-300 py-3 text-center text-white transition-colors hover:bg-red-400"
                       >
                         詳細を見る
                       </Link>
@@ -155,7 +155,7 @@ export default function StoresPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-block rounded-lg bg-black px-8 py-4 text-white transition-all hover:bg-gray-800 hover:shadow-lg"
+                className="inline-block rounded-lg bg-red-300 px-8 py-4 text-white transition-all hover:bg-red-400 hover:shadow-lg"
               >
                 見学のお申し込み
               </Link>

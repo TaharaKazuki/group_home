@@ -92,7 +92,7 @@ export default function QuestionsPage() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-block rounded-lg bg-black px-6 py-3 text-white transition-colors hover:bg-gray-800"
+                  className="inline-block rounded-lg bg-red-300 px-6 py-3 text-white transition-colors hover:bg-red-400"
                 >
                   フォームで問い合わせ
                 </Link>
