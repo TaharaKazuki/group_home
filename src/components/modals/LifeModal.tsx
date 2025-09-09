@@ -156,7 +156,7 @@ export default function LifeModal({
             </button>
 
             {/* Scrollable Content */}
-            <div className="max-h-[90vh] overflow-y-auto relative">
+            <div className="relative max-h-[90vh] overflow-y-auto">
               {/* Header */}
               <div className="relative h-64 overflow-hidden">
                 <Image
