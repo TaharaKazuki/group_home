@@ -101,7 +101,7 @@ export default function Services() {
                 </p>
                 <button
                   onClick={() => openModal(service)}
-                  className="mt-4 w-full rounded-lg bg-red-300 py-3 text-white transition-colors hover:bg-red-400"
+                  className="mt-4 w-full cursor-pointer rounded-full bg-red-300 py-3 text-white transition-colors hover:bg-red-400"
                 >
                   詳しく見る
                 </button>

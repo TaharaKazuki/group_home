@@ -16,7 +16,7 @@ const menuItems = [
   { label: "会社概要", englishLabel: "Company", href: "/#company" },
   { label: "店舗情報", englishLabel: "Stores", href: "/stores" },
   { label: "よくある質問", englishLabel: "FAQ", href: "/questions" },
-  { label: "お知らせ", englishLabel: "Topics", href: "/#topics" },
+  // { label: "お知らせ", englishLabel: "Topics", href: "/#topics" }, // Micro CMSできたら追加する
 ]
 
 const contactButton = {
@@ -121,7 +121,7 @@ export default function Header() {
             >
               <Link
                 href={contactButton.href}
-                className={`${colors.primaryClass} hover:${colors.primaryHoverClass} rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors`}
+                className={`${colors.primaryClass} hover:${colors.primaryHoverClass} rounded-full px-4 py-2 text-sm font-medium text-white transition-colors`}
               >
                 {contactButton.label}
               </Link>

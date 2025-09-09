@@ -8,7 +8,6 @@ import Company from "@/components/sections/Company"
 import HeroSlider from "@/components/sections/HeroSlider"
 import Philosophy from "@/components/sections/Philosophy"
 import Services from "@/components/sections/Services"
-import Topics from "@/components/sections/Topics"
 
 export default function Home() {
   useEffect(() => {
@@ -41,7 +40,7 @@ export default function Home() {
         <Philosophy />
         <Services />
         <Company />
-        <Topics />
+        {/* <Topics /> */}
       </main>
       <Footer />
     </>
