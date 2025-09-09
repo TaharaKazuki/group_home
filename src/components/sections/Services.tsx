@@ -1,39 +1,27 @@
 "use client"
 
 import { motion, Variants } from "framer-motion"
-import { Palette, Package, Home } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
 
+import ServiceModal from "@/components/modals/ServiceModal"
+import { servicesData } from "@/data/services"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
-
-const services = [
-  {
-    icon: Palette,
-    title: "Design",
-    description:
-      "革新的なデザインソリューションを提供し、ブランド価値を最大化します。",
-    image:
-      "https://images.unsplash.com/photo-1509087859087-a384654eca4d?w=600&h=400&fit=crop",
-  },
-  {
-    icon: Package,
-    title: "Production",
-    description: "最高品質の素材と熟練の技術で、理想を形にします。",
-    image:
-      "https://images.unsplash.com/photo-1452457807411-4979b707c5be?w=600&h=400&fit=crop",
-  },
-  {
-    icon: Home,
-    title: "Interior",
-    description:
-      "空間全体をコーディネートし、統一感のある美しい環境を創造します。",
-    image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
-  },
-]
 
 export default function Services() {
   const { ref, controls } = useScrollAnimation()
+  const [selectedService, setSelectedService] = useState<typeof servicesData[0] | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const openModal = (service: typeof servicesData[0]) => {
+    setSelectedService(service)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setSelectedService(null)
+  }
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -75,12 +63,13 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {servicesData.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
               whileHover={{ y: -10 }}
+              onClick={() => openModal(service)}
               className="group cursor-pointer overflow-hidden rounded-lg bg-white shadow-lg transition-shadow hover:shadow-xl"
             >
               <div className="relative h-48 overflow-hidden">
@@ -104,6 +93,12 @@ export default function Services() {
           ))}
         </div>
       </motion.div>
+
+      <ServiceModal
+        service={selectedService}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </section>
   )
 }
