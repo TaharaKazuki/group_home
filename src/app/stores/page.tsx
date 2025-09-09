@@ -11,6 +11,7 @@ import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
 import { Button } from "@/components/ui/Button"
 import { storesData } from "@/data/stores"
+import { colors } from "@/lib/colors"
 
 export default function StoresPage() {
   const [isMounted, setIsMounted] = useState(false)
@@ -57,7 +58,7 @@ export default function StoresPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-gray-600 transition-colors hover:text-gray-900"
+              className={`inline-flex items-center gap-2 ${colors.textDark} transition-colors hover:text-gray-500`}
             >
               <ArrowLeft className="h-4 w-4" />
               トップページに戻る
@@ -74,11 +75,13 @@ export default function StoresPage() {
               variants={isMounted ? itemVariants : undefined}
               className="mb-12 text-center"
             >
-              <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
+              <h1
+                className={`mb-4 text-4xl font-bold tracking-tight md:text-5xl ${colors.textDark}`}
+              >
                 Stores
               </h1>
-              <p className="text-lg text-gray-600">店舗一覧</p>
-              <p className="mx-auto mt-4 max-w-2xl text-gray-700">
+              <p className={`text-lg ${colors.textDark}`}>店舗一覧</p>
+              <p className={`mx-auto mt-4 max-w-2xl ${colors.textDark}`}>
                 IXIA Group Homeでは、東京都内に3つの店舗を展開しています。
                 各店舗それぞれに特色があり、利用者様のニーズに合わせた環境を提供しています。
               </p>
@@ -89,7 +92,7 @@ export default function StoresPage() {
                 <MotionDiv
                   key={store.id}
                   variants={isMounted ? itemVariants : undefined}
-                  className="overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 hover:shadow-xl"
+                  className="flex flex-col overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 hover:shadow-xl"
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image
@@ -104,13 +107,17 @@ export default function StoresPage() {
                     </div>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="mb-2 text-xl font-bold text-gray-900">
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className={`mb-2 text-xl font-bold ${colors.textDark}`}>
                       {store.name}
                     </h3>
-                    <p className="mb-4 text-gray-600">{store.description}</p>
+                    <p className={`mb-4 ${colors.textDark}`}>
+                      {store.description}
+                    </p>
 
-                    <div className="space-y-2 text-sm text-gray-600">
+                    <div
+                      className={`space-y-2 text-sm ${colors.textDark} flex-1`}
+                    >
                       <div className="flex items-center gap-2">
                         <MapPin className="h-4 w-4" />
                         <span>{store.address}</span>
@@ -132,7 +139,11 @@ export default function StoresPage() {
                     </div>
 
                     <div className="mt-6">
-                      <Button asChild variant="primary" className="w-full">
+                      <Button
+                        asChild
+                        variant="primary"
+                        className="w-full rounded-full"
+                      >
                         <Link href={`/stores/${store.id}`}>詳細を見る</Link>
                       </Button>
                     </div>
@@ -140,21 +151,6 @@ export default function StoresPage() {
                 </MotionDiv>
               ))}
             </div>
-
-            {/* Contact CTA */}
-            <MotionDiv
-              variants={isMounted ? itemVariants : undefined}
-              className="mt-16 rounded-lg bg-gradient-to-r from-gray-50 to-gray-100 p-8 text-center"
-            >
-              <h2 className="mb-4 text-2xl font-bold">店舗見学のお申し込み</h2>
-              <p className="mb-6 text-gray-600">
-                各店舗の見学をご希望の方は、事前にお申し込みください。
-                スタッフが丁寧にご案内いたします。
-              </p>
-              <Button asChild variant="primary" size="lg">
-                <Link href="/contact">見学のお申し込み</Link>
-              </Button>
-            </MotionDiv>
           </MotionDiv>
         </div>
       </main>

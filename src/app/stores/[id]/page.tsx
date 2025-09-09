@@ -19,6 +19,7 @@ import { notFound } from "next/navigation"
 import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
 import { getStoreById } from "@/data/stores"
+import { colors } from "@/lib/colors"
 
 interface StorePageProps {
   params: Promise<{
@@ -76,7 +77,7 @@ export default function StorePage({ params }: StorePageProps) {
           >
             <Link
               href="/stores"
-              className="inline-flex items-center gap-2 text-gray-600 transition-colors hover:text-gray-900"
+              className={`inline-flex items-center gap-2 ${colors.textDark} transition-colors hover:text-gray-500`}
             >
               <ArrowLeft className="h-4 w-4" />
               店舗一覧に戻る
@@ -119,102 +120,172 @@ export default function StorePage({ params }: StorePageProps) {
           className="container mx-auto px-6 py-16 lg:px-12"
         >
           <div className="mx-auto max-w-6xl">
-            {/* Store Info */}
-            <div className="mb-16 grid gap-12 lg:grid-cols-2">
-              <MotionDiv variants={isMounted ? itemVariants : undefined}>
-                <h2 className="mb-6 text-3xl font-bold">施設概要</h2>
-                <p className="mb-6 text-lg leading-relaxed text-gray-700">
+            {/* Store Overview */}
+            <MotionDiv
+              variants={isMounted ? itemVariants : undefined}
+              className="mb-16"
+            >
+              <div className="rounded-2xl bg-gradient-to-r from-red-50 to-red-100/50 p-8 lg:p-12">
+                <h2 className={`mb-6 text-3xl font-bold ${colors.textDark}`}>
+                  施設概要
+                </h2>
+                <p
+                  className={`mb-8 text-lg leading-relaxed ${colors.textDark}`}
+                >
                   {store.detailedDescription}
                 </p>
 
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 rounded-lg bg-gray-50 p-4">
-                    <MapPin className="h-5 w-5 text-gray-600" />
-                    <div>
-                      <p className="font-medium">住所</p>
-                      <p className="text-gray-600">{store.address}</p>
+                {/* Contact Info Grid */}
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="flex items-center gap-3 rounded-xl bg-white/80 p-4 shadow-sm">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-300">
+                      <MapPin className="h-5 w-5 text-white" />
                     </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 rounded-lg bg-gray-50 p-4">
-                    <Phone className="h-5 w-5 text-gray-600" />
                     <div>
-                      <p className="font-medium">電話番号</p>
-                      <p className="text-gray-600">{store.phone}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 rounded-lg bg-gray-50 p-4">
-                    <Mail className="h-5 w-5 text-gray-600" />
-                    <div>
-                      <p className="font-medium">メールアドレス</p>
-                      <p className="text-gray-600">{store.email}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 rounded-lg bg-gray-50 p-4">
-                    <Clock className="h-5 w-5 text-gray-600" />
-                    <div>
-                      <p className="font-medium">営業時間</p>
-                      <p className="text-gray-600">
-                        {store.openingHours}（{store.closedDays}定休）
+                      <p
+                        className={`text-sm font-medium ${colors.textDark} opacity-80`}
+                      >
+                        住所
+                      </p>
+                      <p className={`text-sm ${colors.textDark}`}>
+                        {store.address}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 rounded-lg bg-gray-50 p-4">
-                    <Users className="h-5 w-5 text-gray-600" />
+                  <div className="flex items-center gap-3 rounded-xl bg-white/80 p-4 shadow-sm">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-300">
+                      <Phone className="h-5 w-5 text-white" />
+                    </div>
                     <div>
-                      <p className="font-medium">定員</p>
-                      <p className="text-gray-600">{store.capacity}名</p>
+                      <p
+                        className={`text-sm font-medium ${colors.textDark} opacity-80`}
+                      >
+                        電話番号
+                      </p>
+                      <p className={`text-sm ${colors.textDark}`}>
+                        {store.phone}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 rounded-xl bg-white/80 p-4 shadow-sm">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-300">
+                      <Clock className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <p
+                        className={`text-sm font-medium ${colors.textDark} opacity-80`}
+                      >
+                        営業時間
+                      </p>
+                      <p className={`text-sm ${colors.textDark}`}>
+                        {store.openingHours}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 rounded-xl bg-white/80 p-4 shadow-sm">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-300">
+                      <Users className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <p
+                        className={`text-sm font-medium ${colors.textDark} opacity-80`}
+                      >
+                        定員
+                      </p>
+                      <p className={`text-sm ${colors.textDark}`}>
+                        {store.capacity}名
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 rounded-xl bg-white/80 p-4 shadow-sm">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-300">
+                      <Mail className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <p
+                        className={`text-sm font-medium ${colors.textDark} opacity-80`}
+                      >
+                        メール
+                      </p>
+                      <p className={`text-sm ${colors.textDark}`}>
+                        {store.email}
+                      </p>
                     </div>
                   </div>
                 </div>
-              </MotionDiv>
+              </div>
+            </MotionDiv>
 
-              <MotionDiv variants={isMounted ? itemVariants : undefined}>
-                <h2 className="mb-6 text-3xl font-bold">特徴・サービス</h2>
-                <div className="grid gap-4">
-                  {store.features.map((feature, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start gap-4 rounded-lg bg-white p-4 shadow-md"
-                    >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
-                        <feature.icon className="h-6 w-6 text-blue-600" />
+            {/* Features Section */}
+            <MotionDiv
+              variants={isMounted ? itemVariants : undefined}
+              className="mb-16"
+            >
+              <h2
+                className={`mb-8 text-center text-3xl font-bold ${colors.textDark}`}
+              >
+                特徴・サービス
+              </h2>
+              <div className="grid gap-6 lg:grid-cols-2">
+                {store.features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="group rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-red-300 transition-colors group-hover:bg-red-400">
+                        <feature.icon className="h-7 w-7 text-white" />
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">
+                      <div className="flex-1">
+                        <h3
+                          className={`mb-2 text-lg font-semibold ${colors.textDark}`}
+                        >
                           {feature.name}
                         </h3>
-                        <p className="text-gray-600">{feature.description}</p>
+                        <p
+                          className={`text-sm leading-relaxed ${colors.textDark} opacity-80`}
+                        >
+                          {feature.description}
+                        </p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </MotionDiv>
-            </div>
+                  </div>
+                ))}
+              </div>
+            </MotionDiv>
 
             {/* Facilities */}
             <MotionDiv
               variants={isMounted ? itemVariants : undefined}
               className="mb-16"
             >
-              <h2 className="mb-6 text-3xl font-bold">施設・設備</h2>
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {store.facilities.map((facility, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-3 rounded-lg bg-gray-50 p-4"
-                  >
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-100">
-                      <Check className="h-4 w-4 text-green-600" />
+              <h2
+                className={`mb-8 text-center text-3xl font-bold ${colors.textDark}`}
+              >
+                施設・設備
+              </h2>
+              <div className="rounded-2xl bg-white p-8 shadow-lg">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {store.facilities.map((facility, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 rounded-lg p-3 transition-colors hover:bg-red-50"
+                    >
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-red-300">
+                        <Check className="h-4 w-4 text-white" />
+                      </div>
+                      <span
+                        className={`text-sm font-medium ${colors.textDark}`}
+                      >
+                        {facility}
+                      </span>
                     </div>
-                    <span className="font-medium text-gray-800">
-                      {facility}
-                    </span>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </MotionDiv>
 
@@ -223,18 +294,29 @@ export default function StorePage({ params }: StorePageProps) {
               variants={isMounted ? itemVariants : undefined}
               className="mb-16"
             >
-              <h2 className="mb-6 text-3xl font-bold">スタッフ紹介</h2>
-              <div className="grid gap-6 md:grid-cols-2">
+              <h2
+                className={`mb-8 text-center text-3xl font-bold ${colors.textDark}`}
+              >
+                スタッフ紹介
+              </h2>
+              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {store.staff.map((member, index) => (
                   <div
                     key={index}
-                    className="rounded-lg bg-white p-6 shadow-md"
+                    className="group rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
-                    <h3 className="text-xl font-bold text-gray-900">
+                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-300 text-2xl font-bold text-white">
+                      {member.name.charAt(0)}
+                    </div>
+                    <h3 className={`mb-1 text-lg font-bold ${colors.textDark}`}>
                       {member.name}
                     </h3>
-                    <p className="text-blue-600">{member.position}</p>
-                    <div className="mt-3 space-y-1 text-sm text-gray-600">
+                    <p className="mb-3 font-medium text-red-400">
+                      {member.position}
+                    </p>
+                    <div
+                      className={`space-y-1 text-sm ${colors.textDark} opacity-80`}
+                    >
                       <p>経験年数: {member.experience}</p>
                       <p>専門分野: {member.speciality}</p>
                     </div>
@@ -246,25 +328,21 @@ export default function StorePage({ params }: StorePageProps) {
             {/* CTA Section */}
             <MotionDiv
               variants={isMounted ? itemVariants : undefined}
-              className="rounded-lg bg-gradient-to-r from-gray-50 to-gray-100 p-8 text-center"
+              className="rounded-2xl bg-gradient-to-r from-red-50 via-red-100/80 to-red-50 p-10 text-center"
             >
-              <h2 className="mb-4 text-2xl font-bold">見学・お問い合わせ</h2>
-              <p className="mb-6 text-gray-600">
+              <h2 className={`mb-4 text-3xl font-bold ${colors.textDark}`}>
+                見学・お問い合わせ
+              </h2>
+              <p className={`mb-8 text-lg ${colors.textDark} opacity-90`}>
                 {store.name}
                 の見学や詳しい情報をご希望の方は、お気軽にお問い合わせください。
-                専門スタッフが丁寧にご説明いたします。
               </p>
               <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
                 <Link
-                  href={`tel:${store.phone}`}
-                  className="inline-block rounded-lg bg-blue-600 px-6 py-3 text-white transition-colors hover:bg-blue-700"
-                >
-                  電話で問い合わせ
-                </Link>
-                <Link
                   href="/contact"
-                  className="inline-block rounded-lg bg-red-300 px-6 py-3 text-white transition-colors hover:bg-red-400"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-red-300 bg-white px-8 py-4 font-semibold text-red-400 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-red-300 hover:text-white hover:shadow-xl"
                 >
+                  <Mail className="h-5 w-5" />
                   フォームで問い合わせ
                 </Link>
               </div>
