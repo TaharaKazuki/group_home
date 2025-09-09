@@ -1,99 +1,62 @@
 "use client"
 
-import { motion } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
+import { FaFacebook, FaInstagram } from "react-icons/fa"
 
-const footerLinks = [
-  {
-    title: "Company",
-    links: ["About", "Philosophy", "History", "Team"],
-  },
-  {
-    title: "Services",
-    links: ["Design", "Production", "Interior", "Consulting"],
-  },
-  {
-    title: "Support",
-    links: [
-      { label: "Contact", href: "/contact" } as const,
-      "FAQ",
-      "Privacy Policy",
-      "Terms",
-    ] as const,
-  },
-] as const
+import { LINKS } from "@/constant"
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-black text-white">
-      <div className="container mx-auto px-6 py-16 lg:px-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold">IXIA</h3>
-            <p className="text-sm text-gray-400">
-              Creating beautiful spaces and products that inspire daily living.
-            </p>
-          </div>
-
-          {footerLinks.map((group) => (
-            <div key={group.title} className="space-y-4">
-              <h4 className="font-medium">{group.title}</h4>
-              <ul className="space-y-2">
-                {group.links.map((link) => (
-                  <li key={typeof link === "string" ? link : link.label}>
-                    {typeof link === "object" ? (
-                      <motion.div whileHover={{ x: 2 }}>
-                        <Link
-                          href={link.href}
-                          className="text-sm text-gray-400 transition-colors hover:text-white"
-                        >
-                          {link.label}
-                        </Link>
-                      </motion.div>
-                    ) : (
-                      <motion.a
-                        href="#"
-                        className="text-sm text-gray-400 transition-colors hover:text-white"
-                        whileHover={{ x: 2 }}
-                      >
-                        {link}
-                      </motion.a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
+    <footer className="flex flex-row items-center justify-center py-14">
+      <div className="flex flex-col items-center justify-center">
+        <Image
+          src="/assets/footer/footer_logo.svg"
+          alt="IXIA Logo"
+          width={200}
+          height={100}
+          priority
+          className="h-16 w-32 object-contain md:h-[100px] md:w-[200px]"
+        />
+        {/* address */}
+        <div className="mt-5 flex flex-col items-center text-xs">
+          <p>Tel. 090-0000-0000</p>
+        </div>
+        {/* social */}
+        <ul className="mt-5 flex flex-row gap-3">
+          <li>
+            <Link
+              href="#"
+              className="text-gray-600 transition-colors hover:text-gray-900"
+            >
+              <FaFacebook className="h-5 w-5" />
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://www.instagram.com/ikisia_group_home/"
+              className="text-gray-600 transition-colors hover:text-gray-900"
+            >
+              <FaInstagram className="h-5 w-5" />
+            </Link>
+          </li>
+        </ul>
+        {/* links */}
+        <ul className="flex flex-col gap-3 py-12 text-center lg:flex-row lg:gap-9 lg:py-16">
+          {LINKS.map((link, i) => (
+            <li key={i}>
+              <Link href={link.href}>
+                <span className="relative cursor-pointer text-xs underline-offset-4 before:absolute before:bottom-[-4px] before:left-0 before:h-[2px] before:w-0 before:bg-red-300 before:content-[''] lg:transition-colors lg:duration-300 lg:before:transition-all lg:before:duration-300 lg:hover:text-red-300 lg:hover:underline-offset-0 lg:hover:before:w-full">
+                  {link.name}
+                </span>
+              </Link>
+            </li>
           ))}
-        </div>
-
-        <div className="mt-12 border-t border-gray-800 pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-gray-400">
-              © 2024 IXIA. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <a
-                href="#"
-                className="text-gray-400 transition-colors hover:text-white"
-              >
-                Instagram
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 transition-colors hover:text-white"
-              >
-                Twitter
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 transition-colors hover:text-white"
-              >
-                Facebook
-              </a>
-            </div>
-          </div>
-        </div>
+        </ul>
+        <p className="text-[2vw] lg:text-[10px]">© 2024 IXIA group home</p>
       </div>
     </footer>
   )
 }
+
+export default Footer
