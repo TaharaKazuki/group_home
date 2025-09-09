@@ -114,7 +114,7 @@ export default function PrivacyPolicyPage() {
             className="mx-auto max-w-4xl"
           >
             <motion.div variants={itemVariants} className="mb-12 text-center">
-              <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
+              <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-700 md:text-5xl">
                 Privacy Policy
               </h1>
               <p className="text-lg text-gray-600">プライバシーポリシー</p>
@@ -160,7 +160,7 @@ export default function PrivacyPolicyPage() {
 
             <motion.div
               variants={itemVariants}
-              className="mt-12 rounded-lg bg-blue-50 p-6"
+              className="mt-12 rounded-lg bg-red-50 p-6"
             >
               <p className="text-center text-sm text-gray-600">
                 本プライバシーポリシーの内容は予告なく変更することがあります。
