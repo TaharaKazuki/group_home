@@ -20,7 +20,7 @@ export default function DesktopHeader() {
             {item.href.startsWith("/") ? (
               <Link
                 href={item.href}
-                className="relative flex flex-col text-sm font-medium tracking-wide transition-colors hover:text-gray-600"
+                className="relative flex flex-col text-sm font-medium tracking-wide text-gray-700 transition-colors hover:text-red-300"
               >
                 <span>{item.label}</span>
                 <motion.span
