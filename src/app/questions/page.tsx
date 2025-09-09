@@ -68,36 +68,6 @@ export default function QuestionsPage() {
                 />
               ))}
             </motion.section>
-
-            {/* Contact CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 rounded-lg bg-gradient-to-r from-gray-50 to-gray-100 p-8 text-center"
-            >
-              <h2 className="mb-4 text-2xl font-bold">
-                その他のご質問はお気軽にお問い合わせください
-              </h2>
-              <p className="mb-6 text-gray-600">
-                こちらに掲載されていないご質問や、より詳しい情報をお求めの方は、
-                お電話またはフォームからお問い合わせください。
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-                <Link
-                  href="tel:090-0000-0000"
-                  className="inline-block rounded-lg bg-blue-600 px-6 py-3 text-white transition-colors hover:bg-blue-700"
-                >
-                  電話で問い合わせ
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-block rounded-lg bg-red-300 px-6 py-3 text-white transition-colors hover:bg-red-400"
-                >
-                  フォームで問い合わせ
-                </Link>
-              </div>
-            </motion.div>
           </div>
         </div>
       </main>

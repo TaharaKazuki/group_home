@@ -6,6 +6,7 @@ import { motion, Variants } from "framer-motion"
 import Image from "next/image"
 
 import ServiceModal from "@/components/modals/ServiceModal"
+import { Button } from "@/components/ui/Button"
 import { servicesData } from "@/data/services"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { colors } from "@/lib/colors"
@@ -99,12 +100,13 @@ export default function Services() {
                 <p className={`flex-1 ${colors.textDark}`}>
                   {service.description}
                 </p>
-                <button
+                <Button
                   onClick={() => openModal(service)}
-                  className="mt-4 w-full cursor-pointer rounded-full bg-red-300 py-3 text-white transition-colors hover:bg-red-400"
+                  variant="primary"
+                  className="mt-4 w-full cursor-pointer rounded-full"
                 >
                   詳しく見る
-                </button>
+                </Button>
               </div>
             </motion.div>
           ))}

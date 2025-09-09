@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form"
 
 import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
+import { Button } from "@/components/ui/Button"
 import { cn } from "@/lib/utils"
 import {
   contactFormSchema,
@@ -210,20 +211,19 @@ export default function ContactPage() {
                     )}
                   </div>
 
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
+                  <motion.div
                     whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                     whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                    className={cn(
-                      "w-full rounded-lg py-3 font-medium text-white transition-colors",
-                      isSubmitting
-                        ? "cursor-not-allowed bg-gray-400"
-                        : "bg-red-300 hover:bg-red-400"
-                    )}
                   >
-                    {isSubmitting ? "送信中..." : "送信する"}
-                  </motion.button>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      variant={isSubmitting ? "secondary" : "primary"}
+                      className="w-full"
+                    >
+                      {isSubmitting ? "送信中..." : "送信する"}
+                    </Button>
+                  </motion.div>
                 </form>
               </motion.div>
             </div>

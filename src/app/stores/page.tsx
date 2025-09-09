@@ -9,6 +9,7 @@ import Link from "next/link"
 
 import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
+import { Button } from "@/components/ui/Button"
 import { storesData } from "@/data/stores"
 
 export default function StoresPage() {
@@ -131,12 +132,9 @@ export default function StoresPage() {
                     </div>
 
                     <div className="mt-6">
-                      <Link
-                        href={`/stores/${store.id}`}
-                        className="inline-block w-full rounded-lg bg-red-300 py-3 text-center text-white transition-colors hover:bg-red-400"
-                      >
-                        詳細を見る
-                      </Link>
+                      <Button asChild variant="primary" className="w-full">
+                        <Link href={`/stores/${store.id}`}>詳細を見る</Link>
+                      </Button>
                     </div>
                   </div>
                 </MotionDiv>
@@ -153,12 +151,9 @@ export default function StoresPage() {
                 各店舗の見学をご希望の方は、事前にお申し込みください。
                 スタッフが丁寧にご案内いたします。
               </p>
-              <Link
-                href="/contact"
-                className="inline-block rounded-lg bg-red-300 px-8 py-4 text-white transition-all hover:bg-red-400 hover:shadow-lg"
-              >
-                見学のお申し込み
-              </Link>
+              <Button asChild variant="primary" size="lg">
+                <Link href="/contact">見学のお申し込み</Link>
+              </Button>
             </MotionDiv>
           </MotionDiv>
         </div>
