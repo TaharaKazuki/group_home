@@ -40,12 +40,12 @@ export default function Philosophy() {
         animate={controls}
         className="container mx-auto px-6 lg:px-12"
       >
-        <motion.div variants={itemVariants} className="mb-16 text-center">
+        <motion.div variants={itemVariants} className="mb-12">
           <h2
-            className={`mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl ${colors.textDark}`}
+            className={`mb-4 text-2xl font-bold tracking-tight md:text-3xl ${colors.textDark}`}
           >
             私たちの理念
-            <span className="mt-2 block text-base font-normal text-gray-500">
+            <span className="mt-1 block text-sm font-normal text-gray-500">
               Philosophy
             </span>
           </h2>
