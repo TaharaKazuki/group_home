@@ -87,7 +87,7 @@ export default function StorePage({ params }: StorePageProps) {
 
         {/* Hero Section with Square Image */}
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex flex-col items-center gap-8 py-12 lg:flex-row lg:items-start lg:gap-12">
+          <div className="flex flex-col items-center gap-8 pt-12 lg:flex-row lg:items-start lg:gap-12">
             {/* Square Image */}
             <MotionDiv
               initial={isMounted ? { opacity: 0, scale: 0.95 } : undefined}
@@ -149,7 +149,7 @@ export default function StorePage({ params }: StorePageProps) {
           variants={isMounted ? containerVariants : undefined}
           initial={isMounted ? "hidden" : undefined}
           animate={isMounted ? "visible" : undefined}
-          className="container mx-auto px-6 py-16 lg:px-12"
+          className="container mx-auto px-6 py-6 lg:px-12 lg:py-16"
         >
           <div className="mx-auto max-w-6xl">
             {/* Store Overview */}

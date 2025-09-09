@@ -59,7 +59,7 @@ export default function Company() {
           </h2>
         </motion.div>
 
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto">
           <motion.div
             variants={containerVariants}
             className="grid gap-8 md:grid-cols-2"

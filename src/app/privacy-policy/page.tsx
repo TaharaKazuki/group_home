@@ -115,9 +115,9 @@ export default function PrivacyPolicyPage() {
           >
             <motion.div variants={itemVariants} className="mb-12 text-center">
               <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-700 md:text-5xl">
-                Privacy Policy
+                プライバシーポリシー
               </h1>
-              <p className="text-lg text-gray-600">プライバシーポリシー</p>
+              <p className="text-lg text-gray-600">Privacy Policy</p>
             </motion.div>
 
             <motion.div

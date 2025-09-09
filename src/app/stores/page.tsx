@@ -73,15 +73,15 @@ export default function StoresPage() {
           >
             <MotionDiv
               variants={isMounted ? itemVariants : undefined}
-              className="mb-12 text-center"
+              className="mb-12"
             >
               <h1
-                className={`mb-4 text-4xl font-bold tracking-tight md:text-5xl ${colors.textDark}`}
+                className={`mb-4 text-4xl font-bold tracking-tight md:text-3xl ${colors.textDark}`}
               >
-                Stores
+                店舗一覧
               </h1>
-              <p className={`text-lg ${colors.textDark}`}>店舗一覧</p>
-              <p className={`mx-auto mt-4 max-w-3xl ${colors.textDark}`}>
+              <p className={`text-sm ${colors.textDark}`}>Stores</p>
+              <p className={`mt-4 max-w-3xl ${colors.textDark}`}>
                 IXIA Group Homeでは、東京都内に3つの店舗を展開しています。
                 <br />
                 各店舗それぞれに特色があり、
@@ -190,7 +190,7 @@ export default function StoresPage() {
                         </div>
 
                         {/* Button */}
-                        <div className="flex justify-end">
+                        <div className="flex justify-center lg:justify-end">
                           <Button
                             asChild
                             variant="primary"
