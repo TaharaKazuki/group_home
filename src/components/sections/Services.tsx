@@ -2,17 +2,14 @@
 
 import { useState } from "react"
 
-import { motion, Variants } from "framer-motion"
 import Image from "next/image"
 
 import ServiceModal from "@/components/modals/ServiceModal"
 import { Button } from "@/components/ui/Button"
 import { servicesData } from "@/data/services"
-import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { colors } from "@/lib/colors"
 
 export default function Services() {
-  const { ref, controls } = useScrollAnimation()
   const [selectedService, setSelectedService] = useState<
     (typeof servicesData)[0] | null
   >(null)
@@ -28,38 +25,10 @@ export default function Services() {
     setSelectedService(null)
   }
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut" as const,
-      },
-    },
-  }
-
   return (
     <section id="service" className="bg-gray-50 py-24 lg:py-32">
-      <motion.div
-        ref={ref}
-        variants={containerVariants}
-        initial="hidden"
-        animate={controls}
-        className="container mx-auto px-6 lg:px-12"
-      >
-        <motion.div variants={itemVariants} className="mb-12">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="mb-12">
           <h2
             className={`mb-4 text-2xl font-bold tracking-tight md:text-3xl ${colors.textDark}`}
           >
@@ -71,13 +40,12 @@ export default function Services() {
           <p className={`max-w-2xl text-base ${colors.textDark}`}>
             私たちが提供するサービス
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {servicesData.map((service) => (
-            <motion.div
+            <div
               key={service.title}
-              variants={itemVariants}
               className="flex flex-col overflow-hidden rounded-lg bg-white shadow-lg"
             >
               <div className="relative h-48 overflow-hidden">
@@ -108,10 +76,10 @@ export default function Services() {
                   詳しく見る
                 </Button>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </div>
 
       <ServiceModal
         service={selectedService}

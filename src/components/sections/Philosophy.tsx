@@ -32,7 +32,7 @@ export default function Philosophy() {
   }
 
   return (
-    <section id="philosophy" className="bg-white py-24 lg:py-32">
+    <section id="about" className="bg-white py-24 lg:py-32">
       <motion.div
         ref={ref}
         variants={containerVariants}
@@ -44,9 +44,9 @@ export default function Philosophy() {
           <h2
             className={`mb-4 text-2xl font-bold tracking-tight md:text-3xl ${colors.textDark}`}
           >
-            私たちの理念
+            私たちについて
             <span className="mt-1 block text-sm font-normal text-gray-500">
-              Philosophy
+              About
             </span>
           </h2>
         </motion.div>

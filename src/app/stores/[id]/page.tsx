@@ -85,31 +85,63 @@ export default function StorePage({ params }: StorePageProps) {
           </MotionDiv>
         </div>
 
-        {/* Hero Section */}
-        <div className="relative h-96 overflow-hidden">
-          {store.image && (
-            <Image
-              src={store.image}
-              alt={store.name}
-              fill
-              className="object-cover"
-              priority
-            />
-          )}
-          <div className="absolute inset-0 bg-black/40" />
-          <MotionDiv
-            initial={isMounted ? { opacity: 0, y: 30 } : undefined}
-            animate={isMounted ? { opacity: 1, y: 0 } : undefined}
-            transition={isMounted ? { duration: 0.8 } : undefined}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <div className="text-center text-white">
-              <h1 className="text-4xl font-bold md:text-5xl lg:text-6xl">
+        {/* Hero Section with Square Image */}
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="flex flex-col items-center gap-8 py-12 lg:flex-row lg:items-start lg:gap-12">
+            {/* Square Image */}
+            <MotionDiv
+              initial={isMounted ? { opacity: 0, scale: 0.95 } : undefined}
+              animate={isMounted ? { opacity: 1, scale: 1 } : undefined}
+              transition={isMounted ? { duration: 0.8 } : undefined}
+              className="relative h-80 w-80 flex-shrink-0 overflow-hidden rounded-2xl shadow-2xl lg:h-96 lg:w-96"
+            >
+              {store.image && (
+                <Image
+                  src={store.image}
+                  alt={store.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            </MotionDiv>
+
+            {/* Store Info */}
+            <MotionDiv
+              initial={isMounted ? { opacity: 0, x: 30 } : undefined}
+              animate={isMounted ? { opacity: 1, x: 0 } : undefined}
+              transition={isMounted ? { duration: 0.8, delay: 0.2 } : undefined}
+              className="flex-1 text-center lg:pt-8 lg:text-left"
+            >
+              <h1
+                className={`mb-4 text-4xl font-bold md:text-5xl ${colors.textDark}`}
+              >
                 {store.name}
               </h1>
-              <p className="mt-4 text-lg opacity-90">{store.description}</p>
-            </div>
-          </MotionDiv>
+              <p
+                className={`mb-6 text-lg leading-relaxed ${colors.textDark} opacity-90`}
+              >
+                {store.description}
+              </p>
+
+              {/* Quick Info */}
+              <div className="inline-flex flex-wrap gap-4 rounded-xl bg-red-50 p-4">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-5 w-5 text-red-400" />
+                  <span className={`text-sm font-medium ${colors.textDark}`}>
+                    {store.address.split("　")[0]}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="h-5 w-5 text-red-400" />
+                  <span className={`text-sm font-medium ${colors.textDark}`}>
+                    定員{store.capacity}名
+                  </span>
+                </div>
+              </div>
+            </MotionDiv>
+          </div>
         </div>
 
         {/* Content Section */}

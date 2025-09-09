@@ -2,7 +2,7 @@ import type { MenuItem, ContactButton } from "@/types/header"
 
 export const menuItems: MenuItem[] = [
   { label: "ホーム", href: "/#top" },
-  { label: "理念", href: "/#philosophy" },
+  { label: "私たちについて", href: "/#about" },
   { label: "サービス", href: "/#service" },
   { label: "会社概要", href: "/#company" },
   { label: "よくある質問", href: "/questions" },
