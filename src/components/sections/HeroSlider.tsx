@@ -7,7 +7,6 @@ import { ChevronUp } from "lucide-react"
 import Image from "next/image"
 
 const images = [
-  "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop", // Pink cherry blossoms
   "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1920&h=1080&fit=crop", // Pink flower field
   "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&h=1080&fit=crop", // Nature landscape with pink tones
 ]
@@ -59,9 +58,6 @@ export default function HeroSlider() {
             />
           </motion.div>
         </AnimatePresence>
-
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
 
         {/* Hero content */}
         <div className="absolute inset-0 flex items-center justify-center">

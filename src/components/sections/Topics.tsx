@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion"
 import { Calendar, ArrowRight } from "lucide-react"
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+import { colors } from "@/lib/colors"
 
 const topics = [
   {
@@ -73,13 +74,17 @@ export default function Topics() {
         className="container mx-auto px-6 lg:px-12"
       >
         <motion.div variants={itemVariants} className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          <h2
+            className={`mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl ${colors.textDark}`}
+          >
             お知らせ
             <span className="mt-2 block text-base font-normal text-gray-500">
               Topics
             </span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">最新情報</p>
+          <p className={`mx-auto max-w-2xl text-lg ${colors.textDark}`}>
+            最新情報
+          </p>
         </motion.div>
 
         <motion.div
@@ -102,8 +107,10 @@ export default function Topics() {
                       {topic.category}
                     </span>
                   </div>
-                  <h3 className="mb-2 text-lg font-bold">{topic.title}</h3>
-                  <p className="text-gray-600">{topic.description}</p>
+                  <h3 className={`mb-2 text-lg font-bold ${colors.textDark}`}>
+                    {topic.title}
+                  </h3>
+                  <p className={colors.textDark}>{topic.description}</p>
                 </div>
                 <ArrowRight className="h-5 w-5 text-gray-400 transition-transform group-hover:translate-x-2" />
               </div>

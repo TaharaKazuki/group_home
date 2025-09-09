@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion"
 import Image from "next/image"
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+import { colors } from "@/lib/colors"
 
 const companyInfo = [
   { label: "会社名", value: "株式会社IXIA" },
@@ -48,7 +49,9 @@ export default function Company() {
         className="container mx-auto px-6 lg:px-12"
       >
         <motion.div variants={itemVariants} className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          <h2
+            className={`mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl ${colors.textDark}`}
+          >
             会社概要
             <span className="mt-2 block text-base font-normal text-gray-500">
               Company
@@ -71,7 +74,7 @@ export default function Company() {
                   <dt className="mb-1 text-sm font-medium text-gray-500">
                     {info.label}
                   </dt>
-                  <dd className="text-lg">{info.value}</dd>
+                  <dd className={`text-lg ${colors.textDark}`}>{info.value}</dd>
                 </motion.div>
               ))}
             </div>

@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion"
 import Image from "next/image"
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+import { colors } from "@/lib/colors"
 
 export default function Philosophy() {
   const { ref, controls } = useScrollAnimation()
@@ -40,7 +41,9 @@ export default function Philosophy() {
         className="container mx-auto px-6 lg:px-12"
       >
         <motion.div variants={itemVariants} className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          <h2
+            className={`mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl ${colors.textDark}`}
+          >
             私たちの理念
             <span className="mt-2 block text-base font-normal text-gray-500">
               Philosophy
@@ -50,17 +53,19 @@ export default function Philosophy() {
 
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <motion.div variants={itemVariants}>
-            <h3 className="mb-6 text-2xl font-bold md:text-3xl">
-              デザインは生活を豊かにする
+            <h3
+              className={`mb-6 text-2xl font-bold md:text-3xl ${colors.textDark}`}
+            >
+              一人ひとりに寄り添う支援
             </h3>
-            <p className="mb-4 leading-relaxed text-gray-600">
-              私たちは、優れたデザインが人々の日常生活に潤いと喜びをもたらすと信じています。
-              機能性と美しさを兼ね備えた製品を通じて、使う人の心に響く体験を創造します。
+            <p className={`mb-4 leading-relaxed ${colors.textDark}`}>
+              私たちは、利用者様一人ひとりの個性と尊厳を大切にし、
+              その方らしい生活を送っていただけるよう、心を込めて支援いたします。
             </p>
-            <p className="leading-relaxed text-gray-600">
-              素材の選定から製造工程、そして最終的な仕上げまで、
-              すべてのプロセスにおいて妥協を許さない姿勢で、
-              長く愛される製品づくりに取り組んでいます。
+            <p className={`leading-relaxed ${colors.textDark}`}>
+              経験豊富なスタッフが24時間体制でサポートし、
+              安心・安全な環境の中で、利用者様が笑顔で過ごせる
+              第二の我が家を提供してまいります。
             </p>
           </motion.div>
 

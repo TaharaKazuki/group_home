@@ -6,4 +6,5 @@ export const colors = {
   primaryHoverClass: "bg-red-400",
   primaryText: "text-red-300",
   primaryBorder: "border-red-300",
+  textDark: "text-gray-700",
 } as const

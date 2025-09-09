@@ -8,6 +8,7 @@ import Image from "next/image"
 import ServiceModal from "@/components/modals/ServiceModal"
 import { servicesData } from "@/data/services"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+import { colors } from "@/lib/colors"
 
 export default function Services() {
   const { ref, controls } = useScrollAnimation()
@@ -58,13 +59,15 @@ export default function Services() {
         className="container mx-auto px-6 lg:px-12"
       >
         <motion.div variants={itemVariants} className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          <h2
+            className={`mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl ${colors.textDark}`}
+          >
             サービス
             <span className="mt-2 block text-base font-normal text-gray-500">
               Services
             </span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">
+          <p className={`mx-auto max-w-2xl text-lg ${colors.textDark}`}>
             私たちが提供するサービス
           </p>
         </motion.div>
@@ -90,8 +93,12 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="mb-3 text-xl font-bold">{service.title}</h3>
-                <p className="flex-1 text-gray-600">{service.description}</p>
+                <h3 className={`mb-3 text-xl font-bold ${colors.textDark}`}>
+                  {service.title}
+                </h3>
+                <p className={`flex-1 ${colors.textDark}`}>
+                  {service.description}
+                </p>
                 <button
                   onClick={() => openModal(service)}
                   className="mt-4 w-full rounded-lg bg-red-300 py-3 text-white transition-colors hover:bg-red-400"

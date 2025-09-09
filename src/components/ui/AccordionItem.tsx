@@ -5,6 +5,8 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 
+import { colors } from "@/lib/colors"
+
 interface AccordionItemProps {
   question: string
   answer: string
@@ -27,7 +29,9 @@ export default function AccordionItem({
         aria-controls={`answer-${questionId}`}
       >
         <div className="flex items-start gap-4">
-          <span className="mt-1 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-black text-xs font-semibold text-white">
+          <span
+            className={`rounded-ful mt-1 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white ${colors.primaryClass}`}
+          >
             Q{questionId}
           </span>
           <span className="text-base font-medium text-gray-900 md:text-lg">
@@ -39,7 +43,9 @@ export default function AccordionItem({
           transition={{ duration: 0.3 }}
           className="mt-1 ml-4 flex-shrink-0"
         >
-          <ChevronDown className="h-5 w-5 text-gray-500" />
+          <ChevronDown
+            className={`h-5 w-5 ${colors.primaryClass} rounded-full text-white`}
+          />
         </motion.div>
       </button>
 

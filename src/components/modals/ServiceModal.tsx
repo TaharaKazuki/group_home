@@ -5,7 +5,8 @@ import { useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Check } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
+
+import { colors } from "@/lib/colors"
 
 interface ServiceModalProps {
   service: {
@@ -80,10 +81,10 @@ export default function ServiceModal({
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow-md transition-all hover:bg-white hover:shadow-lg"
+              className={`absolute top-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full ${colors.primaryClass} shadow-md transition-all hover:${colors.primaryHoverClass} hover:shadow-lg`}
               aria-label="Close modal"
             >
-              <X className="h-5 w-5" />
+              <X className="h-5 w-5 text-white" />
             </button>
 
             <div className="relative">
@@ -110,17 +111,19 @@ export default function ServiceModal({
               {/* Content */}
               <div className="p-8">
                 <div className="mb-6">
-                  <p className="mb-4 text-lg text-gray-600">
+                  <p className={`mb-4 text-lg ${colors.textDark}`}>
                     {service.description}
                   </p>
-                  <p className="leading-relaxed text-gray-700">
+                  <p className={`leading-relaxed ${colors.textDark}`}>
                     {service.detailedDescription}
                   </p>
                 </div>
 
                 {/* Features */}
-                <div className="mb-8">
-                  <h3 className="mb-4 text-xl font-semibold">
+                <div>
+                  <h3
+                    className={`mb-4 text-xl font-semibold ${colors.textDark}`}
+                  >
                     主なサービス内容
                   </h3>
                   <div className="grid gap-3 sm:grid-cols-2">
@@ -129,26 +132,10 @@ export default function ServiceModal({
                         <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-100">
                           <Check className="h-4 w-4 text-green-600" />
                         </div>
-                        <span className="text-gray-700">{feature}</span>
+                        <span className={colors.textDark}>{feature}</span>
                       </div>
                     ))}
                   </div>
-                </div>
-
-                {/* CTA */}
-                <div className="rounded-lg bg-gray-50 p-6 text-center">
-                  <h4 className="mb-2 text-lg font-semibold">お問い合わせ</h4>
-                  <p className="mb-4 text-gray-600">
-                    {service.title}
-                    サービスについて詳しく知りたい方は、お気軽にお問い合わせください。
-                  </p>
-                  <Link
-                    href="/contact"
-                    onClick={onClose}
-                    className="inline-block rounded-lg bg-black px-6 py-3 text-white transition-colors hover:bg-gray-800"
-                  >
-                    お問い合わせする
-                  </Link>
                 </div>
               </div>
             </div>
