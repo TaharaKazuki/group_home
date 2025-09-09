@@ -1,6 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
+import Image from "next/image"
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
@@ -15,7 +16,7 @@ const companyInfo = [
 export default function Company() {
   const { ref, controls } = useScrollAnimation()
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -25,14 +26,14 @@ export default function Company() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, x: -50 },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   }
@@ -77,9 +78,11 @@ export default function Company() {
               variants={itemVariants}
               className="relative h-96 overflow-hidden rounded-lg bg-gray-200 md:h-auto"
             >
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop"
                 alt="Company"
+                width={800}
+                height={600}
                 className="h-full w-full object-cover"
               />
             </motion.div>

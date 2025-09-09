@@ -1,13 +1,14 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
+import Image from "next/image"
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
 export default function Philosophy() {
   const { ref, controls } = useScrollAnimation()
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -17,14 +18,14 @@ export default function Philosophy() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   }
@@ -67,9 +68,11 @@ export default function Philosophy() {
             variants={itemVariants}
             className="relative h-96 overflow-hidden rounded-lg bg-gray-200"
           >
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=800&h=600&fit=crop"
               alt="Philosophy"
+              width={800}
+              height={600}
               className="h-full w-full object-cover"
             />
           </motion.div>

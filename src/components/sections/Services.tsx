@@ -1,7 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { Palette, Package, Home } from "lucide-react"
+import Image from "next/image"
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
@@ -34,7 +35,7 @@ const services = [
 export default function Services() {
   const { ref, controls } = useScrollAnimation()
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -44,14 +45,14 @@ export default function Services() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   }
@@ -83,9 +84,11 @@ export default function Services() {
               className="group cursor-pointer overflow-hidden rounded-lg bg-white shadow-lg transition-shadow hover:shadow-xl"
             >
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src={service.image}
                   alt={service.title}
+                  width={600}
+                  height={400}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-60" />
