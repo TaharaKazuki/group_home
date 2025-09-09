@@ -139,10 +139,10 @@ export default function ServicePage({ params }: ServicePageProps) {
                 専門スタッフが丁寧にご相談に応じます。
               </p>
               <Link
-                href="/contact"
+                href="/#service"
                 className="inline-block rounded-lg bg-black px-8 py-4 text-white transition-all hover:bg-gray-800 hover:shadow-lg"
               >
-                お問い合わせする
+                サービス一覧に戻る
               </Link>
             </motion.div>
           </div>
