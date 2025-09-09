@@ -64,7 +64,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50 pt-20">
+      <main className="min-h-screen bg-white pt-20">
         <div className="container mx-auto px-6 py-12 lg:px-12">
           {/* Back to top link */}
           <motion.div
@@ -89,7 +89,7 @@ export default function ContactPage() {
             className="mx-auto max-w-4xl"
           >
             <motion.div variants={itemVariants} className="mb-12 text-center">
-              <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
+              <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-700 md:text-5xl">
                 Contact
               </h1>
               <p className="text-lg text-gray-600">お問い合わせ</p>
@@ -99,13 +99,13 @@ export default function ContactPage() {
               {/* Contact Form */}
               <motion.div
                 variants={itemVariants}
-                className="rounded-lg bg-white p-8 shadow-lg"
+                className="rounded-lg bg-white p-8"
               >
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div>
                     <label
                       htmlFor="name"
-                      className="mb-2 block text-sm font-medium"
+                      className="mb-2 block text-sm font-medium text-gray-700"
                     >
                       お名前 <span className="text-red-500">*</span>
                     </label>
@@ -131,7 +131,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="mb-2 block text-sm font-medium"
+                      className="mb-2 block text-sm font-medium text-gray-700"
                     >
                       メールアドレス <span className="text-red-500">*</span>
                     </label>
@@ -157,7 +157,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="category"
-                      className="mb-2 block text-sm font-medium"
+                      className="mb-2 block text-sm font-medium text-gray-700"
                     >
                       種別 <span className="text-red-500">*</span>
                     </label>
@@ -188,7 +188,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="mb-2 block text-sm font-medium"
+                      className="mb-2 block text-sm font-medium text-gray-700"
                     >
                       メッセージ <span className="text-red-500">*</span>
                     </label>
@@ -219,7 +219,7 @@ export default function ContactPage() {
                       type="submit"
                       disabled={isSubmitting}
                       variant={isSubmitting ? "secondary" : "primary"}
-                      className="w-full"
+                      className="w-full rounded-full"
                     >
                       {isSubmitting ? "送信中..." : "送信する"}
                     </Button>
