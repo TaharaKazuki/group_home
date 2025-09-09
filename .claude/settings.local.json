@@ -48,7 +48,8 @@
       "Bash(npx:*)",
       "Bash(npm install:*)",
       "Bash(npm run lint)",
-      "Bash(npm run lint:*)"
+      "Bash(npm run lint:*)",
+      "WebFetch(domain:nutrad.co.jp)"
     ],
     "deny": [
       "Bash(sudo:*)",
