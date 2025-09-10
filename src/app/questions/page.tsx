@@ -57,7 +57,7 @@ export default function QuestionsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="rounded-lg bg-white p-6 shadow-lg md:p-8"
+              className="bg-white p-6 shadow-lg md:p-8"
             >
               {FAQ_LIST.map((item, index) => (
                 <AccordionItem

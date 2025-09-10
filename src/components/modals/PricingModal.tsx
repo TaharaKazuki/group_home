@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Check, JapaneseYen } from "lucide-react"
+import { X, Check } from "lucide-react"
 
 import { colors } from "@/lib/colors"
 
@@ -88,7 +88,6 @@ export default function PricingModal({
               <div className="p-8">
                 <div className="mb-8">
                   <h1 className="flex items-center text-2xl font-bold text-gray-700 md:text-4xl">
-                    <JapaneseYen className="inline-block h-9 w-9 text-red-300" />
                     {service.title}
                   </h1>
                   <p

@@ -3,6 +3,8 @@
 import { motion, Variants } from "framer-motion"
 import Image from "next/image"
 
+import { FadeInText } from "@/components/ui/FadeInText"
+import { GradualSpacing } from "@/components/ui/GradualSpacing"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { colors } from "@/lib/colors"
 
@@ -41,37 +43,49 @@ export default function Philosophy() {
         className="container mx-auto px-6 lg:px-12"
       >
         <motion.div variants={itemVariants} className="mb-12">
-          <h2
-            className={`mb-4 text-2xl font-bold tracking-tight md:text-3xl ${colors.textDark}`}
-          >
-            私たちについて
-            <span className="mt-1 block text-sm font-normal text-gray-500">
-              About
-            </span>
-          </h2>
+          <GradualSpacing
+            text="私たちについて"
+            className={`text-2xl font-bold tracking-tight md:text-3xl ${colors.textDark}`}
+            delay={0.12}
+            initialDelay={0}
+          />
+          <GradualSpacing
+            text="About"
+            className="mt-2 text-sm font-normal text-gray-500"
+            delay={0.08}
+            duration={0.4}
+            initialDelay={0.9}
+          />
         </motion.div>
 
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-          <motion.div variants={itemVariants}>
-            <h3
-              className={`mb-6 text-2xl font-bold md:text-3xl ${colors.textDark}`}
+        <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
+          <div>
+            <GradualSpacing
+              text="一人ひとりに寄り添う支援"
+              className={`text-2xl font-bold md:text-3xl ${colors.textDark} mb-6`}
+              delay={0.08}
+              initialDelay={1.5}
+            />
+            <FadeInText
+              delay={3.0}
+              className={`mb-4 leading-relaxed ${colors.textDark}`}
             >
-              一人ひとりに寄り添う支援
-            </h3>
-            <p className={`mb-4 leading-relaxed ${colors.textDark}`}>
               私たちは、利用者様一人ひとりの個性と尊厳を大切にし、
               その方らしい生活を送っていただけるよう、心を込めて支援いたします。
-            </p>
-            <p className={`leading-relaxed ${colors.textDark}`}>
+            </FadeInText>
+            <FadeInText
+              delay={3.8}
+              className={`leading-relaxed ${colors.textDark}`}
+            >
               経験豊富なスタッフが24時間体制でサポートし、
               安心・安全な環境の中で、利用者様が笑顔で過ごせる
               第二の我が家を提供してまいります。
-            </p>
-          </motion.div>
+            </FadeInText>
+          </div>
 
           <motion.div
             variants={itemVariants}
-            className="relative h-96 overflow-hidden rounded-lg bg-gray-200"
+            className="relative h-96 overflow-hidden bg-gray-200"
           >
             <Image
               src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=800&h=600&fit=crop"

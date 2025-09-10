@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Home, Clock, Sun, Moon, Coffee, Heart } from "lucide-react"
+import { X, Clock, Sun, Moon, Coffee, Heart } from "lucide-react"
 import Image from "next/image"
 
 import { colors } from "@/lib/colors"
@@ -109,7 +109,7 @@ export default function LifeModal({
       month: "秋",
       event: "紅葉狩り",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&h=300&fit=crop",
     },
     {
       month: "冬",
@@ -157,29 +157,12 @@ export default function LifeModal({
 
             {/* Scrollable Content */}
             <div className="relative max-h-[90vh] overflow-y-auto">
-              {/* Header */}
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <Home className="mx-auto mb-4 h-16 w-16" />
-                    <h1 className="text-3xl font-bold md:text-4xl">
-                      {service.title}
-                    </h1>
-                  </div>
-                </div>
-              </div>
-
               {/* Content */}
               <div className="p-8">
-                <div className="mb-8">
+                <h1 className="flex items-center text-2xl font-bold text-gray-700 md:text-4xl">
+                  {service.title}
+                </h1>
+                <div className="mt-4 mb-8">
                   <p className={`text-lg leading-relaxed ${colors.textDark}`}>
                     {service.description}
                   </p>

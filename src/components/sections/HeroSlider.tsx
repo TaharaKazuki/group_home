@@ -14,7 +14,7 @@ const images = [
 export default function HeroSlider() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [showScrollTop, setShowScrollTop] = useState(false)
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0]))
+  const [_loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0]))
 
   useEffect(() => {
     // Preload all images

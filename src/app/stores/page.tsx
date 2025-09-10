@@ -3,21 +3,37 @@
 import { useEffect, useState } from "react"
 
 import { motion, Variants } from "framer-motion"
-import { ArrowLeft, MapPin, Phone, Clock, Users } from "lucide-react"
+import {
+  ArrowLeft,
+  MapPin,
+  Phone,
+  Clock,
+  Users,
+  ArrowRight,
+} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
-import { Button } from "@/components/ui/Button"
 import { storesData } from "@/data/stores"
 import { colors } from "@/lib/colors"
 
 export default function StoresPage() {
   const [isMounted, setIsMounted] = useState(false)
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     setIsMounted(true)
+
+    // Preload images
+    storesData.forEach((store) => {
+      const img = new window.Image()
+      img.src = store.image
+      img.onload = () => {
+        setLoadedImages((prev) => new Set(prev).add(store.image))
+      }
+    })
   }, [])
 
   const containerVariants: Variants = {
@@ -25,19 +41,19 @@ export default function StoresPage() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
       },
     },
   }
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: "easeOut" as const,
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   }
@@ -47,7 +63,7 @@ export default function StoresPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50 pt-20">
+      <main className="min-h-screen bg-white pt-20">
         <div className="container mx-auto px-6 py-12 lg:px-12">
           {/* Back to top link */}
           <MotionDiv
@@ -58,7 +74,7 @@ export default function StoresPage() {
           >
             <Link
               href="/"
-              className={`inline-flex items-center gap-2 ${colors.textDark} transition-colors hover:text-gray-500`}
+              className={`inline-flex items-center gap-2 ${colors.textDark} transition-colors hover:text-red-300`}
             >
               <ArrowLeft className="h-4 w-4" />
               トップページに戻る
@@ -73,132 +89,118 @@ export default function StoresPage() {
           >
             <MotionDiv
               variants={isMounted ? itemVariants : undefined}
-              className="mb-12"
+              className="mb-16"
             >
               <h1
-                className={`mb-4 text-4xl font-bold tracking-tight md:text-3xl ${colors.textDark}`}
+                className={`mb-4 text-2xl font-bold tracking-tight md:text-3xl ${colors.textDark}`}
               >
                 店舗一覧
+                <span className="mt-1 block text-sm font-normal text-gray-500">
+                  Stores
+                </span>
               </h1>
-              <p className={`text-sm ${colors.textDark}`}>Stores</p>
-              <p className={`mt-4 max-w-3xl ${colors.textDark}`}>
-                IXIA Group Homeでは、東京都内に3つの店舗を展開しています。
-                <br />
-                各店舗それぞれに特色があり、
-                利用者様のニーズに合わせた環境を提供しています。
+              <p
+                className={`max-w-3xl text-lg leading-relaxed ${colors.textDark}`}
+              >
+                東京都内に3つの店舗を展開。
+                それぞれの個性を活かした環境で、利用者様をお迎えします。
               </p>
             </MotionDiv>
 
-            <div className="space-y-8">
-              {storesData.map((store) => (
+            <div className="grid gap-0 lg:gap-0">
+              {storesData.map((store, index) => (
                 <MotionDiv
                   key={store.id}
                   variants={isMounted ? itemVariants : undefined}
-                  className="group overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  className="group border-b border-gray-100 last:border-b-0"
                 >
-                  <div className="flex flex-col md:flex-row">
-                    {/* Image Section */}
-                    <div className="relative h-64 overflow-hidden md:h-auto md:w-1/3">
-                      <Image
-                        src={store.image}
-                        alt={store.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
-                      <div className="absolute top-6 left-6 text-white">
-                        <h3 className="mb-1 text-2xl font-bold">
-                          {store.shortName}
-                        </h3>
-                        <div className="h-0.5 w-full rounded-full bg-red-300" />
-                      </div>
+                  <div className="flex flex-col py-12 lg:flex-row lg:py-16">
+                    {/* Image Section - Better loading handling */}
+                    <div className="relative h-80 overflow-hidden bg-gray-100 lg:h-96 lg:w-1/2">
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          opacity: loadedImages.has(store.image) ? 1 : 0,
+                        }}
+                        transition={{ duration: 0.5 }}
+                        className="absolute inset-0"
+                      >
+                        <Image
+                          src={store.image}
+                          alt={store.name}
+                          fill
+                          className="object-cover"
+                          priority={index === 0}
+                        />
+                      </motion.div>
                     </div>
 
                     {/* Content Section */}
-                    <div className="flex-1 p-8 md:p-10">
-                      <div className="flex h-full flex-col">
-                        <div className="flex-1">
-                          <h3
-                            className={`mb-3 text-2xl font-bold ${colors.textDark}`}
-                          >
-                            {store.name}
-                          </h3>
-                          <p
-                            className={`mb-6 text-base leading-relaxed ${colors.textDark} opacity-90`}
-                          >
-                            {store.description}
-                          </p>
+                    <div className="flex-1 py-8 lg:py-0 lg:pl-16">
+                      <div className="flex h-full flex-col justify-center">
+                        <h3
+                          className={`mb-2 text-3xl font-bold lg:text-4xl ${colors.textDark}`}
+                        >
+                          {store.name}
+                        </h3>
+                        <p className="mb-6 text-lg text-red-300">
+                          {store.shortName}
+                        </p>
+                        <p
+                          className={`mb-8 text-lg leading-relaxed ${colors.textDark} opacity-80`}
+                        >
+                          {store.description}
+                        </p>
 
-                          {/* Info Grid */}
-                          <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                            <div className="flex items-center gap-3">
-                              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100">
-                                <MapPin className="h-4 w-4 text-red-400" />
-                              </div>
-                              <div>
-                                <p className="mb-1 text-xs font-medium text-gray-500">
-                                  住所
-                                </p>
-                                <p className={`text-sm ${colors.textDark}`}>
-                                  {store.address}
-                                </p>
-                              </div>
+                        {/* Info List - Simplified */}
+                        <div className="mb-8 space-y-4">
+                          <div className="flex items-start gap-4">
+                            <MapPin className="mt-0.5 h-5 w-5 text-red-300" />
+                            <div className="flex-1">
+                              <p className={`text-base ${colors.textDark}`}>
+                                {store.address}
+                              </p>
                             </div>
+                          </div>
 
-                            <div className="flex items-center gap-3">
-                              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100">
-                                <Phone className="h-4 w-4 text-red-400" />
-                              </div>
-                              <div>
-                                <p className="mb-1 text-xs font-medium text-gray-500">
-                                  電話番号
-                                </p>
-                                <p className={`text-sm ${colors.textDark}`}>
-                                  {store.phone}
-                                </p>
-                              </div>
+                          <div className="flex items-start gap-4">
+                            <Phone className="mt-0.5 h-5 w-5 text-red-300" />
+                            <div className="flex-1">
+                              <p className={`text-base ${colors.textDark}`}>
+                                {store.phone}
+                              </p>
                             </div>
+                          </div>
 
-                            <div className="flex items-center gap-3">
-                              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100">
-                                <Clock className="h-4 w-4 text-red-400" />
-                              </div>
-                              <div>
-                                <p className="mb-1 text-xs font-medium text-gray-500">
-                                  営業時間
-                                </p>
-                                <p className={`text-sm ${colors.textDark}`}>
-                                  {store.openingHours}（{store.closedDays}定休）
-                                </p>
-                              </div>
+                          <div className="flex items-start gap-4">
+                            <Clock className="mt-0.5 h-5 w-5 text-red-300" />
+                            <div className="flex-1">
+                              <p className={`text-base ${colors.textDark}`}>
+                                {store.openingHours}（{store.closedDays}定休）
+                              </p>
                             </div>
+                          </div>
 
-                            <div className="flex items-center gap-3">
-                              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100">
-                                <Users className="h-4 w-4 text-red-400" />
-                              </div>
-                              <div>
-                                <p className="mb-1 text-xs font-medium text-gray-500">
-                                  定員
-                                </p>
-                                <p className={`text-sm ${colors.textDark}`}>
-                                  定員{store.capacity}名
-                                </p>
-                              </div>
+                          <div className="flex items-start gap-4">
+                            <Users className="mt-0.5 h-5 w-5 text-red-300" />
+                            <div className="flex-1">
+                              <p className={`text-base ${colors.textDark}`}>
+                                定員{store.capacity}名
+                              </p>
                             </div>
                           </div>
                         </div>
 
-                        {/* Button */}
-                        <div className="flex justify-center lg:justify-end">
-                          <Button
-                            asChild
-                            variant="primary"
-                            className="rounded-full px-8 py-3 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
-                          >
-                            <Link href={`/stores/${store.id}`}>詳細を見る</Link>
-                          </Button>
-                        </div>
+                        {/* CTA - Simplified */}
+                        <Link
+                          href={`/stores/${store.id}`}
+                          className="group/link inline-flex items-center gap-2 text-red-300 transition-colors hover:text-red-400"
+                        >
+                          <span className="text-lg font-medium">
+                            詳細を見る
+                          </span>
+                          <ArrowRight className="h-5 w-5 transition-transform group-hover/link:translate-x-1" />
+                        </Link>
                       </div>
                     </div>
                   </div>

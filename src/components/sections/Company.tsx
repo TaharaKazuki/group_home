@@ -81,7 +81,7 @@ export default function Company() {
 
             <motion.div
               variants={itemVariants}
-              className="relative h-96 overflow-hidden rounded-lg bg-gray-200 md:h-auto"
+              className="relative h-96 overflow-hidden bg-gray-200 md:h-auto"
             >
               <Image
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop"
