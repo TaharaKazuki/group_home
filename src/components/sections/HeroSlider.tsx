@@ -85,10 +85,14 @@ export default function HeroSlider() {
             className="w-full"
           >
             <motion.div
-              className="w-full bg-white/60"
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
+              className="w-full bg-gradient-to-r from-white/60 via-red-100/60 to-red-300/60"
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.3,
+                duration: 1.2,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
             >
               <div className="flex justify-center">
                 <Image
@@ -127,7 +131,7 @@ export default function HeroSlider() {
             <motion.button
               key={index}
               onClick={() => setCurrentImageIndex(index)}
-              className={`h-2 w-2 rounded-full transition-colors ${
+              className={`h-0.5 w-6 transition-colors ${
                 index === currentImageIndex ? "bg-white" : "bg-white/40"
               }`}
               whileHover={{ scale: 1.2 }}
