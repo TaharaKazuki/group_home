@@ -14,6 +14,18 @@ const images = [
 export default function HeroSlider() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0]))
+
+  useEffect(() => {
+    // Preload all images
+    images.forEach((src, index) => {
+      const img = new window.Image()
+      img.src = src
+      img.onload = () => {
+        setLoadedImages((prev) => new Set(prev).add(index))
+      }
+    })
+  }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,50 +51,56 @@ export default function HeroSlider() {
   return (
     <>
       <div className="relative h-screen w-full overflow-hidden">
-        <AnimatePresence mode="wait">
+        {/* Render all images but only show current one */}
+        {images.map((src, index) => (
           <motion.div
-            key={currentImageIndex}
+            key={index}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            animate={{
+              opacity: index === currentImageIndex ? 1 : 0,
+            }}
+            transition={{
+              duration: 1.5,
+              ease: "easeInOut",
+            }}
             className="absolute inset-0"
           >
             <Image
-              src={images[currentImageIndex]}
-              alt={`Slide ${currentImageIndex + 1}`}
+              src={src}
+              alt={`Slide ${index + 1}`}
               fill
               className="object-cover"
-              priority={currentImageIndex === 0}
+              priority={index === 0}
               sizes="100vw"
             />
           </motion.div>
-        </AnimatePresence>
+        ))}
 
         {/* Hero content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="text-center text-white"
+            className="w-full"
           >
-            <motion.h1
-              className="mb-6 text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+            <motion.div
+              className="w-full bg-white/60"
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              やすらぎの場所
-            </motion.h1>
-            <motion.p
-              className="text-xl font-light tracking-wide md:text-2xl lg:text-3xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            >
-              IXIA Group Home - あなたらしい生活を
-            </motion.p>
+              <div className="flex justify-center">
+                <Image
+                  src="/assets/logo.svg"
+                  alt="IXIA Group Home Logo"
+                  width={300}
+                  height={300}
+                  className="h-[200px] w-auto md:h-[250px] lg:h-[250px]"
+                  priority
+                />
+              </div>
+            </motion.div>
           </motion.div>
         </div>
 
