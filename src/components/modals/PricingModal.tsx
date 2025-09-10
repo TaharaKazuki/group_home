@@ -3,8 +3,7 @@
 import { useEffect } from "react"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Check, DollarSign } from "lucide-react"
-import Image from "next/image"
+import { X, Check, JapaneseYen } from "lucide-react"
 
 import { colors } from "@/lib/colors"
 
@@ -85,30 +84,16 @@ export default function PricingModal({
 
             {/* Scrollable Content */}
             <div className="relative max-h-[90vh] overflow-y-auto">
-              {/* Header */}
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <DollarSign className="mx-auto mb-4 h-16 w-16" />
-                    <h1 className="text-3xl font-bold md:text-4xl">
-                      {service.title}
-                    </h1>
-                  </div>
-                </div>
-              </div>
-
               {/* Content */}
               <div className="p-8">
                 <div className="mb-8">
-                  <p className={`text-lg leading-relaxed ${colors.textDark}`}>
+                  <h1 className="flex items-center text-2xl font-bold text-gray-700 md:text-4xl">
+                    <JapaneseYen className="inline-block h-9 w-9 text-red-300" />
+                    {service.title}
+                  </h1>
+                  <p
+                    className={`mt-4 text-lg leading-relaxed ${colors.textDark}`}
+                  >
                     {service.description}
                   </p>
                 </div>
@@ -117,6 +102,7 @@ export default function PricingModal({
                 <div className="mb-8">
                   <h3 className={`mb-6 text-2xl font-bold ${colors.textDark}`}>
                     基本料金
+                    <span className="text-sm text-gray-400">（一例）</span>
                   </h3>
                   <div className="overflow-hidden rounded-lg border border-gray-200">
                     <table className="w-full">
@@ -153,7 +139,7 @@ export default function PricingModal({
                           <td className="px-6 py-4 font-bold text-gray-900">
                             合計
                           </td>
-                          <td className="px-6 py-4 text-right text-lg font-bold text-red-600">
+                          <td className="px-6 py-4 text-right text-lg font-bold text-red-300">
                             115,000円
                           </td>
                         </tr>
@@ -175,7 +161,7 @@ export default function PricingModal({
                       <p className="mb-2 text-sm text-gray-600">
                         病院への送迎・付き添い
                       </p>
-                      <p className="text-lg font-bold text-red-500">
+                      <p className="text-lg font-bold text-gray-700">
                         3,000円/回
                       </p>
                     </div>
@@ -186,7 +172,7 @@ export default function PricingModal({
                       <p className="mb-2 text-sm text-gray-600">
                         カット・カラー対応
                       </p>
-                      <p className="text-lg font-bold text-red-500">実費</p>
+                      <p className="text-lg font-bold text-gray-700">実費</p>
                     </div>
                     <div className="rounded-lg border border-gray-200 p-4">
                       <h4 className="mb-2 font-semibold text-gray-800">
@@ -195,7 +181,7 @@ export default function PricingModal({
                       <p className="mb-2 text-sm text-gray-600">
                         外出イベント等
                       </p>
-                      <p className="text-lg font-bold text-red-500">実費</p>
+                      <p className="text-lg font-bold text-gray-700">実費</p>
                     </div>
                     <div className="rounded-lg border border-gray-200 p-4">
                       <h4 className="mb-2 font-semibold text-gray-800">
@@ -204,7 +190,7 @@ export default function PricingModal({
                       <p className="mb-2 text-sm text-gray-600">
                         車椅子・歩行器等
                       </p>
-                      <p className="text-lg font-bold text-red-500">
+                      <p className="text-lg font-bold text-gray-700">
                         1,000円〜/月
                       </p>
                     </div>
@@ -212,25 +198,25 @@ export default function PricingModal({
                 </div>
 
                 {/* Support Info */}
-                <div className="rounded-lg bg-blue-50 p-6">
-                  <h3 className="mb-4 text-xl font-bold text-blue-900">
+                <div className="rounded-lg bg-red-50 p-6">
+                  <h3 className="mb-4 text-xl font-bold text-red-300">
                     公的支援制度について
                   </h3>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
-                      <Check className="mt-1 h-5 w-5 flex-shrink-0 text-blue-600" />
+                      <Check className="mt-1 h-5 w-5 flex-shrink-0 text-red-300" />
                       <p className="text-gray-700">
                         障害者総合支援法に基づく支援により、利用料の一部が助成される場合があります
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <Check className="mt-1 h-5 w-5 flex-shrink-0 text-blue-600" />
+                      <Check className="mt-1 h-5 w-5 flex-shrink-0 text-red-300" />
                       <p className="text-gray-700">
                         所得に応じて自己負担額の上限が設定されています
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <Check className="mt-1 h-5 w-5 flex-shrink-0 text-blue-600" />
+                      <Check className="mt-1 h-5 w-5 flex-shrink-0 text-red-300" />
                       <p className="text-gray-700">
                         詳しくは市区町村の福祉窓口にお問い合わせください
                       </p>

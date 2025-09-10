@@ -110,7 +110,7 @@ export default function StoresPage() {
                         <h3 className="mb-1 text-2xl font-bold">
                           {store.shortName}
                         </h3>
-                        <div className="h-1 w-12 rounded-full bg-red-300" />
+                        <div className="h-0.5 w-full rounded-full bg-red-300" />
                       </div>
                     </div>
 

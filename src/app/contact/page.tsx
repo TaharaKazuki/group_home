@@ -90,9 +90,9 @@ export default function ContactPage() {
           >
             <motion.div variants={itemVariants} className="mb-12 text-center">
               <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-700 md:text-5xl">
-                Contact
+                お問い合わせ
               </h1>
-              <p className="text-lg text-gray-600">お問い合わせ</p>
+              <p className="text-lg text-gray-600">Contact</p>
             </motion.div>
 
             <div className="grid gap-12">

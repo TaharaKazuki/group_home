@@ -2,8 +2,6 @@
 
 import { useState } from "react"
 
-import Image from "next/image"
-
 import LifeModal from "@/components/modals/LifeModal"
 import PricingModal from "@/components/modals/PricingModal"
 import { Button } from "@/components/ui/Button"
@@ -27,7 +25,7 @@ export default function Services() {
   }
 
   return (
-    <section id="service" className="bg-gray-50 py-24 lg:py-32">
+    <section id="service" className="bg-gray-50 py-10 lg:py-12">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="mb-12">
           <h2
@@ -43,25 +41,12 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-2 md:grid-cols-2 lg:gap-1">
           {servicesData.map((service) => (
             <div
               key={service.title}
-              className="flex flex-col overflow-hidden rounded-lg bg-white shadow-lg"
+              className="flex flex-col overflow-hidden rounded-sm bg-white"
             >
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  width={600}
-                  height={400}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/40" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <service.icon className="h-12 w-12 text-white" />
-                </div>
-              </div>
               <div className="flex flex-1 flex-col p-6">
                 <h3 className={`mb-3 text-xl font-bold ${colors.textDark}`}>
                   {service.title}
