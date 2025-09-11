@@ -6,9 +6,13 @@ export const contactFormSchema = z.object({
   category: z
     .string()
     .min(1, "種別を選択してください")
-    .refine((value) => value === "admission" || value === "employment", {
-      message: "有効な種別を選択してください",
-    }),
+    .refine(
+      (value) =>
+        value === "admission" || value === "employment" || value === "visit",
+      {
+        message: "有効な種別を選択してください",
+      }
+    ),
   message: z
     .string()
     .min(1, "メッセージを入力してください")
