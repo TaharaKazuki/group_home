@@ -6,7 +6,7 @@ export const menuItems: MenuItem[] = [
   { label: "サービス", href: "/#service" },
   { label: "会社概要", href: "/#company" },
   { label: "よくある質問", href: "/questions" },
-  { label: "店舗情報", href: "/stores" },
+  { label: "施設情報", href: "/facilities" },
   // { label: "お知らせ", href: "/#topics" }, // Micro CMSできたら追加する
 ]
 

@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { FaFacebook, FaInstagram } from "react-icons/fa"
+import { FaInstagram } from "react-icons/fa"
 
 import { LINKS } from "@/constant"
 
@@ -19,17 +19,14 @@ const Footer = () => {
         />
         {/* address */}
         <div className="mt-5 flex flex-col items-center text-xs text-gray-700">
-          <p>Tel. 090-0000-0000</p>
+          <p>Tel. 048-925-5750</p>
         </div>
         {/* social */}
-        <ul className="mt-5 flex flex-row gap-3 text-gray-700">
-          <li>
-            <FaFacebook className="text-red-300" />
-          </li>
+        <div className="mt-5 flex flex-row gap-3 text-gray-700">
           <Link href="https://www.instagram.com/ikisia_group_home/">
             <FaInstagram className="text-red-300" />
           </Link>
-        </ul>
+        </div>
         {/* links */}
         <ul className="flex flex-col gap-3 py-12 text-center lg:flex-row lg:gap-9 lg:py-16">
           {LINKS.map((link, i) => (

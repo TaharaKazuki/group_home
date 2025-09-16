@@ -7,11 +7,10 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { colors } from "@/lib/colors"
 
 const companyInfo = [
-  { label: "会社名", value: "株式会社IXIA" },
-  { label: "設立", value: "2010年4月" },
-  { label: "所在地", value: "埼玉県〇〇市〇〇町〇〇番地" },
-  { label: "代表取締役", value: "サンプル太郎" },
+  { label: "運営法人", value: "S&Tタカノ合同会社" },
+  { label: "代表取締役", value: "高野 重美" },
   { label: "事業内容", value: "グループホームの運営事業" },
+  { label: "運営施設", value: "グループホーム4施設（川口市内）" },
 ]
 
 export default function Company() {

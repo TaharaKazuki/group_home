@@ -16,10 +16,10 @@ import Link from "next/link"
 
 import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
-import { storesData } from "@/data/stores"
+import { facilitiesData } from "@/data/facilities"
 import { colors } from "@/lib/colors"
 
-export default function StoresPage() {
+export default function FacilitiesPage() {
   const [isMounted, setIsMounted] = useState(false)
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
 
@@ -27,11 +27,11 @@ export default function StoresPage() {
     setIsMounted(true)
 
     // Preload images
-    storesData.forEach((store) => {
+    facilitiesData.forEach((facility) => {
       const img = new window.Image()
-      img.src = store.image
+      img.src = facility.image
       img.onload = () => {
-        setLoadedImages((prev) => new Set(prev).add(store.image))
+        setLoadedImages((prev) => new Set(prev).add(facility.image))
       }
     })
   }, [])
@@ -94,23 +94,23 @@ export default function StoresPage() {
               <h1
                 className={`mb-4 text-2xl font-bold tracking-tight md:text-3xl ${colors.textDark}`}
               >
-                店舗一覧
+                施設一覧
                 <span className="mt-1 block text-sm font-normal text-gray-500">
-                  Stores
+                  Facilities
                 </span>
               </h1>
               <p
                 className={`max-w-3xl text-lg leading-relaxed ${colors.textDark}`}
               >
-                東京都内に3つの店舗を展開。
+                埼玉県川口市に4つの施設を展開。
                 それぞれの個性を活かした環境で、利用者様をお迎えします。
               </p>
             </MotionDiv>
 
             <div className="grid gap-0 lg:gap-0">
-              {storesData.map((store, index) => (
+              {facilitiesData.map((facility, index) => (
                 <MotionDiv
-                  key={store.id}
+                  key={facility.id}
                   variants={isMounted ? itemVariants : undefined}
                   className="group border-b border-gray-100 last:border-b-0"
                 >
@@ -120,14 +120,14 @@ export default function StoresPage() {
                       <motion.div
                         initial={false}
                         animate={{
-                          opacity: loadedImages.has(store.image) ? 1 : 0,
+                          opacity: loadedImages.has(facility.image) ? 1 : 0,
                         }}
                         transition={{ duration: 0.5 }}
                         className="absolute inset-0"
                       >
                         <Image
-                          src={store.image}
-                          alt={store.name}
+                          src={facility.image}
+                          alt={facility.name}
                           fill
                           className="object-cover"
                           priority={index === 0}
@@ -141,15 +141,15 @@ export default function StoresPage() {
                         <h3
                           className={`mb-2 text-3xl font-bold lg:text-4xl ${colors.textDark}`}
                         >
-                          {store.name}
+                          {facility.name}
                         </h3>
                         <p className="mb-6 text-lg text-red-300">
-                          {store.shortName}
+                          {facility.shortName}
                         </p>
                         <p
                           className={`mb-8 text-lg leading-relaxed ${colors.textDark} opacity-80`}
                         >
-                          {store.description}
+                          {facility.description}
                         </p>
 
                         {/* Info List - Simplified */}
@@ -158,7 +158,7 @@ export default function StoresPage() {
                             <MapPin className="mt-0.5 h-5 w-5 text-red-300" />
                             <div className="flex-1">
                               <p className={`text-base ${colors.textDark}`}>
-                                {store.address}
+                                {facility.address}
                               </p>
                             </div>
                           </div>
@@ -167,7 +167,7 @@ export default function StoresPage() {
                             <Phone className="mt-0.5 h-5 w-5 text-red-300" />
                             <div className="flex-1">
                               <p className={`text-base ${colors.textDark}`}>
-                                {store.phone}
+                                {facility.phone}
                               </p>
                             </div>
                           </div>
@@ -176,7 +176,7 @@ export default function StoresPage() {
                             <Clock className="mt-0.5 h-5 w-5 text-red-300" />
                             <div className="flex-1">
                               <p className={`text-base ${colors.textDark}`}>
-                                {store.openingHours}（{store.closedDays}定休）
+                                {facility.openingHours}（{facility.closedDays}）
                               </p>
                             </div>
                           </div>
@@ -185,7 +185,7 @@ export default function StoresPage() {
                             <Users className="mt-0.5 h-5 w-5 text-red-300" />
                             <div className="flex-1">
                               <p className={`text-base ${colors.textDark}`}>
-                                定員{store.capacity}名
+                                定員{facility.capacity}名
                               </p>
                             </div>
                           </div>
@@ -193,7 +193,7 @@ export default function StoresPage() {
 
                         {/* CTA - Simplified */}
                         <Link
-                          href={`/stores/${store.id}`}
+                          href={`/facilities/${facility.id}`}
                           className="group/link inline-flex items-center gap-2 text-red-300 transition-colors hover:text-red-400"
                         >
                           <span className="text-lg font-medium">

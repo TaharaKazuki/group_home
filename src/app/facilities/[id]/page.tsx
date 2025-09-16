@@ -30,33 +30,33 @@ import { notFound } from "next/navigation"
 
 import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
-import { getStoreById } from "@/data/stores"
+import { getFacilityById } from "@/data/facilities"
 import { colors } from "@/lib/colors"
 
-interface StorePageProps {
+interface FacilityPageProps {
   params: Promise<{
     id: string
   }>
 }
 
-export default function StorePage({ params }: StorePageProps) {
+export default function FacilityPage({ params }: FacilityPageProps) {
   const [isMounted, setIsMounted] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
   const resolvedParams = use(params)
-  const store = getStoreById(resolvedParams.id)
+  const facility = getFacilityById(resolvedParams.id)
 
   useEffect(() => {
     setIsMounted(true)
 
     // Preload image
-    if (store?.image) {
+    if (facility?.image) {
       const img = new window.Image()
-      img.src = store.image
+      img.src = facility.image
       img.onload = () => setImageLoaded(true)
     }
-  }, [store])
+  }, [facility])
 
-  if (!store) {
+  if (!facility) {
     notFound()
   }
 
@@ -97,11 +97,11 @@ export default function StorePage({ params }: StorePageProps) {
             transition={isMounted ? { duration: 0.6 } : undefined}
           >
             <Link
-              href="/stores"
+              href="/facilities"
               className={`inline-flex items-center gap-2 ${colors.textDark} transition-colors hover:text-red-300`}
             >
               <ArrowLeft className="h-4 w-4" />
-              店舗一覧に戻る
+              施設一覧に戻る
             </Link>
           </MotionDiv>
         </div>
@@ -119,13 +119,13 @@ export default function StorePage({ params }: StorePageProps) {
               <h1
                 className={`mb-3 text-4xl font-bold lg:text-5xl ${colors.textDark}`}
               >
-                {store.name}
+                {facility.name}
               </h1>
-              <p className="mb-6 text-xl text-red-300">{store.shortName}</p>
+              <p className="mb-6 text-xl text-red-300">{facility.shortName}</p>
               <p
                 className={`mx-auto max-w-3xl text-lg leading-relaxed ${colors.textDark} opacity-80`}
               >
-                {store.description}
+                {facility.description}
               </p>
             </MotionDiv>
 
@@ -147,10 +147,10 @@ export default function StorePage({ params }: StorePageProps) {
                     transition={{ duration: 0.8 }}
                     className="absolute inset-0"
                   >
-                    {store.image && (
+                    {facility.image && (
                       <Image
-                        src={store.image}
-                        alt={store.name}
+                        src={facility.image}
+                        alt={facility.name}
                         fill
                         className="object-cover"
                         priority
@@ -175,7 +175,7 @@ export default function StorePage({ params }: StorePageProps) {
                     <div>
                       <p className="mb-2 text-sm text-gray-600">住所</p>
                       <p className={`text-base ${colors.textDark}`}>
-                        {store.address}
+                        {facility.address}
                       </p>
                     </div>
                   </div>
@@ -185,7 +185,7 @@ export default function StorePage({ params }: StorePageProps) {
                     <div>
                       <p className="mb-2 text-sm text-gray-600">電話番号</p>
                       <p className={`text-base ${colors.textDark}`}>
-                        {store.phone}
+                        {facility.phone}
                       </p>
                     </div>
                   </div>
@@ -193,11 +193,11 @@ export default function StorePage({ params }: StorePageProps) {
                   <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
                     <Clock className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
                     <div>
-                      <p className="mb-2 text-sm text-gray-600">営業時間</p>
+                      <p className="mb-2 text-sm text-gray-600">対応時間</p>
                       <p className={`text-base ${colors.textDark}`}>
-                        {store.openingHours}
+                        {facility.openingHours}
                         <span className="mt-1 block text-sm text-gray-600">
-                          {store.closedDays}定休
+                          {facility.closedDays}
                         </span>
                       </p>
                     </div>
@@ -208,7 +208,7 @@ export default function StorePage({ params }: StorePageProps) {
                     <div>
                       <p className="mb-2 text-sm text-gray-600">定員</p>
                       <p className={`text-base ${colors.textDark}`}>
-                        定員{store.capacity}名
+                        定員{facility.capacity}名
                       </p>
                     </div>
                   </div>
@@ -218,7 +218,7 @@ export default function StorePage({ params }: StorePageProps) {
                     <div>
                       <p className="mb-2 text-sm text-gray-600">メール</p>
                       <p className={`text-base ${colors.textDark}`}>
-                        {store.email}
+                        {facility.email}
                       </p>
                     </div>
                   </div>
