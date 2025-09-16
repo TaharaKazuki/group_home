@@ -143,9 +143,6 @@ export default function FacilitiesPage() {
                         >
                           {facility.name}
                         </h3>
-                        <p className="mb-6 text-lg text-red-300">
-                          {facility.shortName}
-                        </p>
                         <p
                           className={`mb-8 text-lg leading-relaxed ${colors.textDark} opacity-80`}
                         >

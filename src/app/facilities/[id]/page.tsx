@@ -121,7 +121,6 @@ export default function FacilityPage({ params }: FacilityPageProps) {
               >
                 {facility.name}
               </h1>
-              <p className="mb-6 text-xl text-red-300">{facility.shortName}</p>
               <p
                 className={`mx-auto max-w-3xl text-lg leading-relaxed ${colors.textDark} opacity-80`}
               >
