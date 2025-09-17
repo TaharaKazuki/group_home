@@ -30,7 +30,7 @@ export default function MobileHeader() {
   return (
     <>
       {/* Mobile header with logo and hamburger */}
-      <header className="fixed top-0 left-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-red-100">
+      <header className="fixed top-0 left-0 z-50 w-full">
         <nav className="flex items-center justify-between px-6 py-4">
           <motion.a
             href="/#top"
