@@ -50,7 +50,7 @@ export default function HeroSlider() {
 
   return (
     <>
-      <div className="relative h-screen w-full overflow-hidden bg-black">
+      <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-red-50 via-white to-pink-50">
         {/* Background images with enhanced effects */}
         {images.map((src, index) => (
           <motion.div
@@ -125,8 +125,8 @@ export default function HeroSlider() {
           <div className="relative z-10 max-w-4xl">
             {/* Floating logo */}
             <motion.div
-              initial={{ opacity: 0, x: -100, rotate: -5 }}
-              animate={{ opacity: 1, x: 0, rotate: 0 }}
+              initial={{ opacity: 0, y: 100, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
               className="mb-12"
             >
@@ -235,16 +235,10 @@ export default function HeroSlider() {
             exit={{ opacity: 0, y: 20 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="fixed right-8 bottom-8 z-50 flex h-14 w-14 items-center justify-center rounded-full text-white shadow-2xl transition-all duration-300"
-            style={{
-              background: "rgba(239, 68, 68, 0.9)",
-              backdropFilter: "blur(10px)",
-              WebkitBackdropFilter: "blur(10px)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-            }}
+            className="fixed right-8 bottom-8 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-red-300 bg-red-300 text-white shadow-2xl transition-all duration-300 hover:bg-white hover:text-red-300"
             aria-label="Scroll to top"
           >
-            <ChevronUp className="h-6 w-6" />
+            <ChevronUp className="h-6 w-6 transition-colors duration-300" />
           </motion.button>
         )}
       </AnimatePresence>

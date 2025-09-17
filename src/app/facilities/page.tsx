@@ -207,7 +207,9 @@ export default function FacilitiesPage() {
           </MotionDiv>
         </div>
       </main>
-      <Footer />
+      <div className="lg:ml-64">
+        <Footer />
+      </div>
     </>
   )
 }

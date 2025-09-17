@@ -357,7 +357,9 @@ export default function FacilityPage({ params }: FacilityPageProps) {
           </MotionDiv>
         </div>
       </main>
-      <Footer />
+      <div className="lg:ml-64">
+        <Footer />
+      </div>
     </>
   )
 }

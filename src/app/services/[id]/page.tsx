@@ -148,7 +148,9 @@ export default function ServicePage({ params }: ServicePageProps) {
           </div>
         </motion.div>
       </main>
-      <Footer />
+      <div className="lg:ml-64">
+        <Footer />
+      </div>
     </>
   )
 }

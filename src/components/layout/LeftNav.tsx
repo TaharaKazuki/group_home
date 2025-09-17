@@ -1,61 +1,65 @@
 "use client"
 
-import Link from "next/link"
 import { Home, Info, Users, Building, HelpCircle, Mail } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 import { Button } from "@/components/ui/Button"
 
 const navItems = [
-  { 
-    label: "ホーム", 
-    href: "/#top", 
-    icon: Home 
+  {
+    label: "ホーム",
+    href: "/#top",
+    icon: Home,
   },
-  { 
-    label: "私たちについて", 
-    href: "/#about", 
-    icon: Info 
+  {
+    label: "私たちについて",
+    href: "/#about",
+    icon: Info,
   },
-  { 
-    label: "サービス", 
-    href: "/#service", 
-    icon: Users 
+  {
+    label: "サービス",
+    href: "/#service",
+    icon: Users,
   },
-  { 
-    label: "会社概要", 
-    href: "/#company", 
-    icon: Building 
+  {
+    label: "会社概要",
+    href: "/#company",
+    icon: Building,
   },
-  { 
-    label: "よくある質問", 
-    href: "/questions", 
-    icon: HelpCircle 
+  {
+    label: "よくある質問",
+    href: "/questions",
+    icon: HelpCircle,
   },
-  { 
-    label: "施設情報", 
-    href: "/facilities", 
-    icon: Building 
+  {
+    label: "施設情報",
+    href: "/facilities",
+    icon: Building,
   },
 ]
 
 export default function LeftNav() {
   return (
     <nav
-      className="fixed left-0 top-0 z-50 h-screen w-64 shadow-xl"
+      className="fixed top-0 left-0 z-50 h-screen w-64 shadow-xl"
       style={{
-        background: "linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%)",
+        background:
+          "linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%)",
         backdropFilter: "blur(10px)",
-        borderRight: "1px solid rgba(239, 68, 68, 0.1)",
       }}
     >
       <div className="flex h-full flex-col">
         {/* Logo section */}
-        <div className="p-6 border-b border-red-100">
+        <div className="p-6">
           <Link href="/#top" className="block">
-            <img
+            <Image
               src="/assets/logo.svg"
               alt="IXIA Group Home"
+              width={200}
+              height={48}
               className="h-12 w-auto"
+              priority
             />
           </Link>
         </div>
@@ -72,7 +76,7 @@ export default function LeftNav() {
                   >
                     <item.icon className="h-5 w-5 text-red-300 transition-colors group-hover:text-white" />
                     <span className="font-medium">{item.label}</span>
-                    <div className="ml-auto h-1 w-1 rounded-full bg-red-300 opacity-0 transition-opacity group-hover:opacity-100 group-hover:bg-white" />
+                    <div className="ml-auto h-1 w-1 rounded-full bg-red-300 opacity-0 transition-opacity group-hover:bg-white group-hover:opacity-100" />
                   </Link>
                 ) : (
                   <a
@@ -81,7 +85,7 @@ export default function LeftNav() {
                   >
                     <item.icon className="h-5 w-5 text-red-300 transition-colors group-hover:text-white" />
                     <span className="font-medium">{item.label}</span>
-                    <div className="ml-auto h-1 w-1 rounded-full bg-red-300 opacity-0 transition-opacity group-hover:opacity-100 group-hover:bg-white" />
+                    <div className="ml-auto h-1 w-1 rounded-full bg-red-300 opacity-0 transition-opacity group-hover:bg-white group-hover:opacity-100" />
                   </a>
                 )}
               </li>
@@ -90,7 +94,7 @@ export default function LeftNav() {
         </div>
 
         {/* Contact button section */}
-        <div className="p-6 border-t border-red-100">
+        <div className="p-6">
           <div>
             <Button
               asChild
@@ -106,9 +110,7 @@ export default function LeftNav() {
 
           {/* Additional info */}
           <div className="mt-4 text-center">
-            <p className="text-xs text-gray-500">
-              TEL: 048-925-5750
-            </p>
+            <p className="text-xs text-gray-500">TEL: 048-925-5750</p>
           </div>
         </div>
       </div>
