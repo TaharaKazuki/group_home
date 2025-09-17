@@ -1,5 +1,6 @@
 import { M_PLUS_Rounded_1c } from "next/font/google"
 
+import ClientLayout from "@/components/ClientLayout"
 import { cn } from "@/lib/utils"
 
 import type { Metadata } from "next"
@@ -27,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={`${cn(geistSans.className)} antialiased`}>
-        {children}
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   )

@@ -50,9 +50,7 @@ export default function MobileHeader() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`relative z-50 rounded-lg p-2 text-white transition-colors ${
-              isOpen ? `${colors.primaryClass}` : ""
-            }`}
+            className="relative z-50 rounded-lg bg-red-300 p-2 text-white transition-colors"
             aria-label="Toggle menu"
           >
             <motion.div
