@@ -13,7 +13,7 @@ export default function QuestionsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50 pt-20">
+      <main className="min-h-screen bg-gray-50 pt-20 lg:ml-64">
         <div className="container mx-auto px-6 py-12 lg:px-12">
           {/* Back to top link */}
           <motion.div

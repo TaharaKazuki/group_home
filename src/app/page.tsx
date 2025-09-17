@@ -35,14 +35,16 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="lg:ml-64">
         <HeroSlider />
         <Philosophy />
         <Services />
         <Company />
         {/* <Topics /> */}
       </main>
-      <Footer />
+      <div className="lg:ml-64">
+        <Footer />
+      </div>
     </>
   )
 }

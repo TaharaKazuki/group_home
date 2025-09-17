@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/Button"
@@ -28,32 +29,52 @@ export default function MobileHeader() {
 
   return (
     <>
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`relative z-50 rounded-lg p-2 transition-colors md:hidden ${
-          isOpen
-            ? `${colors.primaryClass} text-white`
-            : "bg-white/90 text-gray-800 shadow-sm"
-        }`}
-        aria-label="Toggle menu"
-      >
-        <motion.div
-          animate={isOpen ? "open" : "closed"}
-          className="flex h-6 w-6 items-center justify-center"
-        >
-          <motion.span
-            variants={{
-              closed: { rotate: 0 },
-              open: { rotate: 45 },
-            }}
-            transition={{ duration: 0.3 }}
-            className="absolute"
+      {/* Mobile header with logo and hamburger */}
+      <header className="fixed top-0 left-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-red-100">
+        <nav className="flex items-center justify-between px-6 py-4">
+          <motion.a
+            href="/#top"
+            className="flex items-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.span>
-        </motion.div>
-      </button>
+            <Image
+              src="/assets/logo.svg"
+              alt="IXIA Logo"
+              width={200}
+              height={60}
+              className="h-10 w-auto object-contain"
+            />
+          </motion.a>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className={`relative z-50 rounded-lg p-2 transition-colors ${
+              isOpen
+                ? `${colors.primaryClass} text-white`
+                : "bg-white/90 text-gray-800 shadow-sm"
+            }`}
+            aria-label="Toggle menu"
+          >
+            <motion.div
+              animate={isOpen ? "open" : "closed"}
+              className="flex h-6 w-6 items-center justify-center"
+            >
+              <motion.span
+                variants={{
+                  closed: { rotate: 0 },
+                  open: { rotate: 45 },
+                }}
+                transition={{ duration: 0.3 }}
+                className="absolute"
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </motion.span>
+            </motion.div>
+          </button>
+        </nav>
+      </header>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>

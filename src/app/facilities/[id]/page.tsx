@@ -88,7 +88,7 @@ export default function FacilityPage({ params }: FacilityPageProps) {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white pt-20">
+      <main className="min-h-screen bg-white pt-20 lg:ml-64">
         {/* Back Navigation */}
         <div className="container mx-auto px-6 py-6 lg:px-12">
           <MotionDiv

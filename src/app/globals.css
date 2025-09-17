@@ -47,6 +47,11 @@ body {
   border-radius: 4px;
 }
 
+/* Custom gradient utilities */
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
