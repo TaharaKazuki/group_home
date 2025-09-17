@@ -200,7 +200,7 @@ export default function HeroSlider() {
         </motion.div>
 
         {/* Modern slide indicators */}
-        <div className="absolute top-1/2 right-8 flex -translate-y-1/2 flex-col gap-3">
+        <div className="absolute right-8 bottom-8 flex gap-3">
           {images.map((_, index) => (
             <motion.button
               key={index}
@@ -211,15 +211,12 @@ export default function HeroSlider() {
               aria-label={`Go to slide ${index + 1}`}
             >
               <div
-                className={`w-1 transition-all duration-500 ${
+                className={`h-0.5 transition-all duration-500 ${
                   index === currentImageIndex
-                    ? "h-12 bg-white"
-                    : "h-6 bg-white/30 group-hover:bg-white/50"
+                    ? "w-12 bg-white"
+                    : "w-6 bg-white/30 group-hover:bg-white/50"
                 }`}
               />
-              <span className="absolute top-1/2 left-6 -translate-y-1/2 text-xs whitespace-nowrap text-white/60 opacity-0 transition-opacity group-hover:opacity-100">
-                0{index + 1}
-              </span>
             </motion.button>
           ))}
         </div>
