@@ -82,10 +82,10 @@ export default function HeroSlider() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="w-full"
+            className="w-5/6 rounded-2xl lg:w-2xl"
           >
             <motion.div
-              className="w-full bg-gradient-to-r from-white/60 via-red-100/60 to-red-300/60"
+              className="w-full rounded-2xl border-1 border-red-300 bg-gradient-to-r from-white/80 via-red-100/70 to-red-300/60 shadow-2xl"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
