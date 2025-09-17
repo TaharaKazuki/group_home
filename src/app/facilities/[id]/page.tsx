@@ -349,7 +349,7 @@ export default function FacilityPage({ params }: FacilityPageProps) {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-red-300 px-8 py-3 text-white transition-colors hover:bg-red-400"
+                className="inline-flex items-center justify-center border-2 border-red-300 bg-red-300 px-8 py-3 text-white transition-all duration-300 hover:bg-white hover:text-red-300"
               >
                 お問い合わせはこちら
               </Link>

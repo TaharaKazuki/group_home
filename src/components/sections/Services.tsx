@@ -3,7 +3,7 @@
 import { useState } from "react"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 import LifeModal from "@/components/modals/LifeModal"
 import PricingModal from "@/components/modals/PricingModal"
@@ -62,11 +62,9 @@ export default function Services() {
             transition={{ delay: 0.5 }}
             className="mt-4 flex items-center justify-center gap-2"
           >
-            <Sparkles className="h-4 w-4 text-red-300" />
             <span className="text-sm font-medium tracking-wider text-red-300 uppercase">
               Services
             </span>
-            <Sparkles className="h-4 w-4 text-red-300" />
           </motion.div>
 
           <motion.p
@@ -127,7 +125,7 @@ export default function Services() {
                         >
                           {service.title}
                         </h3>
-                        <div className="mt-2 h-0.5 w-12 scale-x-0 transform bg-gradient-to-r from-red-300 to-pink-300 transition-transform duration-500 group-hover:scale-x-100" />
+                        <div className="mt-2 h-0.5 w-full scale-x-0 transform bg-white transition-transform duration-500 group-hover:scale-x-100" />
                       </div>
                     </div>
 
@@ -150,33 +148,6 @@ export default function Services() {
                       </span>
                     </motion.div>
                   </div>
-
-                  {/* 浮遊パーティクル */}
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute h-2 w-2 rounded-full bg-red-300/30"
-                      style={{
-                        left: `${20 + i * 30}%`,
-                        top: `${20 + i * 15}%`,
-                      }}
-                      animate={
-                        hoveredCard === index
-                          ? {
-                              y: [0, -10, 0],
-                              opacity: [0.3, 0.7, 0.3],
-                              scale: [0.8, 1.2, 0.8],
-                            }
-                          : {}
-                      }
-                      transition={{
-                        duration: 2 + i * 0.5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.3,
-                      }}
-                    />
-                  ))}
                 </div>
               </motion.div>
             )

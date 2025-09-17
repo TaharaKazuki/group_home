@@ -6,18 +6,22 @@ import { AnimatePresence, motion } from "framer-motion"
 
 import SplashScreen from "@/components/SplashScreen"
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
+export default function ClientLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const [showSplash, setShowSplash] = useState(true)
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
-    
+
     // 3秒後にスプラッシュスクリーンを非表示
     const timer = setTimeout(() => {
       setShowSplash(false)
     }, 3000)
-    
+
     return () => clearTimeout(timer)
   }, [])
 
@@ -30,7 +34,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <AnimatePresence mode="wait">
         {showSplash && <SplashScreen key="splash" />}
       </AnimatePresence>
-      
+
       {!showSplash && (
         <motion.div
           initial={{ opacity: 0 }}

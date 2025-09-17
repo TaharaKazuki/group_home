@@ -1,9 +1,9 @@
-import { DollarSign, Home } from "lucide-react"
+import { Home, JapaneseYen } from "lucide-react"
 
 export const servicesData = [
   {
     id: "pricing",
-    icon: DollarSign,
+    icon: JapaneseYen,
     title: "料金詳細",
     description:
       "利用料金やサービス内容、公的支援制度の活用について詳しくご説明します。",

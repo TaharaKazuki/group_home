@@ -62,7 +62,7 @@ export default function SplashScreen() {
                 }}
                 className="absolute -inset-8 bg-gradient-to-r from-red-300/30 to-pink-300/30 blur-3xl"
               />
-              
+
               <Image
                 src="/assets/logo.svg"
                 alt="IXIA Group Home"
@@ -100,7 +100,7 @@ export default function SplashScreen() {
                   transition={{ duration: 0.1 }}
                 />
               </div>
-              
+
               {/* ローディングテキスト */}
               <motion.p
                 initial={{ opacity: 0 }}
@@ -127,7 +127,7 @@ export default function SplashScreen() {
                 className="h-3 w-3 rounded-full bg-red-300/30"
               />
             </div>
-            <div className="absolute -bottom-20 -right-20">
+            <div className="absolute -right-20 -bottom-20">
               <motion.div
                 animate={{
                   y: [0, 10, 0],

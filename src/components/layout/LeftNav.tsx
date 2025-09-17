@@ -99,7 +99,7 @@ export default function LeftNav() {
             <Button
               asChild
               variant="primary"
-              className="w-full justify-start gap-3 rounded-xl bg-red-300 px-4 py-3 text-white shadow-lg transition-all duration-300 hover:bg-white hover:text-red-300 hover:shadow-xl"
+              className="w-full justify-start gap-3 rounded-xl border-2 border-red-300 bg-red-300 px-4 py-3 text-white shadow-lg transition-all duration-300 hover:bg-white hover:text-red-300 hover:shadow-xl"
             >
               <Link href="/contact">
                 <Mail className="h-5 w-5 transition-colors hover:text-red-300" />
