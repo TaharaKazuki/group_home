@@ -163,7 +163,6 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                     </div>
                   </div>
 
-
                   <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
                     <Mail className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
                     <div>

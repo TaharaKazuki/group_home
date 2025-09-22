@@ -140,7 +140,9 @@ export default function PricingModal({
                             </div>
                           </td>
                           <td className="px-6 py-4 text-right">
-                            <div className="font-semibold text-gray-900">12,000円</div>
+                            <div className="font-semibold text-gray-900">
+                              12,000円
+                            </div>
                             <div className="mt-1 text-xs text-gray-500">
                               冬季・夏季: 20,000円
                             </div>
@@ -157,13 +159,17 @@ export default function PricingModal({
                             合計（通常期）
                           </td>
                           <td className="px-6 py-4 text-right font-bold">
-                            <div className="text-lg text-red-300">77,000円〜81,000円</div>
+                            <div className="text-lg text-red-300">
+                              77,000円〜81,000円
+                            </div>
                           </td>
                         </tr>
                         <tr className="bg-gray-50">
                           <td className="px-6 py-4 text-sm text-gray-600">
                             合計（冬季・夏季）
-                            <div className="text-xs text-gray-500">12月〜3月・7月〜9月</div>
+                            <div className="text-xs text-gray-500">
+                              12月〜3月・7月〜9月
+                            </div>
                           </td>
                           <td className="px-6 py-4 text-right font-bold text-gray-700">
                             85,000円〜89,000円
@@ -190,13 +196,17 @@ export default function PricingModal({
                         </div>
                         <div className="border-t pt-3">
                           <div className="flex items-center justify-between">
-                            <span className="text-sm text-gray-600">補助適用後の負担額（通常期）</span>
+                            <span className="text-sm text-gray-600">
+                              補助適用後の負担額（通常期）
+                            </span>
                             <span className="font-bold text-red-300">
                               67,000円〜71,000円
                             </span>
                           </div>
                           <div className="mt-2 flex items-center justify-between">
-                            <span className="text-xs text-gray-500">冬季・夏季</span>
+                            <span className="text-xs text-gray-500">
+                              冬季・夏季
+                            </span>
                             <span className="text-sm font-semibold text-gray-700">
                               75,000円〜79,000円
                             </span>
