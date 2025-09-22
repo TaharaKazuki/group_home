@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Netlifyでのビルドの最適化
+  output: "standalone",
 }
 
 export default nextConfig
