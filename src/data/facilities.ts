@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Users, Utensils, Wifi } from "lucide-react"
+import { MapPin, Phone, Utensils, Wifi } from "lucide-react"
 
 export const facilitiesData = [
   {
@@ -8,9 +8,6 @@ export const facilitiesData = [
     address: "〒334-0061 埼玉県川口市大字新堀837番地10",
     phone: "090-0000-0001",
     email: "shigemi.takano@gmail.com",
-    openingHours: "24時間",
-    closedDays: "年中無休",
-    capacity: 10,
     description:
       "川口市新堀にある当施設は、アットホームな雰囲気と充実したサポート体制で、利用者様の自立を支援しています。",
     detailedDescription:
@@ -18,14 +15,12 @@ export const facilitiesData = [
     image:
       "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
     features: [
-      { icon: Users, name: "定員10名", description: "少人数制でアットホーム" },
       {
         icon: Utensils,
         name: "食事サービス",
         description: "栄養バランスの取れた食事",
       },
       { icon: Wifi, name: "Wi-Fi完備", description: "インターネット環境" },
-      { icon: Clock, name: "24時間サポート", description: "安心の見守り体制" },
     ],
     facilities: [
       "個室10室",
@@ -57,9 +52,6 @@ export const facilitiesData = [
     address: "〒334-0059 埼玉県川口市安行248-20",
     phone: "090-0000-0002",
     email: "shigemi.takano@gmail.com",
-    openingHours: "24時間",
-    closedDays: "年中無休",
-    capacity: 12,
     description:
       "川口市安行にある当施設は、自然豊かな環境の中で、利用者様が落ち着いて生活できる空間を提供しています。",
     detailedDescription:
@@ -68,21 +60,11 @@ export const facilitiesData = [
       "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
     features: [
       {
-        icon: Users,
-        name: "定員12名",
-        description: "ゆとりのある生活空間",
-      },
-      {
         icon: MapPin,
         name: "静かな住宅街",
         description: "落ち着いた生活環境",
       },
       { icon: Utensils, name: "手作り料理", description: "温かい家庭的な食事" },
-      {
-        icon: Clock,
-        name: "個別支援",
-        description: "一人ひとりに合わせたケア",
-      },
     ],
     facilities: [
       "個室12室",
@@ -114,9 +96,6 @@ export const facilitiesData = [
     address: "〒333-0831 埼玉県川口市木曾呂939番地9",
     phone: "090-0000-0003",
     email: "shigemi.takano@gmail.com",
-    openingHours: "24時間",
-    closedDays: "年中無休",
-    capacity: 8,
     description:
       "川口市木曾呂にある当施設は、家庭的な雰囲気を大切にし、利用者様が安心して暮らせる第二の家を目指しています。",
     detailedDescription:
@@ -124,7 +103,6 @@ export const facilitiesData = [
     image:
       "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
     features: [
-      { icon: Users, name: "定員8名", description: "家族的な雰囲気" },
       { icon: MapPin, name: "閑静な住宅街", description: "穏やかな生活環境" },
       {
         icon: Utensils,
@@ -163,9 +141,6 @@ export const facilitiesData = [
     address: "〒334-0063 埼玉県川口市本郷1211番地32",
     phone: "090-0000-0004",
     email: "shigemi.takano@gmail.com",
-    openingHours: "24時間",
-    closedDays: "年中無休",
-    capacity: 14,
     description:
       "川口市本郷にある最新設備を備えた施設で、快適な生活環境と充実したサポート体制を提供しています。",
     detailedDescription:
@@ -173,28 +148,18 @@ export const facilitiesData = [
     image:
       "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
     features: [
-      {
-        icon: Users,
-        name: "定員14名",
-        description: "充実した設備と広い空間",
-      },
-      { icon: Wifi, name: "最新設備", description: "バリアフリー完備" },
+      { icon: Wifi, name: "最新設備", description: "充実した設備" },
       {
         icon: Utensils,
         name: "栄養管理",
         description: "管理栄養士による献立",
       },
-      {
-        icon: Clock,
-        name: "専門的支援",
-        description: "多職種連携のサポート",
-      },
     ],
     facilities: [
       "個室14室",
       "大型共有リビング",
-      "食堂・カフェスペース",
-      "バリアフリー浴室",
+      "食堂",
+      "浴室",
       "リハビリ室",
       "屋上庭園",
     ],

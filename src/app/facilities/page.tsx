@@ -7,11 +7,8 @@ import {
   ArrowLeft,
   MapPin,
   Phone,
-  Clock,
-  Users,
   ArrowRight,
 } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 
 import Footer from "@/components/layout/Footer"
@@ -21,19 +18,8 @@ import { colors } from "@/lib/colors"
 
 export default function FacilitiesPage() {
   const [isMounted, setIsMounted] = useState(false)
-  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
-
   useEffect(() => {
     setIsMounted(true)
-
-    // Preload images
-    facilitiesData.forEach((facility) => {
-      const img = new window.Image()
-      img.src = facility.image
-      img.onload = () => {
-        setLoadedImages((prev) => new Set(prev).add(facility.image))
-      }
-    })
   }, [])
 
   const containerVariants: Variants = {
@@ -115,24 +101,13 @@ export default function FacilitiesPage() {
                   className="group border-b border-gray-100 last:border-b-0"
                 >
                   <div className="flex flex-col py-12 lg:flex-row lg:py-16">
-                    {/* Image Section - Better loading handling */}
-                    <div className="relative h-80 overflow-hidden bg-gray-100 lg:h-96 lg:w-1/2">
-                      <motion.div
-                        initial={false}
-                        animate={{
-                          opacity: loadedImages.has(facility.image) ? 1 : 0,
-                        }}
-                        transition={{ duration: 0.5 }}
-                        className="absolute inset-0"
-                      >
-                        <Image
-                          src={facility.image}
-                          alt={facility.name}
-                          fill
-                          className="object-cover"
-                          priority={index === 0}
-                        />
-                      </motion.div>
+                    {/* Image Section */}
+                    <div className="relative h-80 overflow-hidden bg-red-200 lg:h-96 lg:w-1/2">
+                      <div className="flex h-full items-center justify-center">
+                        <span className="text-lg font-semibold text-white">
+                          画像準備中
+                        </span>
+                      </div>
                     </div>
 
                     {/* Content Section */}
@@ -169,23 +144,6 @@ export default function FacilitiesPage() {
                             </div>
                           </div>
 
-                          <div className="flex items-start gap-4">
-                            <Clock className="mt-0.5 h-5 w-5 text-red-300" />
-                            <div className="flex-1">
-                              <p className={`text-base ${colors.textDark}`}>
-                                {facility.openingHours}（{facility.closedDays}）
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="flex items-start gap-4">
-                            <Users className="mt-0.5 h-5 w-5 text-red-300" />
-                            <div className="flex-1">
-                              <p className={`text-base ${colors.textDark}`}>
-                                定員{facility.capacity}名
-                              </p>
-                            </div>
-                          </div>
                         </div>
 
                         {/* CTA - Simplified */}

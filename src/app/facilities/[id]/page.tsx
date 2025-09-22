@@ -7,24 +7,17 @@ import {
   ArrowLeft,
   MapPin,
   Phone,
-  Clock,
-  Users,
   Mail,
   Home,
   Heart,
   Shield,
   Wifi,
-  Car,
   Utensils,
   Bath,
-  Tv,
+  Key,
   Bed,
-  Coffee,
-  Building,
-  Star,
   CheckCircle,
 } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
@@ -41,20 +34,12 @@ interface FacilityPageProps {
 
 export default function FacilityPage({ params }: FacilityPageProps) {
   const [isMounted, setIsMounted] = useState(false)
-  const [imageLoaded, setImageLoaded] = useState(false)
   const resolvedParams = use(params)
   const facility = getFacilityById(resolvedParams.id)
 
   useEffect(() => {
     setIsMounted(true)
-
-    // Preload image
-    if (facility?.image) {
-      const img = new window.Image()
-      img.src = facility.image
-      img.onload = () => setImageLoaded(true)
-    }
-  }, [facility])
+  }, [])
 
   if (!facility) {
     notFound()
@@ -139,23 +124,12 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                 }
                 className="flex w-full justify-center lg:w-1/2"
               >
-                <div className="relative aspect-square w-full max-w-lg overflow-hidden bg-gray-100">
-                  <motion.div
-                    initial={false}
-                    animate={{ opacity: imageLoaded ? 1 : 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="absolute inset-0"
-                  >
-                    {facility.image && (
-                      <Image
-                        src={facility.image}
-                        alt={facility.name}
-                        fill
-                        className="object-cover"
-                        priority
-                      />
-                    )}
-                  </motion.div>
+                <div className="relative aspect-square w-full max-w-lg overflow-hidden bg-red-200">
+                  <div className="flex h-full items-center justify-center">
+                    <span className="text-lg font-semibold text-white">
+                      画像準備中
+                    </span>
+                  </div>
                 </div>
               </MotionDiv>
 
@@ -189,28 +163,6 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
-                    <Clock className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
-                    <div>
-                      <p className="mb-2 text-sm text-gray-600">対応時間</p>
-                      <p className={`text-base ${colors.textDark}`}>
-                        {facility.openingHours}
-                        <span className="mt-1 block text-sm text-gray-600">
-                          {facility.closedDays}
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
-                    <Users className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
-                    <div>
-                      <p className="mb-2 text-sm text-gray-600">定員</p>
-                      <p className={`text-base ${colors.textDark}`}>
-                        定員{facility.capacity}名
-                      </p>
-                    </div>
-                  </div>
 
                   <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
                     <Mail className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
@@ -260,10 +212,10 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                   <div className="flex h-full flex-col border border-gray-100 bg-white p-8 transition-all duration-300 hover:border-red-300">
                     <Heart className="mb-4 h-12 w-12 text-red-300" />
                     <h3 className={`mb-2 text-xl font-bold ${colors.textDark}`}>
-                      24時間サポート
+                      充実サポート
                     </h3>
                     <p className="flex-1 text-gray-600">
-                      経験豊富なスタッフが24時間体制で利用者様をサポート
+                      経験豊富なスタッフが利用者様をサポート
                     </p>
                   </div>
                 </div>
@@ -275,7 +227,7 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                       安心・安全
                     </h3>
                     <p className="flex-1 text-gray-600">
-                      バリアフリー設計と最新の安全設備で安心な生活環境
+                      安心で安全な生活環境を提供
                     </p>
                   </div>
                 </div>
@@ -293,22 +245,10 @@ export default function FacilityPage({ params }: FacilityPageProps) {
               <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
                 {[
                   { icon: Wifi, name: "Wi-Fi完備", desc: "高速インターネット" },
-                  { icon: Car, name: "駐車場", desc: "来客用完備" },
                   { icon: Utensils, name: "食堂", desc: "栄養バランス考慮" },
-                  { icon: Bath, name: "浴室", desc: "24時間利用可能" },
-                  { icon: Tv, name: "共有TV", desc: "リビングスペース" },
+                  { icon: Bath, name: "浴室", desc: "清潔で安心" },
+                  { icon: Key, name: "部屋鍵", desc: "プライバシー保護" },
                   { icon: Bed, name: "個室", desc: "プライベート空間" },
-                  { icon: Coffee, name: "カフェコーナー", desc: "憩いの場" },
-                  {
-                    icon: Building,
-                    name: "エレベーター",
-                    desc: "バリアフリー",
-                  },
-                  {
-                    icon: Star,
-                    name: "レクリエーション",
-                    desc: "充実のプログラム",
-                  },
                   {
                     icon: CheckCircle,
                     name: "医療連携",

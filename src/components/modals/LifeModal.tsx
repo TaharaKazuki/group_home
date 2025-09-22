@@ -3,8 +3,20 @@
 import { useEffect } from "react"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Clock, Sun, Moon, Coffee, Heart } from "lucide-react"
-import Image from "next/image"
+import {
+  X,
+  Clock,
+  Sun,
+  Moon,
+  Coffee,
+  Footprints,
+  DollarSign,
+  Home,
+  Briefcase,
+  Users,
+  MessageSquare,
+  Car,
+} from "lucide-react"
 
 import { colors } from "@/lib/colors"
 
@@ -49,73 +61,46 @@ export default function LifeModal({
 
   const dailySchedule = [
     {
-      time: "6:00",
+      time: "6:30",
       icon: Sun,
-      activity: "起床・洗面",
-      description: "起床のお手伝い、洗面、着替えなど",
+      activity: "起床",
+      description: "起床・洗面・着替え",
     },
     {
-      time: "7:00",
-      icon: Coffee,
-      activity: "朝食",
-      description: "栄養バランスの取れた朝食を提供",
+      time: "8:30",
+      icon: Car,
+      activity: "出勤",
+      description: "仕事や日中活動へ",
     },
     {
-      time: "10:00",
-      icon: Heart,
-      activity: "レクリエーション",
-      description: "体操、ゲーム、創作活動など",
-    },
-    {
-      time: "12:00",
-      icon: Coffee,
-      activity: "昼食",
-      description: "季節の食材を使った手作りの昼食",
-    },
-    {
-      time: "15:00",
-      icon: Coffee,
-      activity: "おやつタイム",
-      description: "手作りおやつと団らんの時間",
+      time: "17:00",
+      icon: Home,
+      activity: "帰宅",
+      description: "お家に帰ってきました",
     },
     {
       time: "18:00",
+      icon: Footprints,
+      activity: "散歩",
+      description: "リフレッシュのためのお散歩",
+    },
+    {
+      time: "19:00",
       icon: Coffee,
       activity: "夕食",
       description: "家庭的な雰囲気での夕食",
     },
     {
       time: "20:00",
+      icon: Users,
+      activity: "入浴",
+      description: "リラックスタイム",
+    },
+    {
+      time: "22:00",
       icon: Moon,
-      activity: "就寝準備",
-      description: "入浴、着替え、就寝の準備",
-    },
-  ]
-
-  const events = [
-    {
-      month: "春",
-      event: "お花見",
-      image:
-        "https://images.unsplash.com/photo-1522383225653-ed111181a951?w=400&h=300&fit=crop",
-    },
-    {
-      month: "夏",
-      event: "夏祭り",
-      image:
-        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&h=300&fit=crop",
-    },
-    {
-      month: "秋",
-      event: "紅葉狩り",
-      image:
-        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&h=300&fit=crop",
-    },
-    {
-      month: "冬",
-      event: "クリスマス会",
-      image:
-        "https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=400&h=300&fit=crop",
+      activity: "消灯",
+      description: "おやすみなさい",
     },
   ]
 
@@ -158,7 +143,7 @@ export default function LifeModal({
             {/* Scrollable Content */}
             <div className="relative max-h-[90vh] overflow-y-auto">
               {/* Content */}
-              <div className="p-8">
+              <div className="p-4">
                 <h1 className="flex items-center text-2xl font-bold text-gray-700 md:text-4xl">
                   {service.title}
                 </h1>
@@ -171,7 +156,7 @@ export default function LifeModal({
                 {/* Daily Schedule */}
                 <div className="mb-10">
                   <h3 className={`mb-6 text-2xl font-bold ${colors.textDark}`}>
-                    一日の流れ
+                    一日の流れ（一例）
                   </h3>
                   <div className="relative">
                     {dailySchedule.map((item, index) => {
@@ -179,8 +164,8 @@ export default function LifeModal({
                       return (
                         <div key={index} className="flex gap-4 pb-8 last:pb-0">
                           <div className="relative flex flex-col items-center">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
-                              <IconComponent className="h-6 w-6 text-red-500" />
+                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-300">
+                              <IconComponent className="h-6 w-6 text-white" />
                             </div>
                             {index < dailySchedule.length - 1 && (
                               <div className="absolute top-12 h-full w-0.5 bg-red-200" />
@@ -206,67 +191,92 @@ export default function LifeModal({
                   </div>
                 </div>
 
-                {/* Seasonal Events */}
-                <div className="mb-10">
-                  <h3 className={`mb-6 text-2xl font-bold ${colors.textDark}`}>
-                    季節のイベント
-                  </h3>
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    {events.map((event, index) => (
-                      <div
-                        key={index}
-                        className="overflow-hidden rounded-lg bg-white shadow-lg"
-                      >
-                        <div className="relative h-32">
-                          <Image
-                            src={event.image}
-                            alt={event.event}
-                            fill
-                            className="object-cover"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                          <div className="absolute bottom-2 left-2 text-white">
-                            <p className="text-xs font-semibold">
-                              {event.month}
-                            </p>
-                            <p className="text-lg font-bold">{event.event}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Living Environment */}
                 <div className="rounded-lg bg-gray-50 p-6">
                   <h3 className={`mb-4 text-xl font-bold ${colors.textDark}`}>
                     生活環境
                   </h3>
-                  <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     <div className="rounded-lg bg-white p-4">
-                      <h4 className="mb-2 font-semibold text-gray-800">居室</h4>
+                      <div className="mb-3 flex items-center gap-2">
+                        <Footprints className="h-5 w-5 text-red-300" />
+                        <div className="flex flex-col">
+                          <h4 className="font-semibold text-gray-800">散歩</h4>
+                          <span className="text-xs text-gray-400">WALK</span>
+                        </div>
+                      </div>
                       <p className="text-sm text-gray-600">
-                        プライバシーに配慮した個室をご用意。お気に入りの家具や思い出の品をお持ち込みいただけます。
+                        外出のきっかけとして動物といっしょにお散歩。イキシアならではのひとときです。
                       </p>
                     </div>
                     <div className="rounded-lg bg-white p-4">
-                      <h4 className="mb-2 font-semibold text-gray-800">
-                        共有スペース
-                      </h4>
+                      <div className="mb-3 flex items-center gap-2">
+                        <DollarSign className="h-5 w-5 text-red-300" />
+                        <div className="flex flex-col">
+                          <h4 className="font-semibold text-gray-800">
+                            おこづかい帳の作成
+                          </h4>
+                          <span className="text-xs text-gray-400">MONEY</span>
+                        </div>
+                      </div>
                       <p className="text-sm text-gray-600">
-                        明るく開放的なリビング・ダイニング。皆様との交流を楽しむ憩いの場です。
+                        おこづかい帳作成を通じて金銭管理のお手伝いもおこなっております。（希望者のみ）※金銭を直接お預かりする事はありませんので、ご安心ください。
                       </p>
                     </div>
                     <div className="rounded-lg bg-white p-4">
-                      <h4 className="mb-2 font-semibold text-gray-800">浴室</h4>
+                      <div className="mb-3 flex items-center gap-2">
+                        <Home className="h-5 w-5 text-red-300" />
+                        <div className="flex flex-col">
+                          <h4 className="font-semibold text-gray-800">生活</h4>
+                          <span className="text-xs text-gray-400">LIFE</span>
+                        </div>
+                      </div>
                       <p className="text-sm text-gray-600">
-                        安全に配慮したバリアフリー設計。介助が必要な方も安心してご入浴いただけます。
+                        市役所・病院などへ一人で行くのが不安な方は、スタッフが同行いたしますのでご安心ください。
                       </p>
                     </div>
                     <div className="rounded-lg bg-white p-4">
-                      <h4 className="mb-2 font-semibold text-gray-800">庭園</h4>
+                      <div className="mb-3 flex items-center gap-2">
+                        <Briefcase className="h-5 w-5 text-red-300" />
+                        <div className="flex flex-col">
+                          <h4 className="font-semibold text-gray-800">
+                            就労について
+                          </h4>
+                          <span className="text-xs text-gray-400">WORK</span>
+                        </div>
+                      </div>
                       <p className="text-sm text-gray-600">
-                        四季折々の花や野菜を育てる庭園スペース。園芸療法としても活用しています。
+                        働く場所を一緒に探します。就職先が決まった後も安心して働いていただけるようにフォローをおこなっていきます。
+                      </p>
+                    </div>
+                    <div className="rounded-lg bg-white p-4">
+                      <div className="mb-3 flex items-center gap-2">
+                        <Users className="h-5 w-5 text-red-300" />
+                        <div className="flex flex-col">
+                          <h4 className="font-semibold text-gray-800">
+                            コミュニティ
+                          </h4>
+                          <span className="text-xs text-gray-400">
+                            COMMUNITY
+                          </span>
+                        </div>
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        入居者様同士で仲良くなり、遊園地などに遊びに行くことも！イキシアでの暮らしを通じて新しい出会いを充実したものにして頂けます。
+                      </p>
+                    </div>
+                    <div className="rounded-lg bg-white p-4">
+                      <div className="mb-3 flex items-center gap-2">
+                        <MessageSquare className="h-5 w-5 text-red-300" />
+                        <div className="flex flex-col">
+                          <h4 className="font-semibold text-gray-800">
+                            入居者会議
+                          </h4>
+                          <span className="text-xs text-gray-400">MEETING</span>
+                        </div>
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        月に一度、「入居者会議」を実施しております。皆様が気持ちよく共同生活を送れるように話し合いをおこないます。
                       </p>
                     </div>
                   </div>
