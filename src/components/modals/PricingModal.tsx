@@ -100,8 +100,7 @@ export default function PricingModal({
                 {/* Pricing Tables */}
                 <div className="mb-8">
                   <h3 className={`mb-6 text-2xl font-bold ${colors.textDark}`}>
-                    基本料金
-                    <span className="text-sm text-gray-400">（一例）</span>
+                    基本料金（月額）
                   </h3>
                   <div className="overflow-hidden rounded-lg border border-gray-200">
                     <table className="w-full">
@@ -119,85 +118,100 @@ export default function PricingModal({
                         <tr>
                           <td className="px-6 py-4 text-gray-700">家賃</td>
                           <td className="px-6 py-4 text-right font-semibold text-gray-900">
-                            50,000円
+                            37,000円〜41,000円
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-6 py-4 text-gray-700">食費</td>
+                          <td className="px-6 py-4">
+                            <div className="text-gray-700">食費</div>
+                            <div className="mt-1 text-xs text-gray-500">
+                              朝350円 / 夜500円（各1食）
+                            </div>
+                          </td>
                           <td className="px-6 py-4 text-right font-semibold text-gray-900">
-                            45,000円
+                            25,000円
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-6 py-4 text-gray-700">管理費</td>
-                          <td className="px-6 py-4 text-right font-semibold text-gray-900">
-                            20,000円
+                          <td className="px-6 py-4">
+                            <div className="text-gray-700">水道光熱費</div>
+                            <div className="mt-1 text-xs text-gray-500">
+                              ※季節により変動あり
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 text-right">
+                            <div className="font-semibold text-gray-900">12,000円</div>
+                            <div className="mt-1 text-xs text-gray-500">
+                              冬季・夏季: 20,000円
+                            </div>
                           </td>
                         </tr>
-                        <tr className="bg-red-50">
+                        <tr>
+                          <td className="px-6 py-4 text-gray-700">日用品費</td>
+                          <td className="px-6 py-4 text-right font-semibold text-gray-900">
+                            3,000円
+                          </td>
+                        </tr>
+                        <tr className="bg-gray-50">
                           <td className="px-6 py-4 font-bold text-gray-900">
-                            合計
+                            合計（通常期）
                           </td>
-                          <td className="px-6 py-4 text-right text-lg font-bold text-red-300">
-                            115,000円
+                          <td className="px-6 py-4 text-right font-bold">
+                            <div className="text-lg text-red-300">77,000円〜81,000円</div>
+                          </td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="px-6 py-4 text-sm text-gray-600">
+                            合計（冬季・夏季）
+                            <div className="text-xs text-gray-500">12月〜3月・7月〜9月</div>
+                          </td>
+                          <td className="px-6 py-4 text-right font-bold text-gray-700">
+                            85,000円〜89,000円
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
-                </div>
 
-                {/* Additional Services */}
-                <div className="mb-8">
-                  <h3 className={`mb-6 text-2xl font-bold ${colors.textDark}`}>
-                    その他サービス（オプション）
-                  </h3>
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-lg border border-gray-200 p-4">
-                      <h4 className="mb-2 font-semibold text-gray-800">
-                        通院介助
-                      </h4>
-                      <p className="mb-2 text-sm text-gray-600">
-                        病院への送迎・付き添い
-                      </p>
-                      <p className="text-lg font-bold text-gray-700">
-                        3,000円/回
-                      </p>
-                    </div>
-                    <div className="rounded-lg border border-gray-200 p-4">
-                      <h4 className="mb-2 font-semibold text-gray-800">
-                        訪問理美容
-                      </h4>
-                      <p className="mb-2 text-sm text-gray-600">
-                        カット・カラー対応
-                      </p>
-                      <p className="text-lg font-bold text-gray-700">実費</p>
-                    </div>
-                    <div className="rounded-lg border border-gray-200 p-4">
-                      <h4 className="mb-2 font-semibold text-gray-800">
-                        レクリエーション
-                      </h4>
-                      <p className="mb-2 text-sm text-gray-600">
-                        外出イベント等
-                      </p>
-                      <p className="text-lg font-bold text-gray-700">実費</p>
-                    </div>
-                    <div className="rounded-lg border border-gray-200 p-4">
-                      <h4 className="mb-2 font-semibold text-gray-800">
-                        介護用品レンタル
-                      </h4>
-                      <p className="mb-2 text-sm text-gray-600">
-                        車椅子・歩行器等
-                      </p>
-                      <p className="text-lg font-bold text-gray-700">
-                        1,000円〜/月
+                  {/* Support System */}
+                  <div className="mt-6 rounded-lg bg-red-50 p-6">
+                    <h4 className="mb-4 text-lg font-bold text-red-300">
+                      家賃補助制度の適用例
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="rounded-lg bg-white p-4">
+                        <div className="mb-2 flex items-center justify-between">
+                          <span className="text-sm font-semibold text-gray-700">
+                            特定障がい者特別給付費支援
+                          </span>
+                          <span className="text-sm font-bold text-red-300">
+                            -10,000円
+                          </span>
+                        </div>
+                        <div className="border-t pt-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm text-gray-600">補助適用後の負担額（通常期）</span>
+                            <span className="font-bold text-red-300">
+                              67,000円〜71,000円
+                            </span>
+                          </div>
+                          <div className="mt-2 flex items-center justify-between">
+                            <span className="text-xs text-gray-500">冬季・夏季</span>
+                            <span className="text-sm font-semibold text-gray-700">
+                              75,000円〜79,000円
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-xs text-gray-600">
+                        ※補助制度の適用については個別にご相談ください
                       </p>
                     </div>
                   </div>
                 </div>
 
                 {/* Support Info */}
-                <div className="rounded-lg bg-red-50 p-6">
+                <div className="rounded-lg border-2 border-dashed border-red-300 p-6">
                   <h3 className="mb-4 text-xl font-bold text-red-300">
                     公的支援制度について
                   </h3>
