@@ -3,12 +3,7 @@
 import { useEffect, useState } from "react"
 
 import { motion, Variants } from "framer-motion"
-import {
-  ArrowLeft,
-  MapPin,
-  Phone,
-  ArrowRight,
-} from "lucide-react"
+import { ArrowLeft, MapPin, Phone, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 import Footer from "@/components/layout/Footer"
@@ -94,7 +89,7 @@ export default function FacilitiesPage() {
             </MotionDiv>
 
             <div className="grid gap-0 lg:gap-0">
-              {facilitiesData.map((facility, index) => (
+              {facilitiesData.map((facility) => (
                 <MotionDiv
                   key={facility.id}
                   variants={isMounted ? itemVariants : undefined}
@@ -143,7 +138,6 @@ export default function FacilitiesPage() {
                               </p>
                             </div>
                           </div>
-
                         </div>
 
                         {/* CTA - Simplified */}
