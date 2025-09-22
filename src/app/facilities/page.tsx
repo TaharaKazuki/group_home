@@ -15,6 +15,7 @@ export default function FacilitiesPage() {
   const [isMounted, setIsMounted] = useState(false)
   useEffect(() => {
     setIsMounted(true)
+    console.info("isMounted")
   }, [])
 
   const containerVariants: Variants = {
