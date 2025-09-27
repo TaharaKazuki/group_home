@@ -111,7 +111,7 @@ export default function FacilityPage({ params }: FacilityPageProps) {
             </MotionDiv>
 
             {/* Main Content Layout */}
-            <div className="flex flex-col gap-12 lg:flex-row">
+            <div className="flex justify-center">
               {/* Square Image */}
               <MotionDiv
                 initial={isMounted ? { opacity: 0, scale: 0.95 } : undefined}
@@ -119,9 +119,9 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                 transition={
                   isMounted ? { duration: 0.8, delay: 0.2 } : undefined
                 }
-                className="flex w-full justify-center lg:w-1/2"
+                className="w-full max-w-lg"
               >
-                <div className="relative aspect-square w-full max-w-lg overflow-hidden bg-red-200">
+                <div className="relative aspect-square w-full overflow-hidden bg-red-200">
                   <div className="flex h-full items-center justify-center">
                     <span className="text-lg font-semibold text-white">
                       画像準備中
