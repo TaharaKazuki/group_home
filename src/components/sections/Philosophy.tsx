@@ -75,11 +75,17 @@ export default function Philosophy() {
             </FadeInText>
             <FadeInText
               delay={3.8}
-              className={`leading-relaxed ${colors.textDark}`}
+              className={`mb-4 leading-relaxed ${colors.textDark}`}
             >
-              経験豊富なスタッフが24時間体制でサポートし、
+              経験豊富なスタッフが親身にサポートし、
               安心・安全な環境の中で、利用者様が笑顔で過ごせる
               第二の我が家を提供してまいります。
+            </FadeInText>
+            <FadeInText
+              delay={4.6}
+              className={`leading-relaxed ${colors.textDark}`}
+            >
+              また、スタッフの中には看護職員がおり、医療的ケアが必要な方にも対応しております。
             </FadeInText>
           </div>
 

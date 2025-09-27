@@ -46,8 +46,7 @@ export default function QuestionsPage() {
                 </span>
               </h1>
               <p className="mt-4 text-gray-700">
-                IXIA Group
-                Homeについて、よくお寄せいただくご質問と回答をまとめました。
+                イキシアグループホームについて、よくお寄せいただくご質問と回答をまとめました。
                 ご不明な点がございましたら、お気軽にお問い合わせください。
               </p>
             </motion.div>

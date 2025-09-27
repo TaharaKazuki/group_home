@@ -8,8 +8,8 @@ import { colors } from "@/lib/colors"
 
 const companyInfo = [
   { label: "運営法人", value: "S&Tタカノ合同会社" },
-  { label: "代表取締役", value: "高野 重美" },
-  { label: "事業内容", value: "グループホームの運営事業" },
+  { label: "代表社員", value: "高野 重美" },
+  { label: "事業内容", value: "グループホームの運営事業・養蜂" },
   { label: "運営施設", value: "グループホーム4施設（川口市内）" },
 ]
 

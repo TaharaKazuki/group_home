@@ -61,10 +61,16 @@ export default function LifeModal({
 
   const dailySchedule = [
     {
-      time: "6:30",
+      time: "6:00",
       icon: Sun,
       activity: "起床",
       description: "起床・洗面・着替え",
+    },
+    {
+      time: "7:00",
+      icon: Coffee,
+      activity: "朝食",
+      description: "朝から活力満点",
     },
     {
       time: "8:30",
@@ -220,7 +226,7 @@ export default function LifeModal({
                         </div>
                       </div>
                       <p className="text-sm text-gray-600">
-                        おこづかい帳作成を通じて金銭管理のお手伝いもおこなっております。（希望者のみ）※金銭を直接お預かりする事はありませんので、ご安心ください。
+                        おこづかい帳作成を通じて金銭管理のお手伝いもおこなっております。（希望者のみ）
                       </p>
                     </div>
                     <div className="rounded-lg bg-white p-4">
@@ -232,7 +238,7 @@ export default function LifeModal({
                         </div>
                       </div>
                       <p className="text-sm text-gray-600">
-                        市役所・病院などへ一人で行くのが不安な方は、スタッフが同行いたしますのでご安心ください。
+                        市役所・病院などへ一人で行くのが不安な方は、通院介助サービスを利用できますのでご安心ください。
                       </p>
                     </div>
                     <div className="rounded-lg bg-white p-4">
@@ -262,7 +268,7 @@ export default function LifeModal({
                         </div>
                       </div>
                       <p className="text-sm text-gray-600">
-                        入居者様同士で仲良くなり、遊園地などに遊びに行くことも！イキシアでの暮らしを通じて新しい出会いを充実したものにして頂けます。
+                        入居者様同士で仲良くなり、遊びや食事に行くことも！イキシアでの暮らしを通じて新しい出会いを充実したものにして頂けます。
                       </p>
                     </div>
                     <div className="rounded-lg bg-white p-4">
@@ -276,7 +282,7 @@ export default function LifeModal({
                         </div>
                       </div>
                       <p className="text-sm text-gray-600">
-                        月に一度、「入居者会議」を実施しております。皆様が気持ちよく共同生活を送れるように話し合いをおこないます。
+                        適宜、「入居者会議」を実施しております。皆様が気持ちよく共同生活を送れるように話し合いをおこないます。
                       </p>
                     </div>
                   </div>

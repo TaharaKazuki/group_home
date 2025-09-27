@@ -5,9 +5,6 @@ import { useEffect, useState, use } from "react"
 import { motion, Variants } from "framer-motion"
 import {
   ArrowLeft,
-  MapPin,
-  Phone,
-  Mail,
   Home,
   Heart,
   Shield,
@@ -129,48 +126,6 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                     <span className="text-lg font-semibold text-white">
                       画像準備中
                     </span>
-                  </div>
-                </div>
-              </MotionDiv>
-
-              {/* Store Information */}
-              <MotionDiv
-                initial={isMounted ? { opacity: 0, y: 30 } : undefined}
-                animate={isMounted ? { opacity: 1, y: 0 } : undefined}
-                transition={
-                  isMounted ? { duration: 0.8, delay: 0.4 } : undefined
-                }
-                className="flex w-full flex-col justify-center lg:w-1/2"
-              >
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
-                    <MapPin className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
-                    <div>
-                      <p className="mb-2 text-sm text-gray-600">住所</p>
-                      <p className={`text-base ${colors.textDark}`}>
-                        {facility.address}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
-                    <Phone className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
-                    <div>
-                      <p className="mb-2 text-sm text-gray-600">電話番号</p>
-                      <p className={`text-base ${colors.textDark}`}>
-                        {facility.phone}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
-                    <Mail className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
-                    <div>
-                      <p className="mb-2 text-sm text-gray-600">メール</p>
-                      <p className={`text-base ${colors.textDark}`}>
-                        {facility.email}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </MotionDiv>

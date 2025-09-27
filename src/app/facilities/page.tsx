@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 
 import { motion, Variants } from "framer-motion"
-import { ArrowLeft, MapPin, Phone, ArrowRight } from "lucide-react"
+import { ArrowLeft, MapPin, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 import Footer from "@/components/layout/Footer"
@@ -126,15 +126,6 @@ export default function FacilitiesPage() {
                             <div className="flex-1">
                               <p className={`text-base ${colors.textDark}`}>
                                 {facility.address}
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="flex items-start gap-4">
-                            <Phone className="mt-0.5 h-5 w-5 text-red-300" />
-                            <div className="flex-1">
-                              <p className={`text-base ${colors.textDark}`}>
-                                {facility.phone}
                               </p>
                             </div>
                           </div>
