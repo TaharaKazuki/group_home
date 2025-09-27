@@ -81,7 +81,7 @@ export default function FacilitiesPage() {
                 </span>
               </h1>
               <p
-                className={`max-w-3xl text-lg leading-relaxed ${colors.textDark}`}
+                className={`max-w-full text-lg leading-relaxed ${colors.textDark}`}
               >
                 埼玉県川口市に4つの施設を展開。
                 それぞれの個性を活かした環境で、利用者様をお迎えします。
