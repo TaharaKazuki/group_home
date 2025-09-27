@@ -8,7 +8,7 @@ import { GradualSpacing } from "@/components/ui/GradualSpacing"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { colors } from "@/lib/colors"
 
-export default function Philosophy() {
+export default function AboutUs() {
   const { ref, controls } = useScrollAnimation()
 
   const containerVariants: Variants = {

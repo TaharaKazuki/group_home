@@ -4,9 +4,9 @@ import { useEffect } from "react"
 
 import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
+import AboutUs from "@/components/sections/AboutUs"
 import Company from "@/components/sections/Company"
 import HeroSlider from "@/components/sections/HeroSlider"
-import Philosophy from "@/components/sections/Philosophy"
 import Services from "@/components/sections/Services"
 
 export default function Home() {
@@ -37,7 +37,7 @@ export default function Home() {
       <Header />
       <main className="lg:ml-64">
         <HeroSlider />
-        <Philosophy />
+        <AboutUs />
         <Services />
         <Company />
         {/* <Topics /> */}

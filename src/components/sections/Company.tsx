@@ -83,8 +83,8 @@ export default function Company() {
               className="relative h-96 overflow-hidden bg-gray-200 md:h-auto"
             >
               <Image
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop"
-                alt="Company"
+                src="/assets/facility.png"
+                alt="施設外観"
                 width={800}
                 height={600}
                 className="h-full w-full object-cover"

@@ -52,7 +52,7 @@ src/
 │   │   └── Footer.tsx    # フッター
 │   ├── sections/         # セクションコンポーネント
 │   │   ├── HeroSlider.tsx    # ヒーロースライダー
-│   │   ├── Philosophy.tsx    # 理念セクション
+│   │   ├── AboutUs.tsx       # 私たちについてセクション
 │   │   ├── Services.tsx      # サービスセクション
 │   │   ├── Company.tsx       # 会社情報セクション
 │   │   └── Topics.tsx        # トピックスセクション
@@ -94,7 +94,7 @@ src/
 - **Footer** (`src/components/layout/Footer.tsx`): シンプルな中央配置デザイン、React Iconsによるソーシャルメディアリンク
 
 ### 2. ページ構成
-- **ホームページ** (`src/app/page.tsx`): HeroSlider、Philosophy、Services、Company、Topics セクション
+- **ホームページ** (`src/app/page.tsx`): HeroSlider、AboutUs、Services、Company、Topics セクション
 - **お問い合わせ** (`src/app/contact/page.tsx`): 
   - React Hook Form + Zod バリデーション
   - EmailJS統合によるメール送信機能
