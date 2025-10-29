@@ -112,6 +112,9 @@ export default function FacilitiesPage() {
                           className={`mb-2 text-3xl font-bold lg:text-4xl ${colors.textDark}`}
                         >
                           {facility.name}
+                          <div className="mt-2 text-2xl lg:text-3xl">
+                            {facility.subName}
+                          </div>
                         </h3>
                         <p
                           className={`mb-8 text-lg leading-relaxed ${colors.textDark} opacity-80`}
@@ -134,12 +137,12 @@ export default function FacilitiesPage() {
                         {/* CTA - Simplified */}
                         <Link
                           href={`/facilities/${facility.id}`}
-                          className="group/link inline-flex items-center gap-2 text-red-300 transition-colors hover:text-red-400"
+                          className="group/link inline-flex items-center gap-2 text-red-300"
                         >
                           <span className="text-lg font-medium">
-                            詳細を見る
+                            詳しく見る
                           </span>
-                          <ArrowRight className="h-5 w-5 transition-transform group-hover/link:translate-x-1" />
+                          <ArrowRight className="h-5 w-5 transition-transform group-hover/link:translate-x-2" />
                         </Link>
                       </div>
                     </div>

@@ -2,37 +2,9 @@ import { MapPin, Phone, Utensils, Wifi } from "lucide-react"
 
 export const facilitiesData = [
   {
-    id: "ixia-1",
-    name: "グループホームわおんイキシアⅠ",
-    shortName: "わおんイキシア",
-    address: "〒334-0061 埼玉県川口市大字新堀",
-    description:
-      "川口市新堀にある当施設は、アットホームな雰囲気と充実したサポート体制で、利用者様の自立を支援しています。",
-    detailedDescription:
-      "グループホームわおんイキシアⅠは、埼玉県川口市新堀に位置する障害者グループホームです。利用者様一人ひとりが安心して生活できる環境を提供しています。地域との連携を大切にし、利用者様の社会参加と自立を積極的に支援いたします。",
-    image:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
-    features: [
-      {
-        icon: Utensils,
-        name: "食事サービス",
-        description: "栄養バランスの取れた食事",
-      },
-      { icon: Wifi, name: "Wi-Fi完備", description: "インターネット環境" },
-    ],
-    facilities: [
-      "個室10室",
-      "共有リビング",
-      "食堂",
-      "浴室・洗面所",
-      "洗濯室",
-      "相談室",
-    ],
-  },
-  {
     id: "ixia-2",
-    name: "グループホームわおんイキシアⅡ",
-    shortName: "わおんイキシアⅡ",
+    name: "グループホーム",
+    subName: "わおんイキシアⅡ",
     address: "〒334-0059 埼玉県川口市安行",
     description:
       "川口市安行にある当施設は、自然豊かな環境の中で、利用者様が落ち着いて生活できる空間を提供しています。",
@@ -59,8 +31,8 @@ export const facilitiesData = [
   },
   {
     id: "akatsuki",
-    name: "グループホームあかつき館イキシアⅢ",
-    shortName: "あかつき館",
+    name: "グループホーム",
+    subName: "あかつき館イキシアⅢ",
     address: "〒333-0831 埼玉県川口市木曾呂",
     description:
       "川口市木曾呂にある当施設は、家庭的な雰囲気を大切にし、利用者様が安心して暮らせる第二の家を目指しています。",
@@ -88,8 +60,8 @@ export const facilitiesData = [
   },
   {
     id: "ixia-4",
-    name: "グループホームわおんイキシアⅣ",
-    shortName: "わおんイキシアⅣ",
+    name: "グループホーム",
+    subName: "わおんイキシアⅣ",
     address: "〒334-0063 埼玉県川口市東本郷",
     description:
       "川口市東本郷にある施設で、快適な生活環境と充実したサポート体制を提供しています。",
@@ -113,6 +85,18 @@ export const facilitiesData = [
       "リハビリ室",
       "屋上庭園",
     ],
+  },
+  {
+    id: "ixia-5",
+    name: "グループホーム",
+    subName: "わおんイキシアⅤ",
+    address: "〒334-0056 埼玉県川口市峯",
+    description:
+      "川口市峯にある施設で、快適な生活環境と充実したサポート体制を提供しています。",
+    detailedDescription:
+      "グループホームわおんイキシアⅤは、川口市峯に位置する施設です。利用者様が快適に生活できる環境を整えています。個別支援計画に基づき、日常生活支援から就労支援まで、幅広いサポートを提供し、利用者様の自立と社会参加を促進しています。",
+    image:
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
   },
 ]
 
