@@ -12,7 +12,8 @@ const geistSans = M_PLUS_Rounded_1c({
   weight: ["400", "700"],
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ixia-grouphome.com"
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://ixia-group-home.netlify.app/"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -60,10 +61,10 @@ export const metadata: Metadata = {
       "S&Tタカノ合同会社が運営するIXIA Group Homeは、快適で安心な共同生活をサポートするグループホームです。埼玉県川口市の4拠点で、一人ひとりに寄り添ったケアを提供しています。",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/assets/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "IXIA Group Home",
+        alt: "IXIA Group Home | S&Tタカノ合同会社",
       },
     ],
   },
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
     title: "IXIA Group Home - イキシアグループホーム | S&Tタカノ合同会社",
     description:
       "S&Tタカノ合同会社が運営するIXIA Group Homeは、快適で安心な共同生活をサポートするグループホームです。埼玉県川口市の4拠点で、一人ひとりに寄り添ったケアを提供しています。",
-    images: ["/opengraph-image.png"],
+    images: ["/assets/opengraph-image.png"],
   },
   verification: {
     // Google Search Console用（後で追加可能）
