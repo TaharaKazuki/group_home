@@ -24,7 +24,7 @@ export default function AccordionItem({
     <div className="border-b border-gray-200 py-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-start justify-between text-left transition-colors hover:text-gray-600"
+        className="flex w-full items-start justify-between text-left transition-colors hover:cursor-pointer hover:text-gray-600"
         aria-expanded={isOpen}
         aria-controls={`answer-${questionId}`}
       >

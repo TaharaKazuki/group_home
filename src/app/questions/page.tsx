@@ -46,8 +46,7 @@ export default function QuestionsPage() {
                 </span>
               </h1>
               <p className="mt-4 text-gray-700">
-                IXIA Group
-                Homeについて、よくお寄せいただくご質問と回答をまとめました。
+                イキシアグループホームについて、よくお寄せいただくご質問と回答をまとめました。
                 ご不明な点がございましたら、お気軽にお問い合わせください。
               </p>
             </motion.div>
@@ -57,7 +56,7 @@ export default function QuestionsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white p-6 shadow-lg md:p-8"
+              className="rounded-2xl bg-white p-6 shadow-lg md:p-8"
             >
               {FAQ_LIST.map((item, index) => (
                 <AccordionItem

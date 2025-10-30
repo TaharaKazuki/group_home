@@ -16,7 +16,6 @@ export default function Services() {
     (typeof servicesData)[0] | null
   >(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   const openModal = (service: (typeof servicesData)[0]) => {
     setSelectedService(service)
@@ -47,7 +46,6 @@ export default function Services() {
           transition={{ duration: 0.8 }}
         >
           <div className="relative inline-block">
-            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-red-300/20 to-pink-300/20 blur-xl" />
             <GradualSpacing
               text="サービス"
               className={`relative text-3xl font-bold tracking-tight md:text-4xl ${colors.textDark}`}
@@ -89,64 +87,44 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 * index, duration: 0.8 }}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
                 onClick={() => openModal(service)}
                 className="group relative cursor-pointer"
               >
-                {/* メインカード */}
-                <div className="relative overflow-hidden rounded-2xl border border-white/50 bg-white/80 shadow-lg backdrop-blur-sm transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
-                  {/* グラデーション背景 */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white via-red-50/30 to-pink-50/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                {/* メインカード - グラスモーフィズム */}
+                <div className="relative h-full overflow-hidden rounded-3xl border-2 border-red-300/30 bg-white/70 shadow-xl backdrop-blur-md transition-all duration-500 group-hover:-translate-y-2 group-hover:border-red-300/50 group-hover:bg-white/85 group-hover:shadow-2xl group-hover:backdrop-blur-lg">
+                  {/* 背景の大きなアイコン（透かし） */}
+                  <div className="absolute -right-8 -bottom-8 z-0 scale-110 opacity-[0.06] transition-all duration-500 group-hover:opacity-[0.12]">
+                    <IconComponent className="h-64 w-64 text-red-300" />
+                  </div>
 
-                  {/* 動的グロー効果 */}
-                  <motion.div
-                    className="absolute -inset-0.5 rounded-2xl bg-red-300 opacity-0 blur-sm transition-opacity duration-500 group-hover:opacity-30"
-                    animate={
-                      hoveredCard === index ? { scale: [1, 1.02, 1] } : {}
-                    }
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
+                  {/* スワイプ背景アニメーション */}
+                  <div className="absolute top-0 bottom-0 left-0 z-0 h-full w-0 bg-gradient-to-br from-red-100/30 to-red-200/30 backdrop-blur-sm transition-all duration-700 ease-out group-hover:w-full" />
 
                   <div className="relative z-10 p-8 lg:p-10">
-                    {/* アイコンとタイトル */}
-                    <div className="mb-6 flex items-center gap-4">
-                      <motion.div
-                        className="flex h-16 w-16 items-center justify-center rounded-full bg-red-300 text-white shadow-lg"
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.8 }}
-                      >
+                    {/* アイコン */}
+                    <div className="mb-8">
+                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-red-300/20 to-red-400/20 text-red-300 backdrop-blur-xl transition-all duration-500 group-hover:scale-110 group-hover:from-red-300 group-hover:to-red-400 group-hover:text-white group-hover:shadow-lg">
                         <IconComponent className="h-8 w-8" />
-                      </motion.div>
-
-                      <div>
-                        <h3
-                          className={`text-2xl font-bold ${colors.textDark} transition-colors duration-300 group-hover:text-red-300`}
-                        >
-                          {service.title}
-                        </h3>
-                        <div className="mt-2 h-0.5 w-full scale-x-0 transform bg-white transition-transform duration-500 group-hover:scale-x-100" />
                       </div>
                     </div>
 
-                    {/* 説明文 */}
-                    <p
-                      className={`text-base leading-relaxed ${colors.textDark} mb-8`}
+                    {/* タイトル */}
+                    <h3
+                      className={`mb-4 text-2xl font-bold ${colors.textDark} transition-colors duration-300 group-hover:text-red-300`}
                     >
+                      {service.title}
+                    </h3>
+
+                    {/* 説明文 */}
+                    <p className="mb-8 text-base leading-relaxed text-gray-700">
                       {service.description}
                     </p>
 
                     {/* CTAボタン */}
-                    <motion.div
-                      className="flex items-center justify-between"
-                      whileHover={{ x: 5 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <span className="inline-flex items-center gap-3 rounded-full bg-red-300 px-6 py-3 font-medium text-white shadow-lg transition-all duration-300 group-hover:shadow-xl">
-                        詳しく見る
-                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      </span>
-                    </motion.div>
+                    <div className="flex items-center gap-2 font-medium text-red-300 transition-all duration-300 group-hover:gap-3">
+                      <span>詳しく見る</span>
+                      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </div>
               </motion.div>

@@ -2,6 +2,13 @@
 
 import { useEffect } from "react"
 
+import Footer from "@/components/layout/Footer"
+import Header from "@/components/layout/Header"
+import AboutUs from "@/components/sections/AboutUs"
+import Company from "@/components/sections/Company"
+import HeroSlider from "@/components/sections/HeroSlider"
+import Services from "@/components/sections/Services"
+
 export default function Home() {
   useEffect(() => {
     // Smooth scroll behavior for anchor links
@@ -26,21 +33,18 @@ export default function Home() {
   }, [])
 
   return (
-    // <>
-    //   <Header />
-    //   <main className="lg:ml-64">
-    //     <HeroSlider />
-    //     <Philosophy />
-    //     <Services />
-    //     <Company />
-    //     {/* <Topics /> */}
-    //   </main>
-    //   <div className="lg:ml-64">
-    //     <Footer />
-    //   </div>
-    // </>
-    <div>
-      <h1>準備中</h1>
-    </div>
+    <>
+      <Header />
+      <main className="lg:ml-64">
+        <HeroSlider />
+        <AboutUs />
+        <Services />
+        <Company />
+        {/* <Topics /> */}
+      </main>
+      <div className="lg:ml-64">
+        <Footer />
+      </div>
+    </>
   )
 }

@@ -76,13 +76,7 @@ export default function PrivacyPolicyPage() {
     },
     {
       title: "6. お問い合わせ",
-      content: [
-        "個人情報の取り扱いに関するお問い合わせは、以下までご連絡ください：",
-        "",
-        "株式会社IXIA",
-        "Tel: 090-0000-0000",
-        "Email: info@ixia-grouphome.jp",
-      ],
+      content: ["お問い合わせフォームよりご連絡ください。"],
     },
   ]
 
@@ -125,11 +119,10 @@ export default function PrivacyPolicyPage() {
               className="mb-8 rounded-lg bg-white p-8 shadow-lg"
             >
               <p className="mb-6 text-gray-700">
-                株式会社IXIA（以下「当法人」）は、個人情報保護の重要性を認識し、
+                S&Tタカノ合同会社（以下「当法人」）は、個人情報保護の重要性を認識し、
                 個人情報の保護に関する法律及び関連法令等を遵守し、
                 お客様の個人情報を適切に取り扱います。
               </p>
-              <p className="text-sm text-gray-500">最終更新日: 2024年9月9日</p>
             </motion.div>
 
             <div className="space-y-8">

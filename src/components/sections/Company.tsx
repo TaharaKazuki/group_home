@@ -8,8 +8,8 @@ import { colors } from "@/lib/colors"
 
 const companyInfo = [
   { label: "運営法人", value: "S&Tタカノ合同会社" },
-  { label: "代表取締役", value: "高野 重美" },
-  { label: "事業内容", value: "グループホームの運営事業" },
+  { label: "代表社員", value: "高野 重美" },
+  { label: "事業内容", value: "グループホームの運営事業・養蜂" },
   { label: "運営施設", value: "グループホーム4施設（川口市内）" },
 ]
 
@@ -80,11 +80,11 @@ export default function Company() {
 
             <motion.div
               variants={itemVariants}
-              className="relative h-96 overflow-hidden bg-gray-200 md:h-auto"
+              className="relative h-96 overflow-hidden rounded-xl bg-gray-200 md:h-auto"
             >
               <Image
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop"
-                alt="Company"
+                src="/assets/facility.png"
+                alt="施設外観"
                 width={800}
                 height={600}
                 className="h-full w-full object-cover"

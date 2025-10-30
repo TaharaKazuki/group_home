@@ -5,9 +5,6 @@ import { useEffect, useState, use } from "react"
 import { motion, Variants } from "framer-motion"
 import {
   ArrowLeft,
-  MapPin,
-  Phone,
-  Mail,
   Home,
   Heart,
   Shield,
@@ -17,6 +14,7 @@ import {
   Key,
   Bed,
   CheckCircle,
+  Mail,
 } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -114,7 +112,7 @@ export default function FacilityPage({ params }: FacilityPageProps) {
             </MotionDiv>
 
             {/* Main Content Layout */}
-            <div className="flex flex-col gap-12 lg:flex-row">
+            <div className="flex justify-center">
               {/* Square Image */}
               <MotionDiv
                 initial={isMounted ? { opacity: 0, scale: 0.95 } : undefined}
@@ -122,55 +120,13 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                 transition={
                   isMounted ? { duration: 0.8, delay: 0.2 } : undefined
                 }
-                className="flex w-full justify-center lg:w-1/2"
+                className="w-full max-w-lg"
               >
-                <div className="relative aspect-square w-full max-w-lg overflow-hidden bg-red-200">
+                <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-red-200">
                   <div className="flex h-full items-center justify-center">
                     <span className="text-lg font-semibold text-white">
                       画像準備中
                     </span>
-                  </div>
-                </div>
-              </MotionDiv>
-
-              {/* Store Information */}
-              <MotionDiv
-                initial={isMounted ? { opacity: 0, y: 30 } : undefined}
-                animate={isMounted ? { opacity: 1, y: 0 } : undefined}
-                transition={
-                  isMounted ? { duration: 0.8, delay: 0.4 } : undefined
-                }
-                className="flex w-full flex-col justify-center lg:w-1/2"
-              >
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
-                    <MapPin className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
-                    <div>
-                      <p className="mb-2 text-sm text-gray-600">住所</p>
-                      <p className={`text-base ${colors.textDark}`}>
-                        {facility.address}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
-                    <Phone className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
-                    <div>
-                      <p className="mb-2 text-sm text-gray-600">電話番号</p>
-                      <p className={`text-base ${colors.textDark}`}>
-                        {facility.phone}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 border-l-4 border-red-300 bg-gray-50 p-6">
-                    <Mail className="mt-1 h-6 w-6 flex-shrink-0 text-red-300" />
-                    <div>
-                      <p className="mb-2 text-sm text-gray-600">メール</p>
-                      <p className={`text-base ${colors.textDark}`}>
-                        {facility.email}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </MotionDiv>
@@ -195,8 +151,8 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                 特徴・サービス
               </h2>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                <div className="group h-full cursor-pointer">
-                  <div className="flex h-full flex-col border border-gray-100 bg-white p-8 transition-all duration-300 hover:border-red-300">
+                <div className="group h-full">
+                  <div className="flex h-full flex-col rounded-xl border border-gray-100 bg-white p-8 transition-all duration-300 hover:border-red-300 hover:shadow-lg">
                     <Home className="mb-4 h-12 w-12 text-red-300" />
                     <h3 className={`mb-2 text-xl font-bold ${colors.textDark}`}>
                       快適な居住空間
@@ -207,8 +163,8 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                   </div>
                 </div>
 
-                <div className="group h-full cursor-pointer">
-                  <div className="flex h-full flex-col border border-gray-100 bg-white p-8 transition-all duration-300 hover:border-red-300">
+                <div className="group h-full">
+                  <div className="flex h-full flex-col rounded-xl border border-gray-100 bg-white p-8 transition-all duration-300 hover:border-red-300 hover:shadow-lg">
                     <Heart className="mb-4 h-12 w-12 text-red-300" />
                     <h3 className={`mb-2 text-xl font-bold ${colors.textDark}`}>
                       充実サポート
@@ -219,8 +175,8 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                   </div>
                 </div>
 
-                <div className="group h-full cursor-pointer">
-                  <div className="flex h-full flex-col border border-gray-100 bg-white p-8 transition-all duration-300 hover:border-red-300">
+                <div className="group h-full">
+                  <div className="flex h-full flex-col rounded-xl border border-gray-100 bg-white p-8 transition-all duration-300 hover:border-red-300 hover:shadow-lg">
                     <Shield className="mb-4 h-12 w-12 text-red-300" />
                     <h3 className={`mb-2 text-xl font-bold ${colors.textDark}`}>
                       安心・安全
@@ -263,7 +219,7 @@ export default function FacilityPage({ params }: FacilityPageProps) {
                         ? { duration: 0.6, delay: index * 0.1 }
                         : undefined
                     }
-                    className="group border border-gray-100 bg-white p-4 text-center transition-all duration-300 hover:border-red-300"
+                    className="group rounded-lg border border-gray-100 bg-white p-4 text-center transition-all duration-300 hover:border-red-300 hover:shadow-md"
                   >
                     <amenity.icon className="mx-auto mb-3 h-8 w-8 text-red-300 transition-transform group-hover:scale-110" />
                     <h4 className={`mb-1 font-semibold ${colors.textDark}`}>
@@ -278,7 +234,7 @@ export default function FacilityPage({ params }: FacilityPageProps) {
             {/* CTA Section */}
             <MotionDiv
               variants={isMounted ? itemVariants : undefined}
-              className="bg-red-50 p-12 text-center"
+              className="rounded-2xl bg-red-50 p-12 text-center"
             >
               <h2 className={`mb-4 text-3xl font-bold ${colors.textDark}`}>
                 お問い合わせ・見学予約
@@ -288,9 +244,10 @@ export default function FacilityPage({ params }: FacilityPageProps) {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center border-2 border-red-300 bg-red-300 px-8 py-3 text-white transition-all duration-300 hover:bg-white hover:text-red-300"
+                className="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-red-300 bg-red-300 px-8 py-3 font-medium text-white shadow-lg transition-all duration-300 hover:bg-white hover:text-red-300 hover:shadow-xl"
               >
-                お問い合わせはこちら
+                <Mail className="h-5 w-5" />
+                <span>お問い合わせはこちら</span>
               </Link>
             </MotionDiv>
           </MotionDiv>

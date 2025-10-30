@@ -8,7 +8,7 @@ import { GradualSpacing } from "@/components/ui/GradualSpacing"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { colors } from "@/lib/colors"
 
-export default function Philosophy() {
+export default function AboutUs() {
   const { ref, controls } = useScrollAnimation()
 
   const containerVariants: Variants = {
@@ -91,7 +91,7 @@ export default function Philosophy() {
 
           <motion.div
             variants={itemVariants}
-            className="relative h-96 overflow-hidden bg-gray-200"
+            className="relative h-96 overflow-hidden rounded-xl bg-gray-200"
           >
             <Image
               src="/assets/about_us.png"
