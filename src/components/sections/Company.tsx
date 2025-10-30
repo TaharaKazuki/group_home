@@ -80,7 +80,7 @@ export default function Company() {
 
             <motion.div
               variants={itemVariants}
-              className="relative h-96 overflow-hidden bg-gray-200 md:h-auto"
+              className="relative h-96 overflow-hidden rounded-xl bg-gray-200 md:h-auto"
             >
               <Image
                 src="/assets/facility.png"

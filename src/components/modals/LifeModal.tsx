@@ -149,7 +149,7 @@ export default function LifeModal({
             {/* Scrollable Content */}
             <div className="relative max-h-[90vh] overflow-y-auto">
               {/* Content */}
-              <div className="p-4">
+              <div className="p-8">
                 <h1 className="flex items-center text-2xl font-bold text-gray-700 md:text-4xl">
                   {service.title}
                 </h1>

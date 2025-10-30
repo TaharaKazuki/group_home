@@ -91,7 +91,7 @@ export default function AboutUs() {
 
           <motion.div
             variants={itemVariants}
-            className="relative h-96 overflow-hidden bg-gray-200"
+            className="relative h-96 overflow-hidden rounded-xl bg-gray-200"
           >
             <Image
               src="/assets/about_us.png"
