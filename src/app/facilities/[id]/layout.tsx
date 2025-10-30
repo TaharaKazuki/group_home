@@ -1,6 +1,6 @@
-import type { Metadata } from "next"
-
 import { getFacilityById, getAllFacilities } from "@/data/facilities"
+
+import type { Metadata } from "next"
 
 interface FacilityLayoutProps {
   children: React.ReactNode

@@ -1,6 +1,6 @@
-import type { Metadata } from "next"
-
 import { getServiceById, servicesData } from "@/data/services"
+
+import type { Metadata } from "next"
 
 interface ServiceLayoutProps {
   children: React.ReactNode
