@@ -95,58 +95,60 @@ export default function FacilitiesPage() {
                   variants={isMounted ? itemVariants : undefined}
                   className="group border-b border-gray-100 last:border-b-0"
                 >
-                  <div className="flex flex-col py-12 lg:flex-row lg:py-16">
-                    {/* Image Section */}
-                    <div className="relative h-80 overflow-hidden bg-red-200 lg:h-96 lg:w-1/2">
-                      <div className="flex h-full items-center justify-center">
-                        <span className="text-lg font-semibold text-white">
-                          画像準備中
-                        </span>
+                  <Link
+                    href={`/facilities/${facility.id}`}
+                    className="block cursor-pointer"
+                  >
+                    <div className="flex flex-col py-12 lg:flex-row lg:py-16">
+                      {/* Image Section */}
+                      <div className="relative h-80 overflow-hidden bg-red-200 lg:h-96 lg:w-1/2">
+                        <div className="flex h-full items-center justify-center">
+                          <span className="text-lg font-semibold text-white">
+                            画像準備中
+                          </span>
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Content Section */}
-                    <div className="flex-1 py-8 lg:py-0 lg:pl-16">
-                      <div className="flex h-full flex-col justify-center">
-                        <h3
-                          className={`mb-2 text-3xl font-bold lg:text-4xl ${colors.textDark}`}
-                        >
-                          {facility.name}
-                          <div className="mt-2 text-2xl lg:text-3xl">
-                            {facility.subName}
-                          </div>
-                        </h3>
-                        <p
-                          className={`mb-8 text-lg leading-relaxed ${colors.textDark} opacity-80`}
-                        >
-                          {facility.description}
-                        </p>
+                      {/* Content Section */}
+                      <div className="flex-1 py-8 lg:py-0 lg:pl-16">
+                        <div className="flex h-full flex-col justify-center">
+                          <h3
+                            className={`mb-2 text-3xl font-bold lg:text-4xl ${colors.textDark}`}
+                          >
+                            {facility.name}
+                            <div className="mt-2 text-2xl lg:text-3xl">
+                              {facility.subName}
+                            </div>
+                          </h3>
+                          <p
+                            className={`mb-8 text-lg leading-relaxed ${colors.textDark} opacity-80`}
+                          >
+                            {facility.description}
+                          </p>
 
-                        {/* Info List - Simplified */}
-                        <div className="mb-8 space-y-4">
-                          <div className="flex items-start gap-4">
-                            <MapPin className="mt-0.5 h-5 w-5 text-red-300" />
-                            <div className="flex-1">
-                              <p className={`text-base ${colors.textDark}`}>
-                                {facility.address}
-                              </p>
+                          {/* Info List - Simplified */}
+                          <div className="mb-8 space-y-4">
+                            <div className="flex items-start gap-4">
+                              <MapPin className="mt-0.5 h-5 w-5 text-red-300" />
+                              <div className="flex-1">
+                                <p className={`text-base ${colors.textDark}`}>
+                                  {facility.address}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
 
-                        {/* CTA - Simplified */}
-                        <Link
-                          href={`/facilities/${facility.id}`}
-                          className="group/link inline-flex items-center gap-2 text-red-300"
-                        >
-                          <span className="text-lg font-medium">
-                            詳しく見る
-                          </span>
-                          <ArrowRight className="h-5 w-5 transition-transform group-hover/link:translate-x-2" />
-                        </Link>
+                          {/* CTA - Simplified */}
+                          <div className="inline-flex items-center gap-2 text-red-300">
+                            <span className="text-lg font-medium">
+                              詳しく見る
+                            </span>
+                            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </MotionDiv>
               ))}
             </div>
